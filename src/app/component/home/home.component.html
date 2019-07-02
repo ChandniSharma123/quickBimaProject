@@ -1,0 +1,423 @@
+<html>
+
+<head>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>fb-landing-page</title>-->
+  <link rel="stylesheet" href="https://www.quickbima.com/health_campaign_v10/css/style.css">
+  <!-- <link rel="stylesheet" href="css/bootstrap.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+  <link href="https/assets/fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+  <link href="https/assets/fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> --> 
+  <link rel="stylesheet" type="text/css" href="https://www.quickbima.com/health_campaign_v10/css/bootstrap.css">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+		<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="container-fluid">
+
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="logo-part">
+              <img src="assets/images/logo.png" class="img-fluid">
+            </div>
+
+          </div>
+          <div class="col-sm-6">
+            <div class="right-text-part">
+              <i class="fa fa-phone"></i><span class="call-text">Call us on</span> <span
+                class="number-part">1800-123-2230</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section>
+      <div class="container form-section">
+        <div class="row first-section">
+          <div class="col-md-5 col-lg-6">
+            <div class="section-heading-part">
+              <h4 class="get-cover">Get Cover with the
+              </h4>
+              <h4 class="best-health">Best Health Insurance Policy
+              </h4>
+              <p>Family Cover of Rs.5 Lakh @ Rs.15/days*</p>
+            </div>
+            <div class="right-image-part pt-4">
+              <img src="assets/images/image1.svg" class="img-fluid">
+            </div>
+          </div>
+
+
+
+          <div class="col-md-7 col-lg-6">
+
+
+            <div class="form-right">
+              <div class="section-form-heading">
+                <h5>Compare Best Health Insurance Plans
+                </h5>
+              </div>
+
+              <div class="section-form-white-part">
+                <form [formGroup]="registerForm" (ngSubmit)="showhealthPage()">
+
+                  <div class="row m-1">
+
+                    <!-- <div class="col-sm-12">
+                      <div class="inputGroup form-group">
+                        <input class="first-input" type="text" id="fname" name="firstname" placeholder="Your Full Name">
+                        <span class="error-first d-none">Enter your Name.</span> 
+                      </div>
+                    </div> -->
+
+
+                    <div class="form-group col-sm-12">
+                      <label>First Name</label>
+                      <input type="text" formControlName="healthName" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.healthName.errors }" />
+                      <div *ngIf="submitted && f.healthName.errors" class="invalid-feedback">
+                        <div *ngIf="f.healthName.errors.required">First Name is required</div>
+                      </div>
+                    </div>
+
+
+                    <div class="col-sm-12 col-md-7">
+                      <div class="insure-text">
+                        <h6>Whom to Insure?</h6>
+                      </div>
+                      <div class="switch form-group">
+                        <input type="radio" class="switch-input" value="week" formControlName="adult" id="week"
+                          checked="">
+                        <label for="week" class="switch-label switch-label-off">One-Adult</label>
+
+                        <input type="radio" class="switch-input" value="month" formControlName="adult" id="month">
+                        <label for="month" class="switch-label switch-label-on">Two-Adult</label>
+                        <span class="switch-selection"></span>
+                      </div>
+                    </div>
+
+                    <!-- <div class="col-sm-12 col-md-7">
+                        <div class="insure-text">
+                          <h6>Whom to Insure?</h6>
+                        </div>
+                        <div class="switch form form-group">
+                          <input type="radio" class="switch-input form-control" formControlName= "view"  value="week" id="week" checked="">
+                          <label for="week" class="switch-label switch-label-off">One-Adult</label>
+                          <input type="radio" class="switch-input" formControlName= "view" value="month" id="month">
+                          <label for="month" class="switch-label switch-label-on">Two-Adult</label>
+                          <span class="switch-selection"></span>
+                        </div>
+                      </div> -->
+
+                     <!-- <div class="col-sm-12 col-md-5">
+                      <div class="insure-text">
+                        <h6>Children</h6>
+                      </div>
+                      <div class="insure-check-part-second">
+                        <div class="children form-group">
+                          <button type="button" id="sub"  class = "form-control" formControlName = "minus" (click)="DecreaseVal()" class="sub rounded-left">-</button>
+                          <input class="border-0 rounded" type="tel" readonly=""  id="1"  value= {{count}} value = "0">
+                          <button type="button" id="add"  class = "form-control"  formControlName = "plus" (click)="IncreaseVal()" class="add rounded-right">+</button>
+                        </div>
+                      </div>
+                    </div>   -->
+
+
+                    <div class="col-sm-12 col-md-5">
+                      <div class="insure-text">
+                        <h6>Children</h6>
+                      </div>
+                      <div class="insure-check-part-second">
+                        <div class="form-group  children" style="margin-top: 15px;">
+                          <input type="number" formControlName="child" style="width:129px" class="form-control" max="4"
+                            min="0" [ngClass]="{ 'is-invalid': submitted && f.child.errors }" />
+
+                          <div *ngIf="submitted && f.child.errors" class="invalid-feedback">
+                            <div *ngIf="f.child.errors.required">Please Select Child option here</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 mt-4 mb-2">
+                      <h6 id="eldestTitle" class="text-uppercase text-left eldest-member">ELDEST MEMBER's DETAILS</h6>
+                    </div>
+
+                    <div class="col-4">
+                      <label>Age</label>
+
+                      <div class="form-group">
+                        <select class="form-control" formControlName="healthAge"
+                          [ngClass]="{ 'is-invalid': submitted && f.healthAge.errors }" required="">
+                          <option value=""></option>
+                          <option value="18">18 Years</option>
+                          <option value="19">19 Years</option>
+                          <option value="20">20 Years</option>
+                          <option value="21">21 Years</option>
+                          <option value="22">22 Years</option>
+                          <option value="23">23 Years</option>
+                          <option value="24">24 Years</option>
+                          <option value="25">25 Years</option>
+                          <option value="26">26 Years</option>
+                          <option value="27">27 Years</option>
+                          <option value="28">28 Years</option>
+                          <option value="29">29 Years</option>
+                          <option value="30">30 Years</option>
+                        </select>
+                        <div *ngIf="submitted && f.healthAge.errors" class="invalid-feedback">
+                          <div *ngIf="f.healthAge.errors.required">Age is Required</div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <!-- <div class="form-group">
+                      <label>First Name</label>
+                      <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                      <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                          <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                      </div>
+                  </div> -->
+
+                    <div class="col-4 form-group">
+                      <label>Gender</label>
+                      <!-- <div class="inputGroup"> -->
+                      <!-- <select class="inputEffect select" required=""> -->
+
+                      <!--<div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                        <div *ngIf="f.gender.errors.required">Enter Valid gender</div>
+                      </div>-->
+                      <!--<div class="form-group">-->
+
+                      <select class="form-control" formControlName="healthGender"
+                        [ngClass]="{ 'is-invalid': submitted && f.healthGender.errors }" required="">
+
+                        <option value=""></option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                      </select>
+                      <div *ngIf="submitted && f.healthGender.errors" class="invalid-feedback">
+                        <div *ngIf="f.healthGender.errors.required">gender is required</div>
+                      </div>
+
+                      <!-- <span class="error d-none">Select Gender.</span> -->
+                      <!--</div>-->
+                    </div>
+                    <div class="form-group col-4">
+                      <label>Pincode</label>
+                      <input type="tel" formControlName="healthPincode"  (keypress)="keyPress($event)" class="form-control" placeholder="098452"
+                        maxlength="6" minlength="6" [ngClass]="{ 'is-invalid': submitted && f.healthPincode.errors }" />
+                      <div *ngIf="submitted && f.healthPincode.errors" class="invalid-feedback">
+                        <div *ngIf="f.healthPincode.errors.required">pincode is required</div>
+                      </div>
+                    </div>
+
+
+                    <div class="form-group col-4">
+                      <label>Mobile</label>
+                      <input type="tel"  (keypress)="keyPress($event)"  formControlName="healthMobile" maxlength="10" minlength="10"
+                        placeholder="+91-636-78658" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.healthMobile.errors }" />
+                      <div *ngIf="submitted && f.healthMobile.errors" class="invalid-feedback">
+                        <div *ngIf="f.healthMobile.errors.required">Enter valid mobile</div>
+                      </div>
+                    </div>
+
+
+                    <div class="form-group col-8">
+                      <label>Email Address</label>
+                      <input type="text" formControlName="healthEmail" placeholder="someone@gmail.com"  class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.healthEmail.errors }" />
+                      <div *ngIf="submitted && f.healthEmail.errors" class="invalid-feedback">
+                        <div *ngIf="f.healthEmail.errors.required">Enter valid email</div>
+                      </div>
+                    </div>
+                    <div class="col-sm-12 form-group">
+                      <div class="form-button">
+                        <button type="submit"> View Quotes</button>
+                      </div>
+                    </div>
+                    <!-- <div class="col-sm-12 form-group">
+                      <div class="form-button">
+                        <button type="submit" data-toggle="modal" data-target="#myModal">View Quotes</button>
+                      </div>
+                      <div class="modal" id="myModal">
+                        <div class="modal-dialog">
+                          <div class="modal-content pt-2 pb-2">
+
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">×</button>
+
+                            </div>
+                            <div class="otp-part mt-4 d-none">
+                              <h6 class="text-center text-uppercase">Enter Your Mobile Number</h6>
+                              <div class="inputGroup mt-3">
+                                <input class="inputEffect otp" type="email" value="" required="">
+                                <label>Enter your Mobile Number</label>
+                                <span class="error second">Enter Your mobile.</span>
+                              </div>
+
+
+                             
+                              <div class="form-button otp-button mt-4 mb-3">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Submit</button>
+                              </div>
+                            </div>
+                            <div class="otp-part mt-4">
+                              <h6 class="text-center">ONE TIME PASSWORD (OTP)</h6>
+                              <h6 class="success text-center mt-4">Successfully sent the One Time Password to your
+                                mobile number </h6>
+                              <div class="text-button text-center mt-3">
+                                <ul>
+                                  <li class="text">+91-8934565767</li>
+                                  <li><button type="button" class="btn btn-link edit"><i class="fa fa-pencil-square-o"
+                                        aria-hidden="true"></i>Edit</button></li>
+                                </ul>
+                              </div>
+                              <div class="inputGroup mt-3">
+                                <input class="inputEffect" type="email" value="" required="">
+                                <label>Enter your OTP</label>
+                                <span class="error second">Enter OTP.</span>
+                              </div>
+                            
+                              <div class="form-button otp-button mt-4 mb-3">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Verify</button>
+                              </div>
+                              <div class="text-button second text-center mt-3">
+                                <ul>
+                                  <li class="text">Didn’t receive OTP?</li>
+                                  <li><button type="button" class="btn btn-link edit">Resend...</button></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div> -->
+
+
+                    <div class="col-12 mt-2 mb-2">
+                      <h6 id="eldestTitle" class=" text-center term-condition">By clicking on button, I agree to
+                        <span>terms and conditions</span>.</h6>
+                    </div>
+
+                  </div>
+
+                </form>
+
+
+              </div>
+
+              <div class="irda-logo">
+
+                <ul>
+                  <li>
+                    <img src="assets/images/irda-logo.png" class="img-fluid">
+                  </li>
+                  <li>
+                    <h5>"Licenced By"
+                      <span>
+                        <br>IRDAI? WEB5/2016
+                      </span>
+                    </h5>
+                  </li>
+                </ul>
+              </div>
+
+
+              <div class="right-image-part-mob pt-4">
+                <img src="assets/images/image1.svg" class="img-fluid">
+              </div>
+            </div>
+
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+        <div class="row second-section">
+          <div class="col-sm-12">
+            <div class="our-partner-part-gray">
+              <h5>Our Partners</h5>
+              <img src="assets/images/partners-img.svg" class="img-fluid">
+            </div>
+            <div class="our-partner-part-mob">
+              <h5 class="mb-4">Our Partners</h5>
+              <img src="assets/images/part-img.svg" class="img-fluid gray">
+            </div>
+            <div class="middle-image">
+              <img src="assets/images/image2.svg " class="img-fluid">
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="footer-part">
+              <i class="fa fa-copyright"></i>
+              <span>2019 Quickbima.com </span>
+              <p>(A venture of Mangotree Insurance Web Aggregators Private Limited, An IRDA approved Web-Aggregator)
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+ 
+</body>
+
+</html>

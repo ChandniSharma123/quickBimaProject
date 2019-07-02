@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Health Insurance - Quickbima</title>
+
+    <link rel="stylesheet" href="https://qbstatic.com/css/quotations-v3.css" /> Optional theme
+
+    <!-- Latest compiled and minified JavaScript -->
+
+    <script src="https://qbstatic.com/js/jquery.min.js"></script>
+    <script src="https://qbstatic.com/js/bootstrap.min.js"></script>
+
+    <script src="https://quickbima.com/js/semantic.js"></script>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'
+        type='text/css'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/dropdown.min.css' rel='stylesheet'
+        type='text/css'>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/dropdown.min.css"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+
+</head>
+
+<body>
+
+    <!-- <div class="container"> -->
+    <div class="container-fluid quotes-page">
+        <div id="editHealthDetailsSection" class="popup-content animated fadeInDown">
+            <div id="cardetails" class="popup-content animated">
+                <form [formGroup]="updateForm" (ngSubmit)="updateeditDetails()">
+                    <div class="v-center">
+                        <div class="inner-content">
+                            <div class="row">
+                                <div class="col-sm-12 text-center">
+                                    <h3>Modify the Details</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 text-center">
+                                    <h4 class="sectitle">Whom to Insure?</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 form-group" style="margin-top:8%">
+                                    <span class="block-box ">
+                                        <input type="radio" id="noclaimedlast" formControlName="adult" value = "1"
+                                            class="checkbox switch-input" />
+                                        <label for="noclaimedlast" class="switch-label switch-label-off">One
+                                            Adult</label>
+                                    </span>
+                                    <span class="block-box">
+                                        <input type="radio" id="yesclaimedlast" formControlName="adult" value = "2"
+                                            class="checkbox switch-input" />
+                                        <label for="yesclaimedlast" class="switch-label switch-label-on">Two
+                                            Adults</label>
+                                    </span>
+                                </div>
+
+
+
+                                <!-- <div class="col-sm-12 col-md-7">
+                                <div class="insure-text">
+                                  <h6>Whom to Insure?</h6>
+                                </div>
+                                <div class="switch form-group">
+                                  <input type="radio" class="switch-input" value="week" formControlName="adult" id="week"
+                                    checked="">
+                                  <label for="week" class="switch-label switch-label-off">One-Adult</label>
+          
+                                  <input type="radio" class="switch-input" value="month" formControlName="adult" id="month">
+                                  <label for="month" class="switch-label switch-label-on">Two-Adult</label>
+                                  <span class="switch-selection"></span>
+                                </div>
+                              </div>
+           -->
+                                <!-- <div class="col-sm-6">
+                            <h5 class="children">Children</h5>
+                            <div class="count-input">
+                                <a class="incr-btn" data-action="decrease" href="#">–</a>
+                                <input class="quantity" type="text" name="quantity" value="2">
+                                <a class="incr-btn" data-action="increase" href="#">+</a>
+                            </div>
+                        </div> -->
+
+                                <div class="col-sm-6">
+                                    <div class="insure-text">
+                                        <h6>Children</h6>
+                                    </div>
+                                    <div class="insure-check-part-second form-group">
+                                        <div class=" children" style="margin-top: 15px;">
+                                            <input type="number" class="form-control"
+                                                formControlName="child" style="width:129px" max="4" min="0" />
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <hr>
+
+                            <div class="row">
+                                <div class="col-sm-12 text-center">
+                                    <h4 class="sectitle">Eldest Member's Age & Gender</h4>
+                                </div>
+                                <div class="col-sm-4 col-sm-offset-2 droplist form-group">
+                                    <!-- <span class="titlelabel">Age</span> -->
+                                    <select class="ui search dropdown form-control" formControlName="age">
+                                        <option value=""></option>
+                                        <option value="28">28</option>
+                                        <option value="29" >29</option>
+                                        <option value="30" >30</option>
+                                        <option value="31" >31</option>
+                                        <!-- <option *ngFor="let v in [ageVar]; let i = index" value = "i">{{v}}</option> -->
+                                    </select>
+                                </div>
+                                <div class="col-sm-4 form-group">
+                                    <span class="block-box form-group">
+                                        <input type="radio" id="eldestmale" class="form-control"
+                                            formControlName="gender" value="male" class="checkbox" />
+                                        <label for="eldestmale">Male</label>
+                                    </span>
+                                    <span class="block-box">
+                                        <input type="radio" id="eldestfemale" value="female" class="form-control"
+                                            formControlName="gender" class="checkbox" />
+                                        <label for="eldestfemale">Female</label>
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 text-center">
+                                    <h4 class="sectitle">Other Details</h4>
+                                </div>
+                                <div class="col-sm-4 col-sm-offset-2 form-group">
+                                    <div class="input-effect">
+                                        <input class="effect has-content form-control"
+                                            formControlName="pincode" type="text">
+                                        <label>Pincode</label>
+                                        <span class="focus-border"></span>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="col-sm-4 droplist form-group">
+                            <span class="titlelabel">Policy Period</span>
+                            <select class="ui search dropdown form-control" formControlName = "PlicyPeriod">
+                                <option value="">Tenure</option>
+                                <option value="1" selected>Tenure 1 Year</option>
+                                <option value="2">Tenure 2 Years</option>
+                                <option value="2">Tenure 3 Years</option>
+                            </select>
+                        </div> -->
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="footer text-center">
+                        <button type="submit" class="btn update">Update</button>
+                        <button type="button" class="btn skip" click="routeonHealthPage()" id="skipModifySection">Skip</button>
+                        <!-- <button type="submit" class="buybima" click="routeonHealthPage()">Skip</button> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(".incr-btn").on("click", function (e) {
+            var $button = $(this);
+            var oldValue = $button.parent().find('.quantity').val();
+            $button.parent().find('.incr-btn[data-action="decrease"]').removeClass('inactive');
+            if ($button.data('action') == "increase") {
+                var newVal = parseFloat(oldValue) + 1;
+            } else {
+                // Don't allow decrementing below 1
+                if (oldValue > 0) {
+                    var newVal = parseFloat(oldValue) - 1;
+                } else {
+                    newVal = 0;
+                    $button.addClass('inactive');
+                }
+            }
+            $button.parent().find('.quantity').val(newVal);
+            e.preventDefault();
+        });
+
+        $(function () {
+            $('.nacovers input.checkbox').prop('type', 'text');
+
+            function toggleIcon(e) {
+                $(e.target)
+                    .prev('.panel-heading')
+                    .find(".more-less")
+                    .toggleClass('fa-plus-square-o fa-minus-square-o');
+            }
+            $('.panel-group').on('hidden.bs.collapse', toggleIcon);
+            $('.panel-group').on('shown.bs.collapse', toggleIcon);
+        });
+
+        $(document).ready(function () {
+            $('.dropdown').hover(function () {
+                $('.dropdownhover-bottom').addClass('arrowup');
+                $('.dropdownhover-top').addClass('arrowdown');
+            });
+        });
+
+        // Compare Plans
+        $('.comparePlans').click(function () {
+            $('.comparison').removeClass('sr-only');
+        });
+
+
+        // Email Quotes
+        $('.emailQuotes').click(function () {
+            $('.enterEmail').removeClass('sr-only');
+            $('.emailQuotes').addClass('sr-only');
+
+        });
+        // Email Quotes
+        $('#sendEmail').click(function () {
+            $(this).html('<i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i>');
+
+            setTimeout(function () {
+                $('.enterEmail').addClass('sr-only');
+            }, 1900);
+
+            setTimeout(function () {
+                $('.sentSuccessfull').removeClass('sr-only');
+            }, 2000);
+
+            setTimeout(function () {
+                $('.sentSuccessfull').addClass('sr-only');
+            }, 4000);
+
+            setTimeout(function () {
+                $('.emailQuotes').removeClass('sr-only');
+            }, 4100);
+
+        });
+
+        // Add Zero Dep
+        $('.zerodep').click(function () {
+            $(".added").text($(".added").text() == 'ADD' ? 'ADDED' : 'ADD');
+            $('#sure').toggleClass('sr-only');
+        });
+
+        // View more claim cases
+        $('#viewmore').click(function () {
+            $('.more-options').addClass('expanded');
+            $('#viewmore').hide();
+            $('#viewless').show();
+        });
+        $('#viewless').click(function () {
+            $('.more-options').removeClass('expanded');
+            $('#viewless').hide();
+            $('#viewmore').show();
+        });
+
+        // Modify Details Popup
+        $('#editcardetail').click(function () {
+            $('#cardetails').removeClass('sr-only');
+            $('#cardetails').addClass('fadeInDown');
+            $('body').addClass('modal-open');
+        });
+        $('.skip').click(function () {
+            $('#cardetails').addClass('sr-only');
+            $('#cardetails').removeClass('fadeInDown');
+            $('body').removeClass('modal-open');
+        });
+
+        // Discount Popup
+        $('#discounts').click(function () {
+            $('#discountdetails').removeClass('sr-only');
+            $('#discountdetails').addClass('fadeInDown');
+            $('body').addClass('modal-open');
+        });
+        $('.skip').click(function () {
+            $('#discountdetails').addClass('sr-only');
+            $('#discountdetails').removeClass('fadeInDown');
+            $('body').removeClass('modal-open');
+        });
+
+        // Brekup Popup
+        $('#breakup').click(function () {
+            $('#breakupdetails').removeClass('sr-only');
+            $('#breakupdetails').addClass('fadeInDown');
+            $('body').addClass('modal-open');
+        });
+
+        $('.skip').click(function () {
+            $('#breakupdetails').addClass('sr-only');
+            $('#breakupdetails').removeClass('fadeInDown');
+            $('body').removeClass('modal-open');
+        });
+        // Hide Breakup
+        $('#close-breakup').click(function () {
+            $('#breakupdetails').addClass('sr-only');
+            $('body').removeClass('modal-open');
+        });
+
+        jQuery(function ($) {
+            // Function which adds the 'animated' class to any '.animatable' in view
+            var doAnimations = function () {
+                // Calc current offset and get all animatables
+                var offset = $(window).scrollTop() + $(window).height(),
+                    $animatables = $('.animatable');
+                // Unbind scroll handler if we have no animatables
+                if ($animatables.size() == 0) {
+                    $(window).off('scroll', doAnimations);
+                }
+                // Check all animatables and animate them if necessary
+                $animatables.each(function (i) {
+                    var $animatable = $(this);
+                    if (($animatable.offset().top + $animatable.height() - 20) < offset) {
+                        $animatable.removeClass('animatable').addClass('animated');
+                    }
+                });
+            };
+            // Hook doAnimations on scroll, and trigger a scroll
+            $(window).on('scroll', doAnimations);
+            $(window).trigger('scroll');
+        });
+
+        $(window).load(function () {
+            $(".icardv").focusout(function () {
+                if ($(this).val() != "") {
+                    $('.apply').removeClass("sr-only");
+                } else {
+                    $('.apply').addClass("sr-only");
+                }
+            })
+            $(".icardv").focusin(function () {
+                $('.apply').removeClass("sr-only");
+            })
+        });
+
+        $(window).load(function () {
+            $(".input-effect input").focusout(function () {
+                if ($(this).val() != "") {
+                    $(this).addClass("has-content");
+                } else {
+                    $(this).removeClass("has-content");
+                }
+            })
+            $(".input-effect input").focusin(function () {
+                $(this).removeClass("has-content");
+            })
+        });
+
+        $(function () {
+            $('.ui.dropdown').dropdown();
+        });
+
+        function getIndianMoneyFormat(amount) {
+            x = amount.toString();
+            var lastThree = x.substring(x.length - 3);
+            var otherNumbers = x.substring(0, x.length - 3);
+            if (otherNumbers != '') lastThree = ',' + lastThree;
+            var res = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+            return res;
+        }
+
+        $(document).ready(function () {
+            $("#cusIDV").keydown(function (e) {
+                // Allow: backspace, delete, tab, escape, enter and .
+
+                if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                    // Allow: Ctrl+A, Command+A
+                    (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                    // Allow: home, end, left, right, down, up
+                    (e.keyCode >= 35 && e.keyCode <= 40)) {
+                    // let it happen, don't do anything
+                    // var cusIDV   = parseInt($('#cusIDV').val().replace(/,/g, ''));
+                    //$('#cusIDV').val(getIndianMoneyFormat(cusIDV));
+                    return;
+                }
+                // Ensure that it is a number and stop the keypress
+                if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                    e.preventDefault();
+                }
+            }).keyup(function () {
+                var cusIDV = $('#cusIDV').val();
+                if (cusIDV != '') {
+                    var cusIDV = parseInt($('#cusIDV').val().replace(/,/g, ''));
+                    $('#cusIDV').val(getIndianMoneyFormat(cusIDV));
+                } else {
+
+                }
+            });
+
+            // Claimed last year 
+            $('#noclaimedlast').click(function () {
+                if ($('#noclaimedlast').is(':checked')) {
+                    $('.lastncb').addClass('expended');
+                }
+                else {
+                    $('.lastncb').removeClass('expended');
+                }
+            });
+            $('#yesclaimedlast').click(function () {
+                $('.lastncb').removeClass('expended');
+            });
+
+            // Passenger Cover Add or Remove 
+            $('.passenger').click(function () {
+                if ($('.passenger').is(':checked')) {
+                    $('.passenger-cover').show();
+                }
+                else {
+                    $('.passenger-cover').hide();
+                }
+            });
+
+            // Claimed
+            $('#noclaimed').click(function () {
+                if ($('#noclaimed').is(':checked')) {
+                    $('.prevncb').removeClass('sr-only');
+                }
+                else {
+                    $('.prevncb').addClass('sr-only');
+                }
+            });
+
+            // CNG Kit
+            $('#yeskit').click(function () {
+                if ($('#yeskit').is(':checked')) {
+                    $('.kitvalue').removeClass('sr-only');
+                }
+                else {
+                    $('.kitvalue').addClass('sr-only');
+                }
+            });
+
+            $('#yesclaimed').click(function () {
+                $('.prevncb').addClass('sr-only');
+            });
+
+            $('[data-toggle="tooltip"]').tooltip();
+
+            // Accessories Add or Remove 
+            $('.accessories').click(function () {
+                if ($('.accessories').is(':checked')) {
+                    $('.accessoriesfileds').removeClass('sr-only');
+                }
+                else {
+                    $('.accessoriesfileds').addClass('sr-only');
+                }
+            });
+
+            // IDV Modify
+            $('.apply').click(function () {
+                $('#choose-idv').addClass('sr-only');
+                $('#choosenidv').removeClass('sr-only');
+                $('.apply').addClass('sr-only');
+                $('.reset').removeClass('sr-only');
+                $('.change').removeClass('sr-only');
+            });
+
+            $('.apply').on('click', function (e) {
+                e.preventDefault();
+                $('#idvval').text($('#cusIDV').val());
+            });
+
+            $('.change, .reset').click(function () {
+                $('#choose-idv').removeClass('sr-only');
+                $('#choosenidv').addClass('sr-only');
+                $('.apply').addClass('sr-only');
+                $('.reset').addClass('sr-only');
+                $('.change').addClass('sr-only');
+            });
+
+            $('.reset').click(function () {
+                $('#cusIDV').val('');
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#test-circle1").circliful({
+                animationStep: 1,
+                foregroundBorderWidth: 5,
+                backgroundBorderWidth: 5,
+                foregroundColor: "#0076be",
+                backgroundColor: "#ddd",
+                fontColor: '#3a4855',
+                percent: 56,
+                halfCircle: 1,
+            });
+            $("#test-circle2").circliful({
+                animationStep: 1,
+                foregroundBorderWidth: 5,
+                backgroundBorderWidth: 5,
+                foregroundColor: "#be7000",
+                backgroundColor: "#ddd",
+                fontColor: '#3a4855',
+                percent: 23,
+                halfCircle: 1,
+            });
+            $("#test-circle3").circliful({
+                animationStep: 1,
+                foregroundBorderWidth: 5,
+                backgroundBorderWidth: 5,
+                foregroundColor: "#00b3be",
+                backgroundColor: "#ddd",
+                fontColor: '#3a4855',
+                percent: 78,
+                halfCircle: 1,
+            });
+            $("#test-circle4").circliful({
+                animationStep: 1,
+                foregroundBorderWidth: 5,
+                backgroundBorderWidth: 5,
+                foregroundColor: "#00bf4a",
+                backgroundColor: "#ddd",
+                fontColor: '#3a4855',
+                percent: 19,
+                halfCircle: 1,
+            });
+            $("#test-circle5").circliful({
+                animationStep: 1,
+                foregroundBorderWidth: 5,
+                backgroundBorderWidth: 5,
+                foregroundColor: "#be000b",
+                backgroundColor: "#ddd",
+                fontColor: '#3a4855',
+                percent: 5,
+                halfCircle: 1,
+            });
+            $("#test-circle6").circliful({
+                animationStep: 1,
+                foregroundBorderWidth: 5,
+                backgroundBorderWidth: 5,
+                foregroundColor: "#be000b",
+                backgroundColor: "#ddd",
+                fontColor: '#3a4855',
+                percent: 5,
+                halfCircle: 1,
+            });
+        });
+    </script>
+
+</body>
+
+</html>

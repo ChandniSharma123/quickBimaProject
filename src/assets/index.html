@@ -1,0 +1,268 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>fb-landing-page</title>
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+		<link href="https/assets/fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<script src="https://qbstatic.com/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<header>
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="logo-part">
+								<img src="images/logo.png" class="img-fluid">
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="right-text-part">
+								<i class="fa fa-phone"></i><span class="call-text">Call us on</span> <span class="number-part">1800-123-2230</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+			<section>
+				<div class="container form-section">
+					<div class="row first-section">
+						<div class=" col-md-5 col-lg-6">
+							
+							<div class="section-heading-part">
+								<h4 class="get-cover">Get Cover with the </h4><h4 class="best-health">Best Health Insurance Policy</h4>
+								<p>Family Cover of Rs.5 Lakh @ Rs.15/days*</p>
+							</div>
+							<div class="right-image-part pt-4">
+								<img src="images/image1.svg" class="img-fluid">
+							</div>
+								
+						</div>
+						<div class="col-md-7 col-lg-6">
+							<div class="form-right">
+								<div class="section-form-heading">	
+									<h5>Compare Best Health Insurance Plans</h5>
+								</div>
+								<div class="section-form-white-part">
+									<form>
+										
+										
+										<div class="row m-1">
+											<div class="col-sm-12">
+												<div class="inputGroup">
+													<input class="first-input" type="text" id="fname" name="firstname" placeholder="Your Full Name">
+													<span class="error-first d-none">Enter your Name.</span>
+												</div>
+											</div>	
+											<div class="col-sm-12 col-md-7">
+												<div class="insure-text">
+													<h6>Whom to Insure?</h6>
+												</div>	
+												<div class="switch">
+													  <input type="radio" class="switch-input" name="view" value="week" id="week" checked>
+													  <label for="week" class="switch-label switch-label-off">One-Adult</label>
+													  <input type="radio" class="switch-input" name="view" value="month" id="month">
+													  <label for="month" class="switch-label switch-label-on">Two-Adult</label>
+													  <span class="switch-selection"></span>
+												</div>	
+											</div>
+											<div class="col-sm-12 col-md-5">
+												<div class="insure-text">
+													<h6>Children</h6>
+												</div>
+												<div class="insure-check-part-second">	
+													<div class="children">
+														<button type="button" id="sub" class="sub rounded-left">-</button>
+														<input class="border-0 rounded" type="tel" readonly="" id="1" value="0" min="0" max="4">
+														<button type="button" id="add" class="add rounded-right">+</button>
+													</div>
+												</div>
+											</div>
+										
+											<div class="col-12 mt-4 mb-2">
+												<h6 id="eldestTitle" class="text-uppercase text-left eldest-member">ELDEST MEMBER's DETAILS</h6>
+											</div>
+												<div class="col-4">
+													<div class="inputGroup">
+														<select class="inputEffect select" required="">
+															<option value=""></option>
+															<option value="18">18 Years</option>
+															<option value="19">19 Years</option>
+															<option value="20">20 Years</option>
+															<option value="21">21 Years</option>
+															<option value="22">22 Years</option>
+															<option value="23">23 Years</option>
+															<option value="24">24 Years</option>
+															<option value="25">25 Years</option>
+															<option value="26">26 Years</option>
+															<option value="27">27 Years</option>
+															<option value="28">28 Years</option>
+															<option value="29">29 Years</option>
+															<option value="30">30 Years</option>
+														</select>
+														<label>Age</label>
+														<span class="error d-none">Enter valid age.</span>
+													</div>
+												</div>
+												<div class="col-4">
+													<div class="inputGroup">
+														<select class="inputEffect select" required="">
+															<option value=""></option>
+															<option value="Male">Male</option>
+															<option value="Female">Female</option>
+														</select>
+														<label>Gender</label>
+														<span class="error d-none">Select Gender.</span>
+													</div>
+												</div>
+												<div class="col-4">
+													<div class="inputGroup">     
+														<input class="inputEffect" maxlength="6" type="tel" value="" required="">
+														<label>Pincode </label>
+														<span class="error d-none">Enter valid pincode.</span>
+													</div>
+												</div>
+												<div class="col-4">
+													<div class="inputGroup mt-3">     
+														<input class="inputEffect" maxlength="10" type="tel" value="" required="">
+														<label>Mobile </label>
+														<span class="error">Enter valid mobile.</span>
+													</div>
+												</div>
+											<div class="col-8">
+												<div class="inputGroup mt-3">     
+													<input class="inputEffect" type="email" value="" required="">
+													<label>Email Address</label>
+													<span class="error d-none">Enter valid email.</span>
+												</div>
+											</div>
+											<div class="col-sm-12">
+												<div class="form-button">
+													<button type="button" data-toggle="modal" data-target="#myModal">View Quotes</button>
+												</div>
+												 <div class="modal" id="myModal">
+													<div class="modal-dialog">
+													  <div class="modal-content pt-2 pb-2">
+													  
+														<div class="modal-header">
+														  <button type="button" class="close" data-dismiss="modal">&times;</button>
+														  
+														</div>
+														<div class="otp-part mt-4 d-none">
+															<h6 class="text-center text-uppercase">Enter Your Mobile Number</h6>
+															<div class="inputGroup mt-3">     
+																<input class="inputEffect otp" type="email" value="" required="">
+																<label>Enter your Mobile Number</label>
+																<span class="error second">Enter Your mobile.</span>
+															</div>
+															
+															
+															<!-- Modal footer -->
+															<div class="form-button otp-button mt-4 mb-3">
+															  <button type="button" class="btn btn-danger" data-dismiss="modal">Submit</button>
+															</div>
+														</div>
+														<div class="otp-part mt-4">
+															<h6 class="text-center">ONE TIME PASSWORD (OTP)</h6>
+															<h6 class="success text-center mt-4">Successfully sent the One Time Password to your mobile number </h6>
+															<div class="text-button text-center mt-3">
+															<ul>
+																<li class="text">+91-8934565767</li>
+																<li><button type="button" class="btn btn-link edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</button></li>
+															</ul>
+															</div>
+															<div class="inputGroup mt-3">     
+																<input class="inputEffect" type="email" value="" required="">
+																<label>Enter your OTP</label>
+																<span class="error second">Enter OTP.</span>
+															</div>
+															<!-- Modal footer -->
+															<div class="form-button otp-button mt-4 mb-3">
+															  <button type="button" class="btn btn-danger" data-dismiss="modal">Verify</button>
+															</div>
+															<div class="text-button second text-center mt-3">
+															<ul>
+																<li class="text">Didn’t receive OTP?</li>
+																<li><button type="button" class="btn btn-link edit">Resend...</button></li>
+															</ul>
+															</div>
+														</div>
+													  </div>
+													</div>
+												  </div>
+											</div>	
+											<div class="col-12 mt-2 mb-2">
+												<h6 id="eldestTitle" class=" text-center term-condition">By clicking on button, I agree to <span>terms and conditions</span>.</h6>
+											</div>	
+										</div>
+									</form>	
+								</div>
+								<div class="irda-logo">
+								<ul>
+									<li><img src="images/irda-logo.png" class="img-fluid"></li>
+									<li><h5>LICENSED BY <span><br>IRDAI / WB35 / 2016</span></h5></li>
+								</ul>
+								</div>
+								<div class="right-image-part-mob pt-4 ">
+									<img src="images/image1.svg" class="img-fluid">
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div class="row second-section">
+						<div class="col-sm-12">
+							<div class="our-partner-part-gray">
+								<h5>Our Partners</h5>
+								<img src="images/partners-img.svg" class="img-fluid">
+							</div>
+							<div class="our-partner-part-mob">
+								<h5 class="mb-4">Our Partners</h5>
+								<img src="images/part-img.svg" class="img-fluid gray">
+							</div>
+							<div class="middle-image">							
+								<img src="images/image2.svg " class="img-fluid">
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</section>
+			<footer>
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="footer-part">
+								<i class="fa fa-copyright"></i>
+								<span>2019 Quickbima.com </span>
+								<p>(A venture of Mangotree Insurance Web Aggregators Private Limited, An IRDA approved Web-Aggregator) </p>
+							</div>
+						</div>
+						
+					</div>
+				</div>	
+			</footer>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script>
+		// Children Counter
+		$('.add').click(function () {
+			if ($(this).prev().val() < 4) {
+			$(this).prev().val(+$(this).prev().val() + 1);
+			}
+		});
+		$('.sub').click(function () {
+			if ($(this).next().val() > 0) {
+			if ($(this).next().val() > 0) $(this).next().val(+$(this).next().val() - 1);
+			}
+		});
+
+	
+		</script>
+	</body>
+</html>
