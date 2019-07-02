@@ -214,7 +214,19 @@ export class EditInfoComponent implements OnInit {
   }
 
   routeonHealthPage() {
-    this.router.navigate(['/homemodule/one'])
+    this.router.navigate(['/homemodule/one'],  {
+    //   queryParams: {
+     
+    //     healthCover: this.healthCover,
+    //     quote: this.quote, age: this.age,  cover : this.icon, sum_insured: this.smInsured,
+    //     city: this.city, state: this.state, gender: this.gender,
+    //     mobile: this.mobile, email: this.email, child: this.child,
+    //     adult: this.adult, pincode: this.pincode
+    //   }
+    }
+    )
+    
+
   }
   updateeditDetails() {
     //console.log(this.updateForm)

@@ -62,7 +62,7 @@
                                 </div>
 
 
-
+                              
                                 <!-- <div class="col-sm-12 col-md-7">
                                 <div class="insure-text">
                                   <h6>Whom to Insure?</h6>
@@ -119,15 +119,15 @@
                                     </select>
                                 </div>
                                 <div class="col-sm-4 form-group">
-                                    <span class="block-box form-group">
-                                        <input type="radio" id="eldestmale" class="form-control"
-                                            formControlName="gender" value="male" class="checkbox" />
-                                        <label for="eldestmale">Male</label>
+                                    <span class="block-box">
+                                        <input type="radio" id="eldestmale" 
+                                            formControlName="gender" value="male" class="checkbox switch-input" />
+                                        <label for="eldestmale" class="switch-label switch-label-off">Male</label>
                                     </span>
                                     <span class="block-box">
-                                        <input type="radio" id="eldestfemale" value="female" class="form-control"
-                                            formControlName="gender" class="checkbox" />
-                                        <label for="eldestfemale">Female</label>
+                                        <input type="radio" id="eldestfemale" value="female" 
+                                            formControlName="gender" class="checkbox switch-input" />
+                                        <label for="eldestfemale" class="switch-label switch-label-on">Female</label>
                                     </span>
                                 </div>
 
@@ -162,8 +162,8 @@
                     </div>
                     <div class="footer text-center">
                         <button type="submit" class="btn update">Update</button>
-                        <button type="button" class="btn skip" click="routeonHealthPage()" id="skipModifySection">Skip</button>
-                        <!-- <button type="submit" class="buybima" click="routeonHealthPage()">Skip</button> -->
+                        <button type="submit" class="btn skip" (click)="routeonHealthPage()" >Skip</button>
+                        <!-- <button type="submit" class="buybima" (click)="routeonHealthPage()">Skip</button> -->
                     </div>
                 </form>
             </div>

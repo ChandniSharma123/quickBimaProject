@@ -56,6 +56,7 @@ export class HealthQuotesComponent implements OnInit {
   storemobile: any;
   sub: any;
   storeage: any;
+  message:any;
   storepincode: any
   sum: any;
   sumInsure_Quote: any;
@@ -358,6 +359,8 @@ export class HealthQuotesComponent implements OnInit {
       })
       this.healthquote.gethealthQuotes(data).subscribe((res) => {
         this.quotesArray = res['results'].response;
+        this.message = res['results'].message
+
         console.log(this.quotesArray)
         this.responsePlan = this.quotesArray.length
         this.quotesArray.map((e) => {
@@ -395,6 +398,8 @@ export class HealthQuotesComponent implements OnInit {
       })
       this.healthquote.gethealthQuotes(this.editDetails).subscribe((res) => {
         this.quotesArray = res['results'].response;
+        this.message = res['results'].message
+
         console.log(this.quotesArray)
         this.responsePlan = this.quotesArray.length
         this.quotesArray.map((e) => {
@@ -417,8 +422,27 @@ export class HealthQuotesComponent implements OnInit {
 
   }
 
+  ayushChecked(value ,checked){
+    if (value.target.checked == true) {
 
+      this.quotesArray = this.quotesArray.filter((e) => {
+        for (let i = 0; i < e.SpecialFeatureLists.length; i++) {
+          if (e.SpecialFeatureLists[i].code == 'HF006') {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      })
+    }
+      else{
 
+      }
+  }
+  findFeatures(){
+    this.featuresList = true;
+    this.showExclusion = false;
+  }
 
   restorationchecked(value, checked) {
     console.log(this.quotesArray);
@@ -426,7 +450,7 @@ export class HealthQuotesComponent implements OnInit {
 
       this.quotesArray = this.quotesArray.filter((e) => {
         for (let i = 0; i < e.SpecialFeatureLists.length; i++) {
-          if (e.SpecialFeatureLists[i].code == 'HF006') {
+          if (e.SpecialFeatureLists[i].code == 'HF007') {
             return true;
           } else {
             return false;
@@ -505,6 +529,9 @@ export class HealthQuotesComponent implements OnInit {
     let data = document.getElementById('compareButton')
     console.log(id)
 
+    // if(document.getElementById('checker').style.display = "block"){
+    //   document.getElementById('compareButton').style.display = "block"
+    // }
     // console.log(this.storecompareTitle)
     if (e.target.checked == true) {
       this.showCard = true;
@@ -520,6 +547,7 @@ export class HealthQuotesComponent implements OnInit {
         console.log(data.setAttribute)
 
       }
+     
       else {
         document.getElementById('compareButton').style.display = "none"
         data.setAttribute('disabled', 'true')
@@ -647,6 +675,8 @@ export class HealthQuotesComponent implements OnInit {
       this.healthquote.gethealthQuotes(this.editDetails).subscribe((res) => {
         console.log(res);
         this.quotesArray = res['results'].response;
+        this.message = res['results'].message
+
         console.log(this.quotesArray)
         this.responsePlan = this.quotesArray.length
         this.quotesArray.map((e) => {
@@ -673,6 +703,7 @@ export class HealthQuotesComponent implements OnInit {
 
         this.quotesArray = res['results'].response;
 
+        this.message = res['results'].message
         console.log(this.quotesArray)
 
 
