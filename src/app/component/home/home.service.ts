@@ -4,14 +4,15 @@ import { HttpClient } from '@angular/common/http'
   providedIn: 'root'
 })
 export class HomeService {
-
+  
   constructor(private http: HttpClient) { }
 
   url = "https://www.quickbima.com/api/health-insurances/add.json"
 
 
   gethealthPage(obj){
-    return this.http.post(this.url, obj)
+    return this.http.post(this.url, obj);
+
     
   }
 

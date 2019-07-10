@@ -18,6 +18,7 @@ export class EditInfoComponent implements OnInit {
   pincode: any = [];
   smInsured: any = [];
   quote: any = [];
+  getData:any=[];
   icon: any = [];
   city: any = [];
   state: any = [];
@@ -27,7 +28,22 @@ export class EditInfoComponent implements OnInit {
   child: any = [];
   adult: any = [];
   age: any = [];
-  ageVar: any=[];
+  ageVar: any = [];
+  storing: any = [];
+
+  editObj = {
+    quote_no: "",
+    sum_insured: "",
+    gender: "",
+    age: "",
+    city: "",
+    state: "",
+    term: 1,
+    pincode: "",
+    cover: "",
+    adult: "",
+    child: "",
+  }
   constructor(private formBuilder: FormBuilder,
     private editServ: EditService, private route: ActivatedRoute, private router: Router,
     private healthquote: HealthQuotesService) { }
@@ -46,33 +62,45 @@ export class EditInfoComponent implements OnInit {
 
 
     })
+    this.storing = JSON.parse(localStorage.getItem('user') || '[]');
+    this.editObj.sum_insured = this.storing['results'].response.sum_insured;
+    this.editObj.gender = this.storing['results'].response.gender;
+    this.editObj.pincode = this.storing['results'].response.pincode;
+    this.editObj.quote_no = this.storing['results'].response.quote_no;
+    console.log(this.editObj.pincode)
+    this.editObj.city = this.storing['results'].response.city;
+    this.editObj.child = this.storing['results'].response.child;
+    this.editObj.state = this.storing['results'].response.state;
+    this.editObj.cover = this.storing['results'].response.cover;
+    this.editObj.age = this.storing['results'].response.age;
+    this.editObj.adult = this.storing['results'].response.adult;
 
     this.route.queryParams.subscribe((params) => {
-      console.log(params)
-      this.icon = params['cover']
-      this.quote = params['quote_no'];
-      this.state = params['state'];
-      this.city = params['city'];
-      this.gender = params['gender'];
-      this.email = params['email'];
-      this.mobile = params['mobile'];
-      this.smInsured = params['sum_insured'];
-      this.adult = params['adult'];
-      this.child = params['child'];
-      this.age = params['age'];
-      this.pincode = params['pincode'];
-      console.log(this.quote, this.state, this.city)
+      // console.log(params)
+      // this.icon = params['cover'];
+      // this.quote = params['quote_no'];
+      // this.state = params['state'];
+      // this.city = params['city'];
+      // this.gender = params['gender'];
+      // this.email = params['email'];
+      // this.mobile = params['mobile'];
+      // this.smInsured = params['sum_insured'];
+      // this.adult = params['adult'];
+      // this.child = params['child'];
+      // this.age = params['age'];
+      // this.pincode = params['pincode'];
+      // console.log(this.quote, this.state, this.city)
 
       // this.storeParams = params['page'];
       // console.log(this.storeParams)
       // console.log(typeof (this.storeParams))
     });
 
-    this.updateForm.controls['age'].setValue(this.age);
-    this.updateForm.controls['gender'].setValue(this.gender);
-    this.updateForm.controls['pincode'].setValue(this.pincode);
-    this.updateForm.controls['adult'].setValue(this.adult);
-    this.updateForm.controls['child'].setValue(this.child);
+    this.updateForm.controls['age'].setValue(this.editObj.age);
+    this.updateForm.controls['gender'].setValue(this.editObj.gender);
+    this.updateForm.controls['pincode'].setValue(this.editObj.pincode);
+    this.updateForm.controls['adult'].setValue(this.editObj.adult);
+    this.updateForm.controls['child'].setValue(this.editObj.child);
     console.log(this.updateForm.controls)
   }
 
@@ -80,9 +108,9 @@ export class EditInfoComponent implements OnInit {
     for (var i = 18; i <= 110; i++) {
       // console.log(i)
       this.ageVar = i
-      console.log(typeof(i),typeof(this.ageVar));
+      console.log(typeof (i), typeof (this.ageVar));
       // this.ageVar.push(i);
-// console.log(typeof(this.ageVar.push(i)))
+      // console.log(typeof(this.ageVar.push(i)))
     }
   }
 
@@ -214,18 +242,18 @@ export class EditInfoComponent implements OnInit {
   }
 
   routeonHealthPage() {
-    this.router.navigate(['/homemodule/one'],  {
-    //   queryParams: {
-     
-    //     healthCover: this.healthCover,
-    //     quote: this.quote, age: this.age,  cover : this.icon, sum_insured: this.smInsured,
-    //     city: this.city, state: this.state, gender: this.gender,
-    //     mobile: this.mobile, email: this.email, child: this.child,
-    //     adult: this.adult, pincode: this.pincode
-    //   }
+    this.router.navigate(['/homemodule/one'], {
+      //   queryParams: {
+
+      //     healthCover: this.healthCover,
+      //     quote: this.quote, age: this.age,  cover : this.icon, sum_insured: this.smInsured,
+      //     city: this.city, state: this.state, gender: this.gender,
+      //     mobile: this.mobile, email: this.email, child: this.child,
+      //     adult: this.adult, pincode: this.pincode
+      //   }
     }
     )
-    
+
 
   }
   updateeditDetails() {
@@ -234,33 +262,37 @@ export class EditInfoComponent implements OnInit {
     this.checkCaseForAdult();
     //console.log(this.icon);
     let data = {
-      quote_no: this.quote,
-      sum_insured: this.smInsured,
+      quote_no: this.editObj.quote_no,
+      sum_insured: this.editObj.sum_insured,
       age: this.updateForm.get('age').value,
-      city: this.city,
-      state: this.state,
+      city: this.editObj.city,
+      state: this.editObj.state,
       term: 1,
-      cover: this.icon,
+      cover: this.healthCover,
       adult: this.updateForm.get('adult').value,
       child: this.updateForm.get('child').value,
       pincode: this.updateForm.get('pincode').value,
       gender: this.updateForm.get('gender').value,
+
     }
 
-console.log(data)
+    console.log(data)
     // if(this.updateForm.valid){
     this.editServ.updateHealthQuotes(data).subscribe((store) => {
       console.log(store)
-      console.log(this.quote, this.city, this.mobile, this.smInsured, this.icon, this.pincode, this.adult, this.child, this.state)
+      this.getData = localStorage.setItem('user' , JSON.stringify(store));
+      localStorage.getItem(this.getData)
+
+
       this.router.navigate(['/homemodule/one'],
         {
           queryParams: {
             id: 'update',
-            healthCover: this.healthCover,
-            quote: data.quote_no, age: data.age, cover: data.cover, sum_insured: data.sum_insured,
-            city: data.city, state: data.state, gender: data.gender,
-            mobile: this.mobile, email: this.email, child: data.child,
-            adult: data.adult, pincode: data.pincode
+            // healthCover: this.healthCover,
+            // quote: data.quote_no, age: data.age, cover: data.cover, sum_insured: data.sum_insured,
+            // city: data.city, state: data.state, gender: data.gender,
+            // mobile: this.mobile, email: this.email, child: data.child,
+            // adult: data.adult, pincode: data.pincode
           }
         })
 

@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HealthQuotesService } from '../health-quotes/health-quotes.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EditService } from '../edit-info/edit.service';
 import { BlockingProxy } from 'blocking-proxy';
 import { runInThisContext } from 'vm';
-
+import { HomeService } from '../home/home.service'
 @Component({
   selector: 'app-health-quotes',
   templateUrl: './health-quotes.component.html',
@@ -13,6 +13,7 @@ import { runInThisContext } from 'vm';
 
 
 export class HealthQuotesComponent implements OnInit {
+  storing: any;
   quotesArray: any;
   loader: boolean = true;
   showExclusion: boolean = false;
@@ -39,7 +40,7 @@ export class HealthQuotesComponent implements OnInit {
   openEdit: boolean = false;
   hospitalcount: any = [];
   constructor(private healthquote: HealthQuotesService, private route: ActivatedRoute, private editserv: EditService,
-    private router: Router) { }
+    private router: Router, private homeService: HomeService) { }
   storeParams;
   store: any = [];
   logo: any
@@ -56,8 +57,8 @@ export class HealthQuotesComponent implements OnInit {
   storemobile: any;
   sub: any;
   storeage: any;
-  message:any;
-  storepincode: any
+  message: any;
+  storepincode: any;
   sum: any;
   sumInsure_Quote: any;
   sumInsured_cover: any;
@@ -155,6 +156,7 @@ export class HealthQuotesComponent implements OnInit {
   }
   exclusionArray: any = [];
   sumDeclared: any;
+
   suminsured = [
     {
       name: ' 3 Lakhs - 3.5 Lakhs',
@@ -276,47 +278,62 @@ export class HealthQuotesComponent implements OnInit {
       name: '2 Crore',
       value: 20000000
     },]
+  attr: any;
+  getdata: any;
   ngOnInit() {
 
     this.route.queryParams.subscribe((params) => {
       console.log(params)
       this.id = params['id']
       this.healthCover = params['healthCover'];
+      console.log(this.healthCover)
       if (this.id == 'add') {
-        console.log(params)
-        this.addDetails.sum_insured = params['sumInsured']
-        this.addDetails.age = params['age']
-        this.addDetails.cover = params['cover']
-        this.addDetails.pincode = params['pincode']
-        this.addDetails.mobile = params['mobile']
-        this.addDetails.email = params['email']
-        this.addDetails.city = params['city']
-        this.addDetails.gender = params['gender']
-        this.addDetails.quote_no = params['quote']
-        this.addDetails.state = params['state']
-        this.storeChild = params['child'];
-        this.storeAdult = params['adult'];
-        this.addDetails.adult = params['adult'];
-        this.addDetails.child = params['child'];
-        this.id = params["id"];
+        console.log(params);
+        this.storing = JSON.parse(localStorage.getItem('user') || '[]');
+        console.log(this.storing)
+        this.addDetails.sum_insured = this.storing['results'].response.sum_insured;
+        console.log(this.addDetails.sum_insured)
+
+        this.addDetails.email = this.storing['results'].response.email;
+        this.addDetails.gender = this.storing['results'].response.gender;
+        this.addDetails.pincode = this.storing['results'].response.pincode;
+        this.addDetails.mobile = this.storing['results'].response.mobile;
+        console.log(this.addDetails.mobile)
+        this.addDetails.quote_no = this.storing['results'].response.quote_no;
+        this.addDetails.term = this.storing['results'].response.term;
+        console.log(this.addDetails.pincode)
+        console.log(this.addDetails.term)
+        this.addDetails.city = this.storing['results'].response.city;
+        console.log(this.addDetails.city)
+        this.addDetails.child = this.storing['results'].response.child;
+        this.addDetails.state = this.storing['results'].response.state;
+        this.addDetails.cover = this.storing['results'].response.cover;
+
+        this.addDetails.age = this.storing['results'].response.age;
+        this.addDetails.adult = this.storing['results'].response.adult;
+
+
         console.log(params)
       } else if (this.id == 'update') {
-        console.log('hii')
-        console.log(params)
-        this.editDetails.quote_no = params['quote'];
-        this.editDetails.cover = params['cover'];
-        this.editDetails.gender = params['gender'];
-        this.editDetails.city = params['city'];
-        this.editDetails.state = params['state'];
-        this.editDetails.age = params['age'];
-        this.editDetails.sum_insured = params['sum_insured']
+        this.storing = JSON.parse(localStorage.getItem('user') || '[]');
+        console.log(this.storing)
+        // console.log('hii')
+        // console.log(params)
+        this.editDetails.quote_no = this.storing['results'].response.quote_no;
+        this.editDetails.cover = this.storing['results'].response.cover;
+        this.editDetails.gender = this.storing['results'].response.gender;
+        this.editDetails.city = this.storing['results'].response.city;
+        this.editDetails.state = this.storing['results'].response.state;
+        this.editDetails.age = this.storing['results'].response.age;
+        console.log(this.editDetails.age)
+        this.editDetails.sum_insured = this.storing['results'].response.sum_insured;
         //   this.sumInsured_age = params['age'];
-        this.editDetails.pincode = params['pincode'];
-        this.editDetails.child = params['child'];
-        this.editDetails.adult = params['adult'];
-        this.editDetails.mobile = params['mobile'];
-        this.editDetails.email = params['email'];
-        this.editDetails.term = params['term'];
+        this.editDetails.pincode = this.storing['results'].response.pincode;
+        this.editDetails.child = this.storing['results'].response.child;
+        this.editDetails.adult = this.storing['results'].response.adult;
+        this.editDetails.mobile = this.storing['results'].response.mobile;
+        this.editDetails.email = this.storing['results'].response.email;
+        this.editDetails.term = this.storing['results'].response.term;
         this.id = params["id"];
       }
 
@@ -422,7 +439,7 @@ export class HealthQuotesComponent implements OnInit {
 
   }
 
-  ayushChecked(value ,checked){
+  ayushChecked(value, checked) {
     if (value.target.checked == true) {
 
       this.quotesArray = this.quotesArray.filter((e) => {
@@ -435,11 +452,11 @@ export class HealthQuotesComponent implements OnInit {
         }
       })
     }
-      else{
+    else {
 
-      }
+    }
   }
-  findFeatures(){
+  findFeatures() {
     this.featuresList = true;
     this.showExclusion = false;
   }
@@ -547,7 +564,7 @@ export class HealthQuotesComponent implements OnInit {
         console.log(data.setAttribute)
 
       }
-     
+
       else {
         document.getElementById('compareButton').style.display = "none"
         data.setAttribute('disabled', 'true')
@@ -623,7 +640,7 @@ export class HealthQuotesComponent implements OnInit {
   updateDetails(e) {
     this.router.navigate(['/homemodule/one/edit'],
       {
-        queryParams: this.addDetails,
+        // queryParams: this.addDetails,
       });
 
     this.openEdit = true;
@@ -631,47 +648,8 @@ export class HealthQuotesComponent implements OnInit {
   }
   getHealthquotesData() {
 
-    // let data = {
-
-    //   "quote_no": this.storequote,
-    //   "module": "HealthPlans",
-    //   "insurance_type": "Health Plans",
-    //   "pincode": this.storepincode,
-    //   "name": "Hfhhfnhjhnfhg",
-    //   "sum_insured": this.summInsured,
-    //   "email": this.storeemail,
-    //   "mobile": this.storemobile,
-    //   "city": this.storecity,
-    //   "state": this.storestate,
-    //   "source_url": "",
-    //   "utm_source": "",
-    //   "utm_medium": "",
-    //   "utm_medium_m": "",
-    //   "utm_medium_d": "",
-    //   "utm_campaign": "",
-    //   "utm_keyword": "",
-    //   "status": 1,
-    //   "cron_mail_status": 0,
-    //   "cover": this.storeParams,
-    //   "adult": this.storeAdult,
-    //   "child": this.storeChild,
-
-    //   "gender": this.storegender,
-    //   "age": this.storeage,
-    //   "dob_date": "",
-    //   "dob_month": "",
-    //   "dob_year": "",
-    //   "term": 1,
-    //   "requestTime": "",
-    //   "header_code_id": 2,
-    //   "header_code_desc": "Quotation Taken",
-    //   "_csrfToken": ""
-
-
-
-    // }
     if (this.id == "update") {
-      console.log(this.editDetails)
+      // console.log(this.editDetails)
       this.healthquote.gethealthQuotes(this.editDetails).subscribe((res) => {
         console.log(res);
         this.quotesArray = res['results'].response;

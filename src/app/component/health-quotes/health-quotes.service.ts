@@ -12,6 +12,7 @@ export class HealthQuotesService {
   
 gethealthQuotes(data){
   return this.http.post("https://www.quickbima.com/api/health-insurances/get-quotes.json", data)
+  
 }
 
 updateRecord(data){

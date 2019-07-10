@@ -4,6 +4,7 @@ import { HomeService } from './home.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from "@angular/router";
 import { HealthQuotesComponent } from '../health-quotes/health-quotes.component';
+import { HealthQuotesService } from '../health-quotes/health-quotes.service';
 
 @Component({
   selector: 'app-home',
@@ -28,18 +29,17 @@ export class HomeComponent {
   child: string;
   age: string;
 
+  getData:any;
   hero: any;
 
   registerForm: FormGroup;
   submitted = false;
-
-
-  constructor(private router: Router, private formBuilder: FormBuilder, private healthServ: HomeService) { }
-
-
+  data = "good";
+storeElement = "stored"
+  constructor(private router: Router, private formBuilder: FormBuilder, private healthServ: HomeService, private healthquote: HealthQuotesService) { }
 
   ngOnInit() {
-
+  
     this.registerForm = this.formBuilder.group({
       healthName: ['', Validators.required],
       healthAge: ['', Validators.required],
@@ -171,11 +171,17 @@ export class HomeComponent {
     }
     this.checkCaseForAdult();
     if (this.registerForm.valid) {
+    console.log(this.registerForm);
+ 
+  
       this.healthServ.gethealthPage(obj1).subscribe((res) => {
         console.log(res)
+
+        console.log(this.registerForm.get('healthName'))
         console.log(res['results'].response.sum_insured)
         this.sumInsured = res['results'].response.sum_insured;
-        this.cover = res['results'].response.cover
+        this.cover = res['results'].response.cover;
+      
         this.quote_no = res['results'].response.quote_no;
         this.pincode = res['results'].response.pincode;
         this.city = res['results'].response.city;
@@ -186,14 +192,22 @@ export class HomeComponent {
         this.age = res['results'].response.age;
         this.adult = res['results'].response.adult;
         this.child = res['results'].response.child;
+       
+     
+        this.getData = localStorage.setItem('user' , JSON.stringify(res) );
+        localStorage.getItem(this.getData)
+        // console.log(localStorage.getItem(this.getData))
+        
+    
         this.router.navigate(['/homemodule/one'], {
           queryParams: {
             id: 'add',
-            sumInsured: this.sumInsured, cover: this.cover,
-            healthCover: this.healthCover, quote: this.quote_no,
-            pincode: this.pincode, city: this.city, state: this.state,
-            email: this.email, mobile: this.mobile, gender: this.gender,
-            age: this.age, child: this.child, adult: this.adult
+            healthCover: this.healthCover,
+            // sumInsured: this.sumInsured, cover: this.cover,
+            // healthCover: this.healthCover, quote: this.quote_no,
+            // pincode: this.pincode, city: this.city, state: this.state,
+            // email: this.email, mobile: this.mobile, gender: this.gender,
+            // age: this.age, child: this.child, adult: this.adult
           }
         })
 
