@@ -22,6 +22,7 @@ export class EditInfoComponent implements OnInit {
   icon: any = [];
   city: any = [];
   state: any = [];
+  localdata:any=[];
   gender: any = [];
   email: any = [];
   mobile: any = [];
@@ -108,7 +109,6 @@ export class EditInfoComponent implements OnInit {
     for (var i = 18; i <= 110; i++) {
       // console.log(i)
       this.ageVar = i
-      console.log(typeof (i), typeof (this.ageVar));
       // this.ageVar.push(i);
       // console.log(typeof(this.ageVar.push(i)))
     }
@@ -280,8 +280,9 @@ export class EditInfoComponent implements OnInit {
     // if(this.updateForm.valid){
     this.editServ.updateHealthQuotes(data).subscribe((store) => {
       console.log(store)
-      this.getData = localStorage.setItem('user' , JSON.stringify(store));
-      localStorage.getItem(this.getData)
+      this.getData = localStorage.setItem('user' , JSON.stringify(data));
+      this.localdata = localStorage.getItem(this.getData)
+      console.log(this.localdata)
 
 
       this.router.navigate(['/homemodule/one'],

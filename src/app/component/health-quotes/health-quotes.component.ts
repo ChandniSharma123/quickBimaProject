@@ -60,6 +60,7 @@ export class HealthQuotesComponent implements OnInit {
   message: any;
   storepincode: any;
   sum: any;
+  upStoring: any;
   sumInsure_Quote: any;
   sumInsured_cover: any;
   sumInsured_gender: any;
@@ -293,7 +294,6 @@ export class HealthQuotesComponent implements OnInit {
         console.log(this.storing)
         this.addDetails.sum_insured = this.storing['results'].response.sum_insured;
         console.log(this.addDetails.sum_insured)
-
         this.addDetails.email = this.storing['results'].response.email;
         this.addDetails.gender = this.storing['results'].response.gender;
         this.addDetails.pincode = this.storing['results'].response.pincode;
@@ -307,6 +307,7 @@ export class HealthQuotesComponent implements OnInit {
         console.log(this.addDetails.city)
         this.addDetails.child = this.storing['results'].response.child;
         this.addDetails.state = this.storing['results'].response.state;
+
         this.addDetails.cover = this.storing['results'].response.cover;
 
         this.addDetails.age = this.storing['results'].response.age;
@@ -315,28 +316,31 @@ export class HealthQuotesComponent implements OnInit {
 
         console.log(params)
       } else if (this.id == 'update') {
-        this.storing = JSON.parse(localStorage.getItem('user') || '[]');
-        console.log(this.storing)
+        this.upStoring = JSON.parse(localStorage.getItem('user') || '[]');
+        console.log(this.upStoring)
         // console.log('hii')
         // console.log(params)
-        this.editDetails.quote_no = this.storing['results'].response.quote_no;
-        this.editDetails.cover = this.storing['results'].response.cover;
-        this.editDetails.gender = this.storing['results'].response.gender;
-        this.editDetails.city = this.storing['results'].response.city;
-        this.editDetails.state = this.storing['results'].response.state;
-        this.editDetails.age = this.storing['results'].response.age;
+        this.editDetails.quote_no = this.upStoring.quote_no;
+        console.log(this.editDetails.quote_no)
+        this.editDetails.cover = this.upStoring.cover;
+        this.editDetails.gender = this.upStoring.gender;
+        console.log(this.editDetails.gender)
+        this.editDetails.city = this.upStoring.city;
+        this.editDetails.state = this.upStoring.state;
+        this.editDetails.age = this.upStoring.age;
         console.log(this.editDetails.age)
-        this.editDetails.sum_insured = this.storing['results'].response.sum_insured;
+        this.editDetails.sum_insured = this.upStoring.sum_insured;
         //   this.sumInsured_age = params['age'];
-        this.editDetails.pincode = this.storing['results'].response.pincode;
-        this.editDetails.child = this.storing['results'].response.child;
-        this.editDetails.adult = this.storing['results'].response.adult;
-        this.editDetails.mobile = this.storing['results'].response.mobile;
-        this.editDetails.email = this.storing['results'].response.email;
-        this.editDetails.term = this.storing['results'].response.term;
+        this.editDetails.pincode = this.upStoring.pincode;
+        this.editDetails.child = this.upStoring.child;
+        console.log(this.editDetails.child)
+        this.editDetails.adult = this.upStoring.adult;
+        // this.editDetails.mobile =this.storing['results'].response.mobile;
+        // console.log(this.editDetails.mobile)  ;
+        this.editDetails.email = this.upStoring.email;
+        this.editDetails.term = this.upStoring.term;
         this.id = params["id"];
       }
-
       console.log(this.addDetails);
       console.log(this.editDetails);
 
@@ -354,6 +358,9 @@ export class HealthQuotesComponent implements OnInit {
   closePopup() {
     this.detailsDiv = false;
   }
+  // fixedToNumber(){
+
+  // }
 
   update(sumInsured) {
     console.log(sumInsured);
@@ -374,7 +381,7 @@ export class HealthQuotesComponent implements OnInit {
       this.editserv.updateHealthQuotes(data).subscribe((store) => {
         console.log(store);
       })
-      this.healthquote.gethealthQuotes(data).subscribe((res) => {
+      this.healthquote.gethealthQuotes(this.addDetails).subscribe((res) => {
         this.quotesArray = res['results'].response;
         this.message = res['results'].message
 
@@ -653,7 +660,7 @@ export class HealthQuotesComponent implements OnInit {
       this.healthquote.gethealthQuotes(this.editDetails).subscribe((res) => {
         console.log(res);
         this.quotesArray = res['results'].response;
-        this.message = res['results'].message
+        this.message = res['results'].message;
 
         console.log(this.quotesArray)
         this.responsePlan = this.quotesArray.length
@@ -669,11 +676,6 @@ export class HealthQuotesComponent implements OnInit {
         })
       }
       )
-
-
-
-
-
     }
     else {
       console.log(this.addDetails)

@@ -196,6 +196,7 @@ storeElement = "stored"
      
         this.getData = localStorage.setItem('user' , JSON.stringify(res) );
         localStorage.getItem(this.getData)
+        console.log(this.getData)
         // console.log(localStorage.getItem(this.getData))
         
     
