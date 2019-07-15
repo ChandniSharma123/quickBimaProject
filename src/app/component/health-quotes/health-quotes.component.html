@@ -284,12 +284,6 @@
                     </div>
 
 
-
-
-
-
-
-
                 </div>
             </div>
 
@@ -305,12 +299,15 @@
             <div class="row">
                 <div class="col-sm-3 left-sidebar">
                     <h4 class="title text-uppercase">Special Covers</h4>
-                    <span class="covers">
-                        <input type="checkbox" id="zd" name="cb" (click)="restorationchecked($event,checked)"
-                            class="checkbox" value="H556" />
-                        <label for="zd">Restoration</label>
-                    </span>
-                    <span class="covers">
+
+                    <div *ngFor="let checks of checkboxesArray">
+                        <span class="covers">
+                            <input type="checkbox" id="{{checks.id}}" name="cb" (click)="HealthcoverChecked($event,checked)"
+                                class="checkbox"  />
+                            <label for="{{checks.id}}">{{checks.name}}</label>
+                        </span>
+                    </div>
+                    <!--- <span class="covers">
                         <input type="checkbox" id="cb1" name="cb" class="checkbox"
                             (click)="ayushChecked($event,checked)" />
                         <label for="cb1">Ayush / Alternate Treatments</label>
@@ -331,7 +328,7 @@
                     <span class="covers">
                         <input type="checkbox" id="key" name="cb" class="checkbox" />
                         <label for="key">Critical Illness Add-on <i class="fa fa-cube text-primary"></i></label>
-                    </span>
+                    </span> -->
 
                     <div class="nacovers">
                         <h4 class="title text-uppercase">Term </h4>
@@ -382,7 +379,8 @@
                 <!---Quotes Section-->
                 <div class="col-sm-9 right-section">
                     <div class="quote-wrapper">
-                        <h4 class="noofplans" *ngIf = "message == 'Success'">We have {{responsePlan}} great plans for you</h4>
+                        <h4 class="noofplans" *ngIf="message == 'Success'">We have {{responsePlan}} great plans for you
+                        </h4>
                         <!-- <div class="quote gray col-sm-12 col-md-9">
                             <div class="dropdown">
                                 <button type="button" data-toggle="dropdown">
@@ -535,7 +533,8 @@
                                 </div>
                                 <div class="col-xs-3">
                                     <h4 class="premium"><i class="fa fa-inr" aria-hidden="true"></i>
-                                        <span>{{i.premiumDetails.finalPremium.toFixed(2)}}</span> <small>(Incl. GST)</small></h4>
+                                        <span>{{i.premiumDetails.finalPremium.toFixed(2)}}</span> <small>(Incl.
+                                            GST)</small></h4>
                                     <a href="" class="buybima">Buy Bima</a>
                                     <a href="#emipayment" class="emi" data-toggle="modal">EMI from <i class="fa fa-inr"
                                             aria-hidden="true"></i> <span>{{i.EmiDetails.emi_minimum}}</span> </a>
@@ -654,7 +653,7 @@
                                             </div>
                                             <div class="col-sm-9 text-center">
                                                 <ul class="nav-tabs">
-                                                    <li class="breakup active" (click) = "findFeatures()">
+                                                    <li class="breakup active" (click)="findFeatures()">
                                                         <a data-toggle="tab">
                                                             Features</a></li>
                                                     <li class="coverage active" (click)="findExclusion()">

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SkipSelf } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { EditService } from './edit.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -18,17 +18,18 @@ export class EditInfoComponent implements OnInit {
   pincode: any = [];
   smInsured: any = [];
   quote: any = [];
-  getData:any=[];
+  getData: any = [];
   icon: any = [];
   city: any = [];
   state: any = [];
-  localdata:any=[];
+  localdata: any = [];
   gender: any = [];
   email: any = [];
   mobile: any = [];
   child: any = [];
   adult: any = [];
   age: any = [];
+  subArray: any = [];
   ageVar: any = [];
   storing: any = [];
 
@@ -100,17 +101,23 @@ export class EditInfoComponent implements OnInit {
     this.updateForm.controls['age'].setValue(this.editObj.age);
     this.updateForm.controls['gender'].setValue(this.editObj.gender);
     this.updateForm.controls['pincode'].setValue(this.editObj.pincode);
+    console.log(this.updateForm.controls);
     this.updateForm.controls['adult'].setValue(this.editObj.adult);
     this.updateForm.controls['child'].setValue(this.editObj.child);
     console.log(this.updateForm.controls)
   }
 
+
   countAge() {
     for (var i = 18; i <= 110; i++) {
       // console.log(i)
-      this.ageVar = i
-      // this.ageVar.push(i);
+
+      // this.ageVar = i
+      // console.log(this.ageVar)
+      this.ageVar.push(i);
       // console.log(typeof(this.ageVar.push(i)))
+      this.subArray = this.ageVar
+      console.log(this.subArray)
     }
   }
 
@@ -242,18 +249,14 @@ export class EditInfoComponent implements OnInit {
   }
 
   routeonHealthPage() {
-    this.router.navigate(['/homemodule/one'], {
-      //   queryParams: {
+    this.router.navigate(['/homemodule/one'],
+      {
+        queryParams: {
+          id: 'skip'
 
-      //     healthCover: this.healthCover,
-      //     quote: this.quote, age: this.age,  cover : this.icon, sum_insured: this.smInsured,
-      //     city: this.city, state: this.state, gender: this.gender,
-      //     mobile: this.mobile, email: this.email, child: this.child,
-      //     adult: this.adult, pincode: this.pincode
-      //   }
-    }
+        }
+      }
     )
-
 
   }
   updateeditDetails() {
@@ -268,7 +271,7 @@ export class EditInfoComponent implements OnInit {
       city: this.editObj.city,
       state: this.editObj.state,
       term: 1,
-      cover: this.healthCover,
+      cover: this.icon,
       adult: this.updateForm.get('adult').value,
       child: this.updateForm.get('child').value,
       pincode: this.updateForm.get('pincode').value,
@@ -280,7 +283,7 @@ export class EditInfoComponent implements OnInit {
     // if(this.updateForm.valid){
     this.editServ.updateHealthQuotes(data).subscribe((store) => {
       console.log(store)
-      this.getData = localStorage.setItem('user' , JSON.stringify(data));
+      this.getData = localStorage.setItem('user', JSON.stringify(data));
       this.localdata = localStorage.getItem(this.getData)
       console.log(this.localdata)
 

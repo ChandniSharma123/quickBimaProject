@@ -113,6 +113,29 @@ export class HealthQuotesComponent implements OnInit {
 
   ]
 
+  checkboxesArray = [
+    {
+      id: "zd",
+      name: "Restoration"
+    },
+    {
+      id: "cb1",
+      name: "Ayush / Alternate Treatments"
+    }, {
+      id: "cb2",
+      name: "OPD Cover"
+    }, {
+      id: "cb3",
+      name: "Maternity Cover"
+    }, {
+      id: "consume",
+      name: "Diabetic Cover"
+    }, {
+      id: "key",
+      name: "Critical Illness Add-on"
+    },
+  ]
+
   addDetails = {
     device: "Desktop",
     _csrfToken: "",
@@ -288,7 +311,7 @@ export class HealthQuotesComponent implements OnInit {
       this.id = params['id']
       this.healthCover = params['healthCover'];
       console.log(this.healthCover)
-      if (this.id == 'add') {
+      if (this.id == 'add' || this.id == 'skip') {
         console.log(params);
         this.storing = JSON.parse(localStorage.getItem('user') || '[]');
         console.log(this.storing)
@@ -335,9 +358,11 @@ export class HealthQuotesComponent implements OnInit {
         this.editDetails.child = this.upStoring.child;
         console.log(this.editDetails.child)
         this.editDetails.adult = this.upStoring.adult;
-        // this.editDetails.mobile =this.storing['results'].response.mobile;
+      this.editDetails.mobile = this.storing['results'].response.mobile;
         // console.log(this.editDetails.mobile)  ;
-        this.editDetails.email = this.upStoring.email;
+        this.editDetails.email = this.addDetails.email;
+        this.editDetails.term = this.addDetails.mobile;
+
         this.editDetails.term = this.upStoring.term;
         this.id = params["id"];
       }
@@ -425,7 +450,7 @@ export class HealthQuotesComponent implements OnInit {
         this.message = res['results'].message
 
         console.log(this.quotesArray)
-        this.responsePlan = this.quotesArray.length
+        this.responsePlan = this.quotesArray.length;
         this.quotesArray.map((e) => {
           e.newArray = [];
 
@@ -446,71 +471,78 @@ export class HealthQuotesComponent implements OnInit {
 
   }
 
-  ayushChecked(value, checked) {
-    if (value.target.checked == true) {
+  // ayushChecked(value, checked) {
+  //   if (value.target.checked == true) {
 
-      this.quotesArray = this.quotesArray.filter((e) => {
-        for (let i = 0; i < e.SpecialFeatureLists.length; i++) {
-          if (e.SpecialFeatureLists[i].code == 'HF006') {
-            return true;
-          } else {
-            return false;
-          }
-        }
-      })
-    }
-    else {
+  //     this.quotesArray = this.quotesArray.filter((e) => {
+  //       for (let i = 0; i < e.SpecialFeatureLists.length; i++) {
+  //         if (e.SpecialFeatureLists[i].code == 'HF006') {
+  //           return true;
+  //         } else {
+  //           return false;
+  //         }
+  //       }
+  //     })
+  //   }
+  //   else {
 
-    }
-  }
+  //   }
+  // }
   findFeatures() {
     this.featuresList = true;
     this.showExclusion = false;
   }
 
-  restorationchecked(value, checked) {
+  HealthcoverChecked(value, checked) {
+
     console.log(this.quotesArray);
+
     if (value.target.checked == true) {
+      if (value.target.id == "zd") {
+        console.log(value.target.id)
 
-      this.quotesArray = this.quotesArray.filter((e) => {
-        for (let i = 0; i < e.SpecialFeatureLists.length; i++) {
-          if (e.SpecialFeatureLists[i].code == 'HF007') {
-            return true;
-          } else {
-            return false;
+        this.quotesArray = this.quotesArray.filter((e) => {
+          for (let i = 0; i < e.SpecialFeatureLists.length; i++) {
+            if (e.SpecialFeatureLists[i].code == 'HF006') {
+              return true;
+
+            }
           }
-        }
-      })
 
+        })
+        console.log(this.quotesArray)
 
-      // this.quotesArray.map((e) => {
-      //   // e.selectedcode = [];
-      //   //  if( e.SpecialFeatureLists[i].code == 'HF006'){
-      //   //           e.selectedcode.push(e.SpecialFeatureLists)
-
-      //   //           console.log(e.selectedcode)
-
-      //   //         }
-      //   e.SpecialFeatureLists = e.SpecialFeatureLists.filter((ele) => {
-      //     if (ele.code == 'HF006') {
-      //       e.selectedcode.push(e.SpecialFeatureLists)
-      //       console.log(e.SpecialFeatureLists)
-      //       console.log(e.selectedcode)
-      //     }
-      //     else {
-      //       // this.quotesArray.pop(e.SpecialFeatureLists)
-      //     }
-      //   })
-
-      // })
-
-    } else {
+      }
+    }
+    else{
 
     }
-    // else {
+    if (value.target.checked == true) {
+      if (value.target.id == "cb1") {
+        console.log(value.target.id);
+        this.quotesArray = this.quotesArray.filter((e) => {
+          for (let i = 0; i < e.SpecialFeatureLists.length; i++) {
+            if (e.SpecialFeatureLists[i].code == 'HF007') {
+              return true;
+            }
+          }
 
-    // }
+        })
+      }
+    }
+    else {
+      console.log('hiii')
+
+      this.responsePlan = this.quotesArray.length;
+
+    }
+    this.responsePlan = this.quotesArray.length;
+
   }
+
+
+
+
 
   removecard(k) {
 
@@ -767,6 +799,7 @@ export class HealthQuotesComponent implements OnInit {
     document.body.appendChild(link);
     link.click();
     link.remove();
+    console.log(this.pdfConvertor);
   }
 
   showDetails(i) {
@@ -799,6 +832,7 @@ export class HealthQuotesComponent implements OnInit {
     document.body.appendChild(link);
     link.click();
     link.remove();
+    console.log(this.pdfConvertor)
   }
 
   findExclusion(i) {

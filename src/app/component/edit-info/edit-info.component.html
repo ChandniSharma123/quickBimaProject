@@ -109,14 +109,16 @@
                                 </div>
                                 <div class="col-sm-4 col-sm-offset-2 droplist form-group">
                                     <!-- <span class="titlelabel">Age</span> -->
-                                    <select class="ui search dropdown form-control" formControlName="age">
-                                        <option value=""></option>
+                                   <div >
+                                    <select class="ui search dropdown form-control"  formControlName="age">
+                                        <!-- <option value=""></option>
                                         <option value="28">28</option>
                                         <option value="29">29</option>
                                         <option value="30">30</option>
-                                        <option value="31">31</option>
-                                        <!-- <option *ngFor="let v in [ageVar]; let i = index" value = "i">{{v}}</option> -->
+                                        <option value="31">31</option> -->
+                                         <option *ngFor= "let v of subArray">{{v}}</option>
                                     </select>
+                                   </div>
                                 </div>
                                 <div class="col-sm-4 form-group">
                                     <span class="block-box">
