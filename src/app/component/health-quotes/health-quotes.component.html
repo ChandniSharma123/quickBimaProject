@@ -271,13 +271,24 @@
                                 <option tabindex="-1" style="width:50px">
                                     {{i.sumInsured}}</option>
                             </select> -->
+
+                            <div *ngIf = "adddata">
                             <select [(ngModel)]="addDetails.sum_insured" id="healthSumInsured" class="form-control"
                                 (change)="update(addDetails.sum_insured)" name="healthSumInsured" autocomplete="nope">
                                 <option>5 Lakhs - 5.5 Lakhs</option>
                                 <option *ngFor="let sum of suminsured" [value]="sum.value">{{sum.name}}
                                 </option>
-
                             </select>
+
+                            </div>
+                            <div *ngIf = "editdata">
+                            <select [(ngModel)]="editDetails.sum_insured" id="healthSumInsured" class="form-control"
+                                (change)="update(editDetails.sum_insured)" name="healthSumInsured" autocomplete="nope">
+                                <option>5 Lakhs - 5.5 Lakhs</option>
+                                <option *ngFor="let sum of suminsured" [value]="sum.value">{{sum.name}}
+                                </option>
+                            </select>
+                            </div>
                             <p>This is the coverage amount of your policy.</p>
                         </div>
 
@@ -302,8 +313,8 @@
 
                     <div *ngFor="let checks of checkboxesArray">
                         <span class="covers">
-                            <input type="checkbox" id="{{checks.id}}" name="cb" (click)="HealthcoverChecked($event,checked)"
-                                class="checkbox"  />
+                            <input type="checkbox" id="{{checks.id}}" name="cb"
+                                (click)="HealthcoverChecked($event,checked)" class="checkbox" />
                             <label for="{{checks.id}}">{{checks.name}}</label>
                         </span>
                     </div>
