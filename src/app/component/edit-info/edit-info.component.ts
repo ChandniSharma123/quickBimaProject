@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HealthQuotesService } from '../health-quotes/health-quotes.service';
 
 import { HealthQuotesComponent } from '../health-quotes/health-quotes.component'
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-edit-info',
@@ -16,6 +17,7 @@ export class EditInfoComponent implements OnInit {
   healthCover: string;
   sub: any = [];
   pincode: any = [];
+  editStoring: any = [];
   smInsured: any = [];
   quote: any = [];
   getData: any = [];
@@ -46,6 +48,21 @@ export class EditInfoComponent implements OnInit {
     adult: "",
     child: "",
   }
+
+  editstoringObj = {
+    quote_no: "",
+    sum_insured: "",
+    gender: "",
+    age: "",
+    city: "",
+    state: "",
+    term: 1,
+    pincode: "",
+    cover: "",
+    adult: "",
+    child: "",
+  }
+
   constructor(private formBuilder: FormBuilder,
     private editServ: EditService, private route: ActivatedRoute, private router: Router,
     private healthquote: HealthQuotesService) { }
@@ -65,17 +82,22 @@ export class EditInfoComponent implements OnInit {
 
     })
     this.storing = JSON.parse(localStorage.getItem('user') || '[]');
-    this.editObj.sum_insured = this.storing['results'].response.sum_insured;
-    this.editObj.gender = this.storing['results'].response.gender;
-    this.editObj.pincode = this.storing['results'].response.pincode;
-    this.editObj.quote_no = this.storing['results'].response.quote_no;
+
+    this.editObj.sum_insured = this.storing.sum_insured;
+    this.editObj.gender = this.storing.gender;
+    console.log(this.editObj.gender)
+
+    this.editObj.pincode = this.storing.pincode;
+    this.editObj.quote_no = this.storing.quote_no;
     console.log(this.editObj.pincode)
-    this.editObj.city = this.storing['results'].response.city;
-    this.editObj.child = this.storing['results'].response.child;
-    this.editObj.state = this.storing['results'].response.state;
-    this.editObj.cover = this.storing['results'].response.cover;
-    this.editObj.age = this.storing['results'].response.age;
-    this.editObj.adult = this.storing['results'].response.adult;
+    this.editObj.city = this.storing.city;
+
+    this.editObj.child = this.storing.child;
+    this.editObj.state = this.storing.state;
+    this.editObj.cover = this.storing.cover;
+    this.editObj.age = this.storing.age;
+    this.editObj.adult = this.storing.adult;
+    console.log(this.editObj.adult)
 
     this.route.queryParams.subscribe((params) => {
       // console.log(params)
@@ -117,7 +139,7 @@ export class EditInfoComponent implements OnInit {
       this.ageVar.push(i);
       // console.log(typeof(this.ageVar.push(i)))
       this.subArray = this.ageVar
-      console.log(this.subArray)
+      // console.log(this.subArray)
     }
   }
 
@@ -264,26 +286,31 @@ export class EditInfoComponent implements OnInit {
     this.checkgender();
     this.checkCaseForAdult();
     //console.log(this.icon);
+
     let data = {
-      quote_no: this.editObj.quote_no,
-      sum_insured: this.editObj.sum_insured,
-      age: this.updateForm.get('age').value,
-      city: this.editObj.city,
-      state: this.editObj.state,
-      term: 1,
-      cover: this.icon,
-      adult: this.updateForm.get('adult').value,
-      child: this.updateForm.get('child').value,
-      pincode: this.updateForm.get('pincode').value,
-      gender: this.updateForm.get('gender').value,
+    
+          quote_no: this.editObj.quote_no,
+          sum_insured: this.editObj.sum_insured,
+          age: this.updateForm.get('age').value,
+          city: this.editObj.city,
+          state: this.editObj.state,
+          term: 1,
+          cover: this.icon,
+          adult: this.updateForm.get('adult').value,
+          child: this.updateForm.get('child').value,
+          pincode: this.updateForm.get('pincode').value,
+          gender: this.updateForm.get('gender').value,
 
-    }
+        }
+    
 
-    console.log(data)
+    // console.log(data['results'].response.age)
     // if(this.updateForm.valid){
     this.editServ.updateHealthQuotes(data).subscribe((store) => {
       console.log(store)
       this.getData = localStorage.setItem('user', JSON.stringify(data));
+
+
       this.localdata = localStorage.getItem(this.getData)
       console.log(this.localdata)
 
@@ -292,60 +319,12 @@ export class EditInfoComponent implements OnInit {
         {
           queryParams: {
             id: 'update',
-            // healthCover: this.healthCover,
-            // quote: data.quote_no, age: data.age, cover: data.cover, sum_insured: data.sum_insured,
-            // city: data.city, state: data.state, gender: data.gender,
-            // mobile: this.mobile, email: this.email, child: data.child,
-            // adult: data.adult, pincode: data.pincode
+            healthCover: this.healthCover,
+
           }
         })
 
+
     })
-
-    // this.router.navigate(['/homemodule'])
-    //  getHealthquotesData();
-
-    // let sub = {
-
-    //   "sum_insured": 500000,
-    //   "quote_no": this.quote,
-    //   "module": "HealthPlans",
-    //   "insurance_type": "Health Plans",
-    //   "pincode": this.updateForm.get('pincode').value,
-    //   "name": "Hfhhfnhjhnfhg",
-    //   "email": this.email,
-    //   "mobile": this.mobile,
-    //   "city": this.city,
-    //   "state": this.state,
-    //   "source_url": "",
-    //   "utm_source": "",
-    //   "utm_medium": "",
-    //   "utm_medium_m": "",
-    //   "utm_medium_d": "",
-    //   "utm_campaign": "",
-    //   "utm_keyword": "",
-    //   "status": 1,
-    //   "cron_mail_status": 0,
-    //   "cover": this.healthCover,
-    //   "adult": this.updateForm.get('adult').value,
-    //   "child": this.updateForm.get('child').value,
-
-    //   "gender": this.updateForm.get('gender').value,
-    //   "age": this.updateForm.get('age').value,
-    //   "dob_date": "",
-    //   "dob_month": "",
-    //   "dob_year": "",
-    //   "term": 1,
-    //   "requestTime": 1560424458,
-    //   "header_code_id": 2,
-    //   "header_code_desc": "Quotation Taken",
-    //   "_csrfToken": ""
-
-    // }
-
-    //   this.healthquote.gethealthQuotes(sub).subscribe((d)=>{console.log(d)})
-    //  this.router.navigate(['/homemodule/one'])
-
-    // updateeditDetails();
   }
 }

@@ -29,17 +29,17 @@ export class HomeComponent {
   child: string;
   age: string;
 
-  getData:any;
+  getData: any;
   hero: any;
 
   registerForm: FormGroup;
   submitted = false;
   data = "good";
-storeElement = "stored"
+  storeElement = "stored"
   constructor(private router: Router, private formBuilder: FormBuilder, private healthServ: HomeService, private healthquote: HealthQuotesService) { }
 
   ngOnInit() {
-  
+
     this.registerForm = this.formBuilder.group({
       healthName: ['', Validators.required],
       healthAge: ['', Validators.required],
@@ -171,9 +171,9 @@ storeElement = "stored"
     }
     this.checkCaseForAdult();
     if (this.registerForm.valid) {
-    console.log(this.registerForm);
- 
-  
+      console.log(this.registerForm);
+
+
       this.healthServ.gethealthPage(obj1).subscribe((res) => {
         console.log(res)
 
@@ -181,7 +181,6 @@ storeElement = "stored"
         console.log(res['results'].response.sum_insured)
         this.sumInsured = res['results'].response.sum_insured;
         this.cover = res['results'].response.cover;
-      
         this.quote_no = res['results'].response.quote_no;
         this.pincode = res['results'].response.pincode;
         this.city = res['results'].response.city;
@@ -192,14 +191,29 @@ storeElement = "stored"
         this.age = res['results'].response.age;
         this.adult = res['results'].response.adult;
         this.child = res['results'].response.child;
-       
-     
-        this.getData = localStorage.setItem('user' , JSON.stringify(res) );
-        localStorage.getItem(this.getData)
-        console.log(this.getData)
+
+        let obj = {
+          quote_no: this.quote_no,
+          sum_insured: this.sumInsured,
+          gender: this.gender,
+          age: this.age,
+          city: this.city,
+          adult : this.adult,
+          child : this.child,
+          state: this.state,
+          mobile: this.mobile,
+          email: this.email,
+          term: 1,
+          pincode: this.pincode,
+          cover: this.cover,
+        }
+        this.getData = localStorage.setItem('user', JSON.stringify(obj));
+        localStorage.getItem(this.getData);
+        console.log(this.getData);
+
         // console.log(localStorage.getItem(this.getData))
-        
-    
+
+
         this.router.navigate(['/homemodule/one'], {
           queryParams: {
             id: 'add',

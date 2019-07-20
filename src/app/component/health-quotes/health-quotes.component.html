@@ -272,7 +272,7 @@
                                     {{i.sumInsured}}</option>
                             </select> -->
 
-                            <div *ngIf = "adddata">
+                            <div *ngIf = "addData">
                             <select [(ngModel)]="addDetails.sum_insured" id="healthSumInsured" class="form-control"
                                 (change)="update(addDetails.sum_insured)" name="healthSumInsured" autocomplete="nope">
                                 <option>5 Lakhs - 5.5 Lakhs</option>
@@ -281,7 +281,7 @@
                             </select>
 
                             </div>
-                            <div *ngIf = "editdata">
+                            <div *ngIf = "editData">
                             <select [(ngModel)]="editDetails.sum_insured" id="healthSumInsured" class="form-control"
                                 (change)="update(editDetails.sum_insured)" name="healthSumInsured" autocomplete="nope">
                                 <option>5 Lakhs - 5.5 Lakhs</option>
@@ -314,7 +314,7 @@
                     <div *ngFor="let checks of checkboxesArray">
                         <span class="covers">
                             <input type="checkbox" id="{{checks.id}}" name="cb"
-                                (click)="HealthcoverChecked($event,checked)" class="checkbox" />
+                                (click)="HealthcoverChecked($event,checked, checks.code )" class="checkbox" />
                             <label for="{{checks.id}}">{{checks.name}}</label>
                         </span>
                     </div>
@@ -1371,6 +1371,7 @@
                         <div class="selectedQuote" *ngFor="let k of pushAray" id="checker">
 
                             <a href="javascript:void(0);" (click)="removecard(k)" class="removeQuote"></a>
+                          
 
                             <img src="{{k.CompanyDetails.logo}}" alt="insurer">
                             <h4><i class="fa fa-inr"></i>{{k.premiumDetails.finalPremium}}<small>(Incl. GST)</small>
@@ -1378,9 +1379,9 @@
                             <p>{{k.productDetails.product_name}}</p>
                         </div>
                     </div>
+ 
 
-
-                    <div class="btn comparePlans" (click)="comparePlan()" id=compareButton style="display:none">
+                    <div class="btn comparePlans" (click)="comparePlan()" id="compareButton" style = "display:none">
                         <a>Compare
                             Plans</a></div>
 
@@ -1399,9 +1400,9 @@
 
                 <ul>
                     <li *ngFor="let i of featureList" class="{{i.class}}">
-                        {{i.name}}
+                       <p> {{i.name}}</p>
                     </li>
-                    <!--<li>
+                    <!-- <li>
                         <p class="copay">Co-Pay</p>
                     </li>
 
@@ -1522,7 +1523,7 @@
                     </li>
                     <li>
                         <p class="terminalillness">Terminal Illness Cover</p>
-                    </li>-->
+                    </li> -->
                 </ul>
 
                 <div class="productPremium fixedsticky">
@@ -1538,10 +1539,11 @@
                     </div>
                 </div>
                 <ul>
-                    <li *ngFor="let q of p.SpecialFeatureLists">
-                        {{q.title}}
-                        <!-- <p *ngIf="q.code == 'HF006'">{{q.description}}</p>
-                        <p *ngIf="q.code == 'HF007'">{{q.description}}</p>
+                    <li *ngFor= "let q of p.newArray">
+                       <p> {{q.description}}</p>
+                         <p *ngIf = "q.description == 'Yes'"><i class="fa fa-check"></i></p>
+                         <p *ngIf  = "q.description == ''"><i class="fa fa-times"></i></p>
+                        <!---<p *ngIf="q.code == 'HF007'">{{q.description}}</p>
                         <p *ngIf="q.code == 'HF008'">{{q.description}}</p>
                         <p *ngIf="q.code == 'HF013'">{{q.description}}</p>
                         <p *ngIf="q.code == 'HF017'">{{q.description}}</p> -->
@@ -1550,7 +1552,7 @@
 
                     <!-- <li *ngIf = "q.show_desc == 0">
                         <p><i class="fa fa-check"></i></p>
-                    </li>  -->
+                    </li>   -->
                     <!-- <li>
                         <p>Covered after 4 years</p>
                     </li>

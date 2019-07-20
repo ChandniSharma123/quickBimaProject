@@ -45,8 +45,8 @@ export class HealthQuotesComponent implements OnInit {
   storeParams;
   store: any = [];
   logo: any
-  adddata: boolean = false;
-  editdata: boolean = false;
+  addData: boolean = false;
+  editData: boolean = false;
   storequote: any;
   jsonObject: any;
   showCard: boolean = true;
@@ -110,32 +110,164 @@ export class HealthQuotesComponent implements OnInit {
       class: "healthcheckup"
     },
     {
+      name: "Pre & Post Hospitalisation Expenses",
+      class: "preposthospitalisationexpenses"
+    },
+    {
       name: "Pre Hospitalisation Cover",
       class: "prehospitalisationcover"
-    }
+    },
+    {
+      name: "Post Hospitalization",
+      class: "posthospitalisationcover"
+    },
+    {
+      name: "OPD Benefit",
+      class: "opdbenefit"
+    },
+    {
+      name: "Room Rent",
+      class: "roomrent"
+    },
+    {
+      name: "icucharges",
+      class: "ICU Charges"
+    },
+    {
+      name: "Worldwide Emergency Hospitalisation",
+      class: "worldwideemergencyhospitalisation"
+    },
+    {
+      name: "International Treatments",
+      class: "internationaltreaments"
+    }, {
+      name: "Day Care Treatments",
+      class: "daycaretreatments"
+    }, {
+      name: "No Claim Bonus",
+      class: "noclaimbonus"
+    }, {
+      name: "Ambulance Cover",
+      class: "ambulancecover"
+    }, {
+      name: "Emergency Domestic Evacuation",
+      class: "emergencydomesticevacuation"
+    },
+    {
+      name: "Second Medical Opinion",
+      class: "secondmedicalopinion"
+    },
+    {
+      name: "Domicillary Hospitalisation",
+      class: "domicillaryhospitalisation"
+    },
+    {
+      name: "Organ Donor Expenses",
+      class: "organdonorexpenses"
+    },
+    {
+      name: "Maternity Cover",
+      class: "maternitycover"
+    },
+    {
+      name: "Maternity Cover Waiting",
+      class: "maternitycoverwaiting"
+    },
+    {
+      name: "Reduction of Maternity Waiting Period",
+      class: "reductionofmaternirywaitingperiod"
+    },
+    {
+      name: "New Born Cover",
+      class: "newborncover"
+    },
+    {
+      name: "New Born Vaccination",
+      class: "newbornvaccination"
+    },
+    {
+      name: "Animal Bite Cover",
+      class: "animalbitecover"
+    },
 
+    {
+      name: "Hospital Cash",
+      class: "hospitalcash"
+    },
+    {
+      name: "Health & Wellness Discounts",
+      class: "maternitycover"
+    },
+    {
+      name: "Medical Test",
+      class: "medicaltest"
+    },
+    {
+      name: "Diabetes Cover",
+      class: "diabetescover"
+    },
+    {
+      name: "Dialysis Expenses",
+      class: "dialysisexpenses"
+    },
+    {
+      name: "Personal Accident Cover",
+      class: "personalaccidentcover"
+    },
+    {
+      name: "Dental OPD",
+      class: "dentalopd"
+    },
+    {
+      name: "Opthamlic OPD",
+      class: "opthamlicopd"
+    },
+
+    {
+      name: "Total Disability Cover",
+      class: "totaldisabilitycover"
+    },
+    {
+      name: "Bariatric Surgery",
+      class: "bariatricsurgery"
+    },
+    {
+      name: "Deductible",
+      class: "deductible"
+    },
+    {
+      name: "Terminal Illness Cover",
+      class: "terminalillness"
+
+    }
   ]
 
   checkboxesArray = [
     {
       id: "zd",
-      name: "Restoration"
+      name: "Restoration",
+      code: "HF006"
     },
     {
       id: "cb1",
-      name: "Ayush / Alternate Treatments"
+      name: "Ayush / Alternate Treatments",
+      code: "HF007"
     }, {
       id: "cb2",
-      name: "OPD Cover"
+      name: "OPD Cover",
+      code: "HF012"
     }, {
       id: "cb3",
-      name: "Maternity Cover"
+      name: "Maternity Cover",
+      code: "HF024"
     }, {
       id: "consume",
-      name: "Diabetic Cover"
+      name: "Diabetic Cover",
+      code: "",
     }, {
       id: "key",
-      name: "Critical Illness Add-on"
+      name: "Critical Illness Add-on",
+      code: "",
     },
   ]
 
@@ -316,32 +448,33 @@ export class HealthQuotesComponent implements OnInit {
       console.log(this.healthCover)
       if (this.id == 'add' || this.id == 'skip') {
         console.log(params);
+        this.addData = true;
         this.storing = JSON.parse(localStorage.getItem('user') || '[]');
         console.log(this.storing)
-        this.addDetails.sum_insured = this.storing['results'].response.sum_insured;
+        this.addDetails.sum_insured = this.storing.sum_insured;
         console.log(this.addDetails.sum_insured)
-        this.addDetails.email = this.storing['results'].response.email;
-        this.addDetails.gender = this.storing['results'].response.gender;
-        this.addDetails.pincode = this.storing['results'].response.pincode;
-        this.addDetails.mobile = this.storing['results'].response.mobile;
+        this.addDetails.email = this.storing.email;
+        this.addDetails.gender = this.storing.gender;
+        this.addDetails.pincode = this.storing.pincode;
+        this.addDetails.mobile = this.storing.mobile;
         console.log(this.addDetails.mobile)
-        this.addDetails.quote_no = this.storing['results'].response.quote_no;
-        this.addDetails.term = this.storing['results'].response.term;
-        console.log(this.addDetails.pincode)
-        console.log(this.addDetails.term)
-        this.addDetails.city = this.storing['results'].response.city;
+        this.addDetails.quote_no = this.storing.quote_no;
+
+
+        this.addDetails.city = this.storing.city;
         console.log(this.addDetails.city)
-        this.addDetails.child = this.storing['results'].response.child;
-        this.addDetails.state = this.storing['results'].response.state;
+        this.addDetails.child = this.storing.child;
+        this.addDetails.state = this.storing.state;
 
-        this.addDetails.cover = this.storing['results'].response.cover;
+        this.addDetails.cover = this.storing.cover;
 
-        this.addDetails.age = this.storing['results'].response.age;
-        this.addDetails.adult = this.storing['results'].response.adult;
+        this.addDetails.age = this.storing.age;
+        this.addDetails.adult = this.storing.adult;
 
 
         console.log(params)
       } else if (this.id == 'update') {
+        this.editData = true;
         this.upStoring = JSON.parse(localStorage.getItem('user') || '[]');
         console.log(this.upStoring)
         // console.log('hii')
@@ -394,7 +527,7 @@ export class HealthQuotesComponent implements OnInit {
     console.log(sumInsured);
     if (this.id == "add") {
 
-      console.log(this.adddata)
+
       let data = {
         quote_no: this.addDetails.quote_no,
         sum_insured: sumInsured,
@@ -437,7 +570,7 @@ export class HealthQuotesComponent implements OnInit {
     else if (this.id == "update") {
       console.log("step1")
 
-      console.log(this.editdata)
+
       let data = {
         quote_no: this.editDetails.quote_no,
         sum_insured: sumInsured,
@@ -478,84 +611,87 @@ export class HealthQuotesComponent implements OnInit {
         })
       }
       )
-
     }
-
-
-    // if(this.updateForm.valid){
-
   }
 
-  // ayushChecked(value, checked) {
-  //   if (value.target.checked == true) {
 
-  //     this.quotesArray = this.quotesArray.filter((e) => {
-  //       for (let i = 0; i < e.SpecialFeatureLists.length; i++) {
-  //         if (e.SpecialFeatureLists[i].code == 'HF006') {
-  //           return true;
-  //         } else {
-  //           return false;
-  //         }
-  //       }
-  //     })
-  //   }
-  //   else {
-
-  //   }
-  // }
   findFeatures() {
     this.featuresList = true;
     this.showExclusion = false;
   }
+  comparePlan() {
 
-  HealthcoverChecked(value, checked) {
+    this.compareplan = true;
+    console.log(this.pushAray)
+    this.pushAray.map((e) => {
 
+      e.newArray = e.newArray.filter((ele) => {
+        for (let i = 0; i < this.featureList.length; i++) {
+          if (this.featureList[i].name == ele.title) {
+
+            return false;
+          } else {
+            return true;
+          }
+        }
+      })
+      console.log(e.newArray)
+
+    })
+    console.log(this.pushAray);
+
+    // this.router.navigate(['hommodule/one/comparePlan'])
+  }
+
+  HealthcoverChecked(value, checked, code) {
+    console.log(code);
     console.log(this.quotesArray);
 
     if (value.target.checked == true) {
-      if (value.target.id == "zd") {
-        console.log(value.target.id)
+      // if (value.target.id == "zd" && value.target.id == "cb1" ) {
+      console.log(value.target.id);
 
 
-        this.quotesArray = this.quotesArray.filter((e) => {
-          for (let i = 0; i < e.SpecialFeatureLists.length; i++) {
-            if (e.SpecialFeatureLists[i].code == 'HF006') {
-              return true;
+      this.quotesArray = this.quotesArray.filter((e) => {
+        for (let i = 0; i < e.SpecialFeatureLists.length; i++) {
+          if (e.SpecialFeatureLists[i].code == code) {
+            return true;
 
-            }
-            else {
-              console.log('ji')
-              return false;
-            }
           }
-
-        })
-        console.log(this.quotesArray)
-
-      }
-    }
-    else {
-
-    }
-    if (value.target.checked == true) {
-      if (value.target.id == "cb1") {
-        console.log(value.target.id);
-        this.quotesArray = this.quotesArray.filter((e) => {
-          for (let i = 0; i < e.SpecialFeatureLists.length; i++) {
-            if (e.SpecialFeatureLists[i].code == 'HF007') {
-              return true;
-            }
+          else {
+            console.log('ji')
+            return false;
           }
+        }
 
-        })
-      }
-    }
+      })
+      console.log(this.quotesArray)
+
+    } 
+    // }
     else {
-      console.log('hiii')
-
-      this.responsePlan = this.quotesArray.length;
-
+      this.getHealthquotesData();
     }
+
+    // if (value.target.checked == true) {
+    //   if (value.target.id == "cb1") {
+    //     console.log(value.target.id);
+    //     this.quotesArray = this.quotesArray.filter((e) => {
+    //       for (let i = 0; i < e.SpecialFeatureLists.length; i++) {
+    //         if (e.SpecialFeatureLists[i].code == 'HF007') {
+    //           return true;
+    //         }
+    //       }
+
+    //     })
+    //   }
+    // }
+    // else {
+    //   console.log('hiii')
+
+    //   this.responsePlan = this.quotesArray.length;
+
+    // }
     this.responsePlan = this.quotesArray.length;
 
   }
@@ -567,7 +703,7 @@ export class HealthQuotesComponent implements OnInit {
   removecard(k) {
 
     this.pushAray.splice(k, 1);
-
+    console.log(this.pushAray)
     for (let j = 0; j < this.quotesArray.length; j++) {
 
       if (this.quotesArray[j].id == k.id) {
@@ -578,27 +714,7 @@ export class HealthQuotesComponent implements OnInit {
     // this.showCard = false;
 
   }
-  comparePlan() {
 
-    this.compareplan = true;
-    // this.pushAray.map((e)=>{
-
-    //     e.SpecialFeatureLists = e.SpecialFeatureLists.filter((ele)=>{
-    //       for(let i=0; i<this.featureList.length; i++){      
-    //       if(ele.title == this.featureList[i].name){
-    //         return false;
-    //       }else{
-    //         return true;
-    //         }
-    //       }
-
-    //     })
-
-    // })
-    console.log(this.pushAray);
-
-    // this.router.navigate(['hommodule/one/comparePlan'])
-  }
   compareCard(id, j, e) {
     console.log(j);
     // document.getElementById('compareButton').style.display = "none"
@@ -613,21 +729,22 @@ export class HealthQuotesComponent implements OnInit {
       this.showCard = true;
 
       this.pushAray.push(id);
-      console.log(this.pushAray)
+      console.log(this.pushAray.length)
 
 
       if (this.pushAray.length >= 2) {
-        document.getElementById('compareButton').style.display = "block"
+        (<HTMLInputElement>document.getElementById('compareButton')).classList.add('btn comparePlans')
 
-        data.setAttribute('disabled', 'false');
-        console.log(data.setAttribute)
+        // data.setAttribute('disabled', 'false');
+        // console.log(data.setAttribute)
 
       }
 
-      else {
-        document.getElementById('compareButton').style.display = "none"
-        data.setAttribute('disabled', 'true')
-        console.log(data.setAttribute)
+      else if (this.pushAray.length < 1) {
+
+        (<HTMLInputElement>document.getElementById('compareButton')).classList.remove('btn comparePlans')
+        // data.setAttribute('disabled', 'true')
+        // console.log(data.setAttribute)
       }
 
     }
@@ -635,14 +752,14 @@ export class HealthQuotesComponent implements OnInit {
       this.pushAray.splice(id, 1);
 
       if (this.pushAray.length >= 2) {
-        document.getElementById('compareButton').style.display = "block"
-        data.setAttribute('disabled', 'false');
+        (<HTMLInputElement>document.getElementById('compareButton')).classList.add('btn comparePlans')
+        // data.setAttribute('disabled', 'false');
 
 
       }
-      else {
-        document.getElementById('compareButton').style.display = "none"
-        data.setAttribute('disabled', 'true')
+      else if (this.pushAray.length < 1) {
+        (<HTMLInputElement>document.getElementById('compareButton')).classList.remove('btn comparePlans')
+        // data.setAttribute('disabled', 'true')
 
       }
 
@@ -705,6 +822,7 @@ export class HealthQuotesComponent implements OnInit {
     this.openEdit = true;
 
   }
+
   getHealthquotesData() {
 
     if (this.id == "update") {
