@@ -5,6 +5,7 @@ import { EditService } from '../edit-info/edit.service';
 import { BlockingProxy } from 'blocking-proxy';
 import { runInThisContext } from 'vm';
 import { HomeService } from '../home/home.service'
+import { strictEqual } from 'assert';
 @Component({
   selector: 'app-health-quotes',
   templateUrl: './health-quotes.component.html',
@@ -15,11 +16,13 @@ import { HomeService } from '../home/home.service'
 export class HealthQuotesComponent implements OnInit {
   storing: any;
   quotesArray: any;
+  specialFeaturee: any = [];
   loader: boolean = true;
   showExclusion: boolean = false;
   sumInsured: any;
   storeComparedData: any;
   cLogo: any;
+  specialFeatures: any = [];
   sidata: any = [];
   savedtitle: any;
   storecompareTitle: any = [];;
@@ -79,6 +82,7 @@ export class HealthQuotesComponent implements OnInit {
   detailspremium: any
   exclusion: any;
   summInsured: any;
+  specialFeaturee1: any = [];
   storehealthCover: any;
   id: any;
   exclusionDiv: boolean = false;
@@ -318,124 +322,124 @@ export class HealthQuotesComponent implements OnInit {
 
   suminsured = [
     {
-      name: ' 3 Lakhs - 3.5 Lakhs',
-      value: 300000
+      name: ' ₹ 3 Lakhs - 3.5 Lakhs',
+      value: '300000'
     },
     {
-      name: ' 4 Lakhs - 4.5 Lakhs',
-      value: 400000
+      name: ' ₹ 4 Lakhs - 4.5 Lakhs',
+      value: '400000'
     },
 
     {
-      name: ' 6 Lakhs - 6.5 Lakhs',
-      value: 600000
+      name: '  ₹ 6 Lakhs - 6.5 Lakhs',
+      value: '600000'
     },
     {
-      name: '   7 Lakhs - 7.5 Lakhs',
-      value: 700000
+      name: ' ₹ 7 Lakhs - 7.5 Lakhs',
+      value: '700000'
     },
     {
-      name: ' 8 Lakhs - 8.5 Lakhs',
-      value: 800000
+      name: '₹ 8 Lakhs - 8.5 Lakhs',
+      value: '800000'
     },
     {
-      name: ' 9 Lakhs - 9.5 Lakhs',
-      value: 900000
+      name: '₹ 9 Lakhs - 9.5 Lakhs',
+      value: '900000'
     },
     {
-      name: ' 10 Lakhs - 10.5 Lakhs',
-      value: 1000000
+      name: '₹ 10 Lakhs - 10.5 Lakhs',
+      value: '1000000'
     },
     {
-      name: ' 11 Lakhs - 11.5 Lakhs',
-      value: 1100000
+      name: '₹ 11 Lakhs - 11.5 Lakhs',
+      value: '1100000'
     },
     {
-      name: ' 12 Lakhs - 12.5 Lakhs',
-      value: 1200000
+      name: '₹ 12 Lakhs - 12.5 Lakhs',
+      value: '1200000'
     },
     {
-      name: ' 13 Lakhs - 13.5 Lakhs',
-      value: 1300000
+      name: '₹ 13 Lakhs - 13.5 Lakhs',
+      value: '1300000'
     },
     {
-      name: ' 14 Lakhs - 14.5 Lakhs',
-      value: 1400000
+      name: '₹ 14 Lakhs - 14.5 Lakhs',
+      value: '1400000'
     },
     {
-      name: ' 15 Lakhs - 15.5 Lakhs',
-      value: 1500000
+      name: '₹ 15 Lakhs - 15.5 Lakhs',
+      value: '1500000'
     },
     {
-      name: ' 16 Lakhs - 16.5 Lakhs',
-      value: 1600000
+      name: '₹ 16 Lakhs - 16.5 Lakhs',
+      value: '1600000'
     },
     {
-      name: ' 17 Lakhs - 17.5 Lakhs',
-      value: 1700000
+      name: '₹ 17 Lakhs - 17.5 Lakhs',
+      value: '1700000'
     },
     {
       name: ' 18 Lakhs - 18.5 Lakhs',
-      value: 1800000
+      value: '1800000'
     },
     {
-      name: ' 19 Lakhs - 19.5 Lakhs',
-      value: 1900000
+      name: '₹ 19 Lakhs - 19.5 Lakhs',
+      value: '1900000'
     },
     {
-      name: ' 20 Lakhs - 20.5 Lakhs',
-      value: 2000000
+      name: '₹ 20 Lakhs - 20.5 Lakhs',
+      value: '2000000'
     },
     {
-      name: ' 21 Lakhs - 21.5 Lakhs',
-      value: 2100000
+      name: '₹ 21 Lakhs - 21.5 Lakhs',
+      value: '2100000'
     },
     {
-      name: ' 22 Lakhs - 22.5 Lakhs',
-      value: 2200000
+      name: '₹ 22 Lakhs - 22.5 Lakhs',
+      value: '2200000'
     },
     {
-      name: ' 23 Lakhs - 23.5 Lakhs',
-      value: 2300000
+      name: '₹ 23 Lakhs - 23.5 Lakhs',
+      value: '2300000'
     },
     {
-      name: ' 24 Lakhs - 24.5 Lakhs',
-      value: 2400000
+      name: '₹ 24 Lakhs - 24.5 Lakhs',
+      value: '2400000'
     },
     {
-      name: ' 25 Lakhs - 25.5 Lakhs',
-      value: 2500000
+      name: '₹ 25 Lakhs - 25.5 Lakhs',
+      value: '2500000'
     },
     {
-      name: ' 30 Lakhs - 30.5 Lakhs',
-      value: 3000000
+      name: '₹ 30 Lakhs - 30.5 Lakhs',
+      value: '3000000'
     },
     {
-      name: ' 40 Lakhs - 40.5 Lakhs',
-      value: 4000000
+      name: '₹ 40 Lakhs - 40.5 Lakhs',
+      value: '4000000'
     },
     {
-      name: ' 50 Lakhs - 50.5 Lakhs',
-      value: 5000000
+      name: '₹ 50 Lakhs - 50.5 Lakhs',
+      value: '5000000'
     }, {
-      name: ' 60 Lakhs - 60.5 Lakhs',
-      value: 6000000
+      name: '₹ 60 Lakhs - 60.5 Lakhs',
+      value: '6000000'
     }, {
-      name: ' 70 Lakhs - 70.5 Lakhs',
-      value: 7000000
+      name: '₹ 70 Lakhs - 70.5 Lakhs',
+      value: '7000000'
     }, {
-      name: ' 75 Lakhs - 75.5 Lakhs',
-      value: 7500000
+      name: '₹ 75 Lakhs - 75.5 Lakhs',
+      value: '7500000'
     },
     {
-      name: ' 1 Crore',
-      value: 10000000
+      name: '₹ 1 Crore',
+      value: '10000000'
     }, {
-      name: ' 1.5 Crore',
-      value: 15000000
+      name: '₹ 1.5 Crore',
+      value: '15000000'
     }, {
-      name: '2 Crore',
-      value: 20000000
+      name: '₹ 2 Crore',
+      value: '20000000'
     },]
   attr: any;
   getdata: any;
@@ -444,13 +448,14 @@ export class HealthQuotesComponent implements OnInit {
     this.route.queryParams.subscribe((params) => {
       console.log(params)
       this.id = params['id']
-      this.healthCover = params['healthCover'];
+
       console.log(this.healthCover)
       if (this.id == 'add' || this.id == 'skip') {
         console.log(params);
         this.addData = true;
         this.storing = JSON.parse(localStorage.getItem('user') || '[]');
-        console.log(this.storing)
+        this.healthCover = this.storing.healthCover;
+        console.log(this.storing.healthCover)
         this.addDetails.sum_insured = this.storing.sum_insured;
         console.log(this.addDetails.sum_insured)
         this.addDetails.email = this.storing.email;
@@ -477,6 +482,7 @@ export class HealthQuotesComponent implements OnInit {
         this.editData = true;
         this.upStoring = JSON.parse(localStorage.getItem('user') || '[]');
         console.log(this.upStoring)
+        this.healthCover = this.upStoring.healthCover;
         // console.log('hii')
         // console.log(params)
         this.editDetails.quote_no = this.upStoring.quote_no;
@@ -667,7 +673,7 @@ export class HealthQuotesComponent implements OnInit {
       })
       console.log(this.quotesArray)
 
-    } 
+    }
     // }
     else {
       this.getHealthquotesData();
@@ -698,8 +704,6 @@ export class HealthQuotesComponent implements OnInit {
 
 
 
-
-
   removecard(k) {
 
     this.pushAray.splice(k, 1);
@@ -711,20 +715,22 @@ export class HealthQuotesComponent implements OnInit {
         (<HTMLInputElement>document.getElementById('compare' + j)).checked = false;
       }
     }
-    // this.showCard = false;
+    if (this.pushAray.length >= 2) {
+      document.getElementById('compareButton').style.display = "block";
+    }
+    else if (this.pushAray.length < 1) {
+      document.getElementById('compareButton').style.display = "none";
 
+    }
   }
 
   compareCard(id, j, e) {
     console.log(j);
-    // document.getElementById('compareButton').style.display = "none"
+
     let data = document.getElementById('compareButton')
     console.log(id)
 
-    // if(document.getElementById('checker').style.display = "block"){
-    //   document.getElementById('compareButton').style.display = "block"
-    // }
-    // console.log(this.storecompareTitle)
+
     if (e.target.checked == true) {
       this.showCard = true;
 
@@ -733,8 +739,7 @@ export class HealthQuotesComponent implements OnInit {
 
 
       if (this.pushAray.length >= 2) {
-        (<HTMLInputElement>document.getElementById('compareButton')).classList.add('btn comparePlans')
-
+        document.getElementById('compareButton').style.display = "block";
         // data.setAttribute('disabled', 'false');
         // console.log(data.setAttribute)
 
@@ -742,7 +747,7 @@ export class HealthQuotesComponent implements OnInit {
 
       else if (this.pushAray.length < 1) {
 
-        (<HTMLInputElement>document.getElementById('compareButton')).classList.remove('btn comparePlans')
+        document.getElementById('compareButton').style.display = "none";
         // data.setAttribute('disabled', 'true')
         // console.log(data.setAttribute)
       }
@@ -752,13 +757,13 @@ export class HealthQuotesComponent implements OnInit {
       this.pushAray.splice(id, 1);
 
       if (this.pushAray.length >= 2) {
-        (<HTMLInputElement>document.getElementById('compareButton')).classList.add('btn comparePlans')
-        // data.setAttribute('disabled', 'false');
+        document.getElementById('compareButton').style.display = "block"
+        // data.setAttribute('disabled', 'false');/
 
 
       }
       else if (this.pushAray.length < 1) {
-        (<HTMLInputElement>document.getElementById('compareButton')).classList.remove('btn comparePlans')
+        document.getElementById('compareButton').style.display = "none"
         // data.setAttribute('disabled', 'true')
 
       }
@@ -782,7 +787,7 @@ export class HealthQuotesComponent implements OnInit {
   }
 
   backTOquation() {
-    this.router.navigate(['/homemodule/one'])
+    this.router.navigate(['/health-insurance/quotes'])
   }
 
 
@@ -814,7 +819,7 @@ export class HealthQuotesComponent implements OnInit {
   //   }
 
   updateDetails(e) {
-    this.router.navigate(['/homemodule/one/edit'],
+    this.router.navigate(['/health-insurance/quotes/edit'],
       {
         // queryParams: this.addDetails,
       });
@@ -890,6 +895,8 @@ export class HealthQuotesComponent implements OnInit {
           e['id'] = index;
           this.brochure = e.productDetails.brochure;
           this.sumInsured = e.sumInsured;
+        
+
 
           this.specialFeatureList = e.SpecialFeatureLists
           this.cashlessHospital = e.CashlessHospitalLists
@@ -943,7 +950,18 @@ export class HealthQuotesComponent implements OnInit {
   showDetails(i) {
 
     this.exclusionArray = i.productDetailListsApp.exclusion;
-    this.specialFeature = i.SpecialFeatureLists;
+    this.specialFeature = i.productDetailListsApp.coveredFeatures;
+    this.specialFeatures = i.productDetailListsApp.specialFeatures;
+    // if(this.specialFeatures.length >=4 && this.specialFeatures.length <=8){
+    this.specialFeaturee = this.specialFeatures.slice(0, 2);
+    // }
+    this.specialFeaturee1 = this.specialFeatures.slice(2, 6);
+    console.log(this.specialFeatures)
+    console.log(this.specialFeaturee)
+    console.log(this.specialFeaturee1)
+
+
+
 
     // this.router.navigate(['/homemodule/one/details'], {queryParams: {data: this.specialFeatureList}})
     this.detailsDiv = true;
@@ -958,6 +976,10 @@ export class HealthQuotesComponent implements OnInit {
     this.policyBrochure = i.productDetails.brochure;
     this.exclusion = i.productDetailListsApp.exclusion;
 
+  }
+
+  removeFeatureCols(p) {
+    this.pushAray.splice(p, 1)
   }
 
   downloadPolicy(i) {

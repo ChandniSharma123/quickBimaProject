@@ -204,6 +204,7 @@ export class HomeComponent {
           mobile: this.mobile,
           email: this.email,
           term: 1,
+          healthCover: this.healthCover,
           pincode: this.pincode,
           cover: this.cover,
         }
@@ -214,10 +215,10 @@ export class HomeComponent {
         // console.log(localStorage.getItem(this.getData))
 
 
-        this.router.navigate(['/homemodule/one'], {
+        this.router.navigate(['/health-insurance/quotes'], {
           queryParams: {
             id: 'add',
-            healthCover: this.healthCover,
+            // healthCover: this.healthCover,
             // sumInsured: this.sumInsured, cover: this.cover,
             // healthCover: this.healthCover, quote: this.quote_no,
             // pincode: this.pincode, city: this.city, state: this.state,

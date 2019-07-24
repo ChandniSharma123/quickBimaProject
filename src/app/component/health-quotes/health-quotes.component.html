@@ -30,7 +30,11 @@
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-
+    <script>
+        $(document).ready(function () {
+            $('.ui.dropdown').dropdown();
+        });
+    </script>
     <script>
         $(function () {
             $("#datepicker, #datepicker2").datepicker({
@@ -261,9 +265,15 @@
 
                     <div class="form-group col-sm-5" tabindex="-1">
                         <div class="sumInsured pull-right">
-                            <h4>Sum Insured
+                            <h4 style="margin-top:12px">Sum Insured
                                 <!-- <i class="fa fa-inr"></i> -->
                             </h4>
+                            <!-- <select class="ui dropdown item" >
+                                <option *ngFor = "let i of quotesArray" value="100000">{{i.sumInsured}}</option>
+                               
+                            </select> -->
+                            <!-- <p>This is the coverage amount of your policy.</p> -->
+
                             <!-- <select class=" form-control" tabindex="-1"
                                 style="margin-left: 6px;height:31px;margin-top:-2px">
                                 <option tabindex="-1" style="width:50px" value="">
@@ -272,22 +282,24 @@
                                     {{i.sumInsured}}</option>
                             </select> -->
 
-                            <div *ngIf = "addData">
-                            <select [(ngModel)]="addDetails.sum_insured" id="healthSumInsured" class="form-control"
-                                (change)="update(addDetails.sum_insured)" name="healthSumInsured" autocomplete="nope">
-                                <option>5 Lakhs - 5.5 Lakhs</option>
-                                <option *ngFor="let sum of suminsured" [value]="sum.value">{{sum.name}}
-                                </option>
-                            </select>
+                            <div *ngIf="addData">
+                                <select [(ngModel)]="addDetails.sum_insured" id="healthSumInsured" style="width:67%"
+                                    class="form-control" (change)="update(addDetails.sum_insured)"
+                                    name="healthSumInsured" autocomplete="nope">
+                                    <option> ₹ 5 Lakhs - 5.5 Lakhs</option>
+                                    <option *ngFor="let sum of suminsured" [value]="sum.value">{{sum.name}}
+                                    </option>
+                                </select>
 
                             </div>
-                            <div *ngIf = "editData">
-                            <select [(ngModel)]="editDetails.sum_insured" id="healthSumInsured" class="form-control"
-                                (change)="update(editDetails.sum_insured)" name="healthSumInsured" autocomplete="nope">
-                                <option>5 Lakhs - 5.5 Lakhs</option>
-                                <option *ngFor="let sum of suminsured" [value]="sum.value">{{sum.name}}
-                                </option>
-                            </select>
+                            <div *ngIf="editData">
+                                <select [(ngModel)]="editDetails.sum_insured" id="healthSumInsured" style="width:67%"
+                                    class="form-control" (change)="update(editDetails.sum_insured)"
+                                    name="healthSumInsured" autocomplete="nope">
+                                    <option>₹ 5 Lakhs - 5.5 Lakhs</option>
+                                    <option *ngFor="let sum of suminsured" [value]="sum.value">{{sum.name}}
+                                    </option>
+                                </select>
                             </div>
                             <p>This is the coverage amount of your policy.</p>
                         </div>
@@ -584,6 +596,7 @@
                                                 <div class="row coveredFeatures">
                                                     <div class="col-sm-12">
                                                         <h4 class="text-uppercase"> Covered Special Features</h4>
+
                                                         <div *ngFor="let sp of specialFeature">
                                                             <p>{{sp.title}}</p>
 
@@ -591,11 +604,24 @@
                                                     </div>
                                                 </div>
                                                 <div class="row coveredFeatures">
-                                                    <div class="col-sm-6">
-                                                        <h4><span>Pre-Existing Diseases -</span> Covered after 4 years
+                                                        <div class="col-sm-12">
+                                                    <div class="col-sm-6" *ngFor="let data of specialFeaturee">
+
+                                                        <h4 style="font-family: 'Roboto' , sans-serif"
+                                                            >
+                                                            <span>{{data.title}}-</span>{{data.description}}
                                                         </h4>
                                                     </div>
-                                                    <div class="col-sm-6">
+                                                    <div class="col-sm-6" *ngFor="let data of specialFeaturee1">
+
+                                                            <h4 style="font-family: 'Roboto' , sans-serif">
+                                                                <!-- *ngIf="data.description!= 'NA' && data.description!= 'Yes' && data.description!= 'No'"> -->
+                                                                <span>{{data.title}}-</span>{{data.description}}
+                                                            </h4>
+                                                        </div>
+                                                </div>
+
+                                                    <!-- <div class="col-sm-6">
                                                         <h4><span>Room Rent -</span> No Limit</h4>
                                                     </div>
                                                     <div class="col-sm-6">
@@ -608,7 +634,7 @@
                                                         <h4><span>Ambulance Charges -</span> <i class="fa fa-inr"></i>
                                                             2,000
                                                         </h4>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-12">
@@ -623,32 +649,28 @@
                                             <div *ngIf="showExclusion">
                                                 <div class="inner-part active" id="policyexclusions">
                                                     <div class="row">
-                                                        <!-- <div *ngFor="let ex of pushAray"> -->
-
                                                         <h4 class="text-uppercase">Exclusions</h4>
-                                                        <div class="col-sm-12" *ngFor="let ex of quotesArray">
-                                                            <!-- <div class="col-sm-12"
-                                                                *ngFor="let excl of ex.productDetailListsApp"> -->
+                                                        <div class="col-sm-12">
                                                             <div class="points"
-                                                                *ngFor="let prod of ex.productDetailListsApp.exclusion">
-                                                                <!-- <div *ngFor="let clusion of excl.exclusion"> -->
-                                                                <!-- <div class="circle">{{ind}}</div> -->
-                                                                <!-- <p>{{clusion.title}}</p>
-                                                                    </div> -->
-                                                                <!-- </div> -->
-                                                                <!-- <p>{{ex.productDetailListsApp.exclusion}}</p> -->
+                                                                *ngFor="let prod of exclusionArray; let i = index">
+                                                              
                                                                 <div class="circle">
+                                                                    {{i}}
                                                                 </div>
+                                                            
                                                                 <p>{{prod.title}}</p>
                                                                 <p>{{prod.description}}</p>
 
-                                                                <!-- </div> -->
-                                                                <!-- </div> -->
 
 
                                                             </div>
 
                                                         </div>
+                                                        <div *ngIf = "exclusionArray.length <=0">
+                                                            <p style = "text-align: center;
+                                                           
+                                                            margin-top: 22%;font-size:31px">There is no Exclusion for this Plan !!</p>
+                                                            </div>
                                                     </div>
                                                 </div>
 
@@ -1371,7 +1393,7 @@
                         <div class="selectedQuote" *ngFor="let k of pushAray" id="checker">
 
                             <a href="javascript:void(0);" (click)="removecard(k)" class="removeQuote"></a>
-                          
+
 
                             <img src="{{k.CompanyDetails.logo}}" alt="insurer">
                             <h4><i class="fa fa-inr"></i>{{k.premiumDetails.finalPremium}}<small>(Incl. GST)</small>
@@ -1379,9 +1401,10 @@
                             <p>{{k.productDetails.product_name}}</p>
                         </div>
                     </div>
- 
 
-                    <div class="btn comparePlans" (click)="comparePlan()" id="compareButton" style = "display:none">
+
+
+                    <div class="btn comparePlans" (click)="comparePlan()" style="display:none" id="compareButton">
                         <a>Compare
                             Plans</a></div>
 
@@ -1400,7 +1423,7 @@
 
                 <ul>
                     <li *ngFor="let i of featureList" class="{{i.class}}">
-                       <p> {{i.name}}</p>
+                        <p> {{i.name}}</p>
                     </li>
                     <!-- <li>
                         <p class="copay">Co-Pay</p>
@@ -1532,17 +1555,17 @@
             </div>
             <div class="featuresCols" *ngFor="let p of pushAray">
                 <div class="topPart fixedsticky">
-                    <a href="javascript:void(0);" class="close-quote"></a>
+                    <a href="javascript:void(0);" class="close-quote" (click) = "removeFeatureCols(p)"></a>
                     <img src="{{p.CompanyDetails.logo}}" class="insurerLogo" alt="insurer">
                     <div class="planNames">
                         <p>{{p.CompanyDetails.short_desc}}</p>
                     </div>
                 </div>
                 <ul>
-                    <li *ngFor= "let q of p.newArray">
-                       <p> {{q.description}}</p>
-                         <p *ngIf = "q.description == 'Yes'"><i class="fa fa-check"></i></p>
-                         <p *ngIf  = "q.description == ''"><i class="fa fa-times"></i></p>
+                    <li *ngFor="let q of p.newArray">
+                        <p> {{q.description}}</p>
+                        <p *ngIf="q.description == 'Yes'"><i class="fa fa-check"></i></p>
+                        <p *ngIf="q.description == ''"><i class="fa fa-times"></i></p>
                         <!---<p *ngIf="q.code == 'HF007'">{{q.description}}</p>
                         <p *ngIf="q.code == 'HF008'">{{q.description}}</p>
                         <p *ngIf="q.code == 'HF013'">{{q.description}}</p>

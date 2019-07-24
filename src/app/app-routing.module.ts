@@ -7,11 +7,11 @@ import { DetailsComponent } from './component/details/details.component';
 import { ComparePlanComponent } from './compare-plan/compare-plan.component';
 const routes: Routes = [
 
-  { path: '', redirectTo: 'homemodule', pathMatch: 'full' },
+  { path: '', redirectTo: 'health-insurance', pathMatch: 'full' },
   // { path: 'homemodule', loadChildren: '../app/component/home/home.module#homeModule' },
-{path : 'homemodule' , component : HomeComponent},
-{path : 'homemodule/one' , component : HealthQuotesComponent },
-{path : 'homemodule/one/edit' , component : EditInfoComponent },
+{path : 'health-insurance' , component : HomeComponent},
+{path : 'health-insurance/quotes' , component : HealthQuotesComponent },
+{path : 'health-insurance/quotes/edit' , component : EditInfoComponent },
 {path : 'homemodule/one/details' , component : DetailsComponent},
 {path : 'hommodule/one/comparePlan', component: ComparePlanComponent}
 ];

@@ -271,7 +271,7 @@ export class EditInfoComponent implements OnInit {
   }
 
   routeonHealthPage() {
-    this.router.navigate(['/homemodule/one'],
+    this.router.navigate(['/health-insurance/quotes'],
       {
         queryParams: {
           id: 'skip'
@@ -288,21 +288,22 @@ export class EditInfoComponent implements OnInit {
     //console.log(this.icon);
 
     let data = {
-    
-          quote_no: this.editObj.quote_no,
-          sum_insured: this.editObj.sum_insured,
-          age: this.updateForm.get('age').value,
-          city: this.editObj.city,
-          state: this.editObj.state,
-          term: 1,
-          cover: this.icon,
-          adult: this.updateForm.get('adult').value,
-          child: this.updateForm.get('child').value,
-          pincode: this.updateForm.get('pincode').value,
-          gender: this.updateForm.get('gender').value,
 
-        }
-    
+      quote_no: this.editObj.quote_no,
+      sum_insured: this.editObj.sum_insured,
+      age: this.updateForm.get('age').value,
+      city: this.editObj.city,
+      state: this.editObj.state,
+      term: 1,
+      cover: this.icon,
+      healthCover: this.healthCover,
+      adult: this.updateForm.get('adult').value,
+      child: this.updateForm.get('child').value,
+      pincode: this.updateForm.get('pincode').value,
+      gender: this.updateForm.get('gender').value,
+
+    }
+
 
     // console.log(data['results'].response.age)
     // if(this.updateForm.valid){
@@ -315,11 +316,11 @@ export class EditInfoComponent implements OnInit {
       console.log(this.localdata)
 
 
-      this.router.navigate(['/homemodule/one'],
+      this.router.navigate(['/health-insurance/quotes'],
         {
           queryParams: {
             id: 'update',
-            healthCover: this.healthCover,
+            // healthCover: this.healthCover,
 
           }
         })
