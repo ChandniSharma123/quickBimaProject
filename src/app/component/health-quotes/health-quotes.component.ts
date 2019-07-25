@@ -15,6 +15,7 @@ import { strictEqual } from 'assert';
 
 export class HealthQuotesComponent implements OnInit {
   storing: any;
+  quotesArray2: any = [];
   quotesArray: any;
   specialFeaturee: any = [];
   loader: boolean = true;
@@ -25,7 +26,9 @@ export class HealthQuotesComponent implements OnInit {
   specialFeatures: any = [];
   sidata: any = [];
   savedtitle: any;
-  storecompareTitle: any = [];;
+  storecompareTitle: any = [];
+  pushedArrayInsurer: any[]=[];
+
   compareplan: any;
   policyBrochure: any;
   specialFeature: any = [];
@@ -74,6 +77,7 @@ export class HealthQuotesComponent implements OnInit {
   sumInsured_state: any;
   sumInsured_email: any;
   sumInsured_age: any;
+  pushedArray2: any[] = [];
   sumInsured_pincode: any;
   sumInsured_child: any;
   sumInsured_adult: any;
@@ -274,6 +278,60 @@ export class HealthQuotesComponent implements OnInit {
       code: "",
     },
   ]
+  termArray =[{
+id: 'term1',
+name: '1 year'
+  },
+
+  {
+    id: 'term2',
+name: '2 years'
+  },
+{
+  id: 'term1',
+name: '3 year3'
+  },
+]
+
+insurersArray=[
+  {
+id: 'Rs',
+name: 'Royal Sundaram',
+company_code: 'G009',
+},
+{
+id:'Am',
+name: 'Appoloo Munich',
+company_code: 'G016',
+},
+
+{
+id: 'Ab',
+name: 'Aditya Birla',
+company_code: 'G028',
+},
+{
+id:'HE',
+name: 'HDFC ERGO',
+company_code: 'G012',
+},
+{
+  id: 'Mc',
+  name: 'Manipal Cigna',
+  company_code: 'G027',
+},
+{
+  id:'Rl',
+  name: 'Religare',
+  company_code: 'G025',
+},
+
+{
+  id : 'st',
+  name: 'Star',
+  company_code : 'G015'
+}
+]
 
   addDetails = {
     device: "Desktop",
@@ -444,7 +502,7 @@ export class HealthQuotesComponent implements OnInit {
   attr: any;
   getdata: any;
   ngOnInit() {
-
+    console.log(this.checkboxesArray)
     this.route.queryParams.subscribe((params) => {
       console.log(params)
       this.id = params['id']
@@ -555,7 +613,8 @@ export class HealthQuotesComponent implements OnInit {
         this.message = res['results'].message
 
         console.log(this.quotesArray)
-        this.responsePlan = this.quotesArray.length
+        this.quotesArray2 = this.quotesArray.slice();
+        this.responsePlan = this.quotesArray2.length
         this.quotesArray.map((e) => {
           e.newArray = [];
 
@@ -604,7 +663,8 @@ export class HealthQuotesComponent implements OnInit {
         this.message = res['results'].message;
         this.sidata = res['results'].sumInsured;
         console.log(this.sidata)
-        this.responsePlan = this.quotesArray.length;
+        this.quotesArray2 = this.quotesArray.slice();
+        this.responsePlan = this.quotesArray2.length;
         this.quotesArray.map((e) => {
           e.newArray = [];
 
@@ -649,59 +709,63 @@ export class HealthQuotesComponent implements OnInit {
     // this.router.navigate(['hommodule/one/comparePlan'])
   }
 
-  HealthcoverChecked(value, checked, code) {
-    console.log(code);
+  HealthcoverChecked(value, i, code) {
+    console.log(value);
     console.log(this.quotesArray);
-
+    console.log(code);
     if (value.target.checked == true) {
-      // if (value.target.id == "zd" && value.target.id == "cb1" ) {
-      console.log(value.target.id);
-
-
-      this.quotesArray = this.quotesArray.filter((e) => {
-        for (let i = 0; i < e.SpecialFeatureLists.length; i++) {
-          if (e.SpecialFeatureLists[i].code == code) {
-            return true;
-
-          }
-          else {
-            console.log('ji')
-            return false;
-          }
-        }
-
-      })
-      console.log(this.quotesArray)
-
+      this.pushedArray2.push(code);
+      console.log(this.pushedArray2);
     }
-    // }
     else {
-      this.getHealthquotesData();
+      for (let i = 0; i < this.pushedArray2.length; i++) {
+        if (this.pushedArray2[i].id == code.id) {
+          this.pushedArray2.splice(i, 1);
+        }
+      }
     }
-
-    // if (value.target.checked == true) {
-    //   if (value.target.id == "cb1") {
-    //     console.log(value.target.id);
-    //     this.quotesArray = this.quotesArray.filter((e) => {
-    //       for (let i = 0; i < e.SpecialFeatureLists.length; i++) {
-    //         if (e.SpecialFeatureLists[i].code == 'HF007') {
-    //           return true;
-    //         }
-    //       }
-
-    //     })
-    //   }
-    // }
-    // else {
-    //   console.log('hiii')
-
-    //   this.responsePlan = this.quotesArray.length;
-
-    // }
-    this.responsePlan = this.quotesArray.length;
-
+    this.changeFilter();
   }
 
+  changeFilter(){
+    this.quotesArray2 = this.quotesArray.filter((e) => {
+      for (let c = 0; c < this.pushedArray2.length; c++) {
+        let flag = false;
+        const pEle = this.pushedArray2[c];
+        for (let i = 0; i < e.SpecialFeatureLists.length; i++) {
+          if (e.SpecialFeatureLists[i].code == pEle.code) {
+            flag = true;
+          }
+        }
+        if (!flag) {
+          return false;
+        }
+      }
+      for (let c = 0; c < this.pushedArrayInsurer.length; c++) {
+        const pEle = this.pushedArrayInsurer[c];
+        if (e.CompanyDetails.company_code != pEle.company_code) {
+          return false;
+        }
+      }
+      return true;
+    })
+
+   
+  }
+
+  checkInsurer(value, i, code){
+    if (value.target.checked == true) {
+      this.pushedArrayInsurer.push(code);
+    }
+    else {
+      for (let i = 0; i < this.pushedArrayInsurer.length; i++) {
+        if (this.pushedArrayInsurer[i].company_code == code.company_code ) {
+          this.pushedArrayInsurer.splice(i, 1);
+        }
+      }
+    }
+    this.changeFilter();
+  }
 
 
   removecard(k) {
@@ -836,9 +900,10 @@ export class HealthQuotesComponent implements OnInit {
         console.log(res);
         this.quotesArray = res['results'].response;
         this.message = res['results'].message;
+        this.quotesArray2 = this.quotesArray.slice();
 
-        console.log(this.quotesArray)
-        this.responsePlan = this.quotesArray.length
+        console.log(this.quotesArray2)
+        this.responsePlan = this.quotesArray2.length
         this.quotesArray.map((e) => {
           e.newArray = [];
 
@@ -857,13 +922,14 @@ export class HealthQuotesComponent implements OnInit {
       this.healthquote.gethealthQuotes(this.addDetails).subscribe((res) => {
 
         this.quotesArray = res['results'].response;
+        this.quotesArray2 = this.quotesArray.slice();
 
         this.message = res['results'].message
-        console.log(this.quotesArray)
+        console.log(this.quotesArray2)
 
 
 
-        this.responsePlan = this.quotesArray.length
+        this.responsePlan = this.quotesArray2.length
         this.quotesArray = res['results'].response;
         console.log(this.quotesArray)
         this.quotesArray.map((e) => {
@@ -895,7 +961,7 @@ export class HealthQuotesComponent implements OnInit {
           e['id'] = index;
           this.brochure = e.productDetails.brochure;
           this.sumInsured = e.sumInsured;
-        
+
 
 
           this.specialFeatureList = e.SpecialFeatureLists
