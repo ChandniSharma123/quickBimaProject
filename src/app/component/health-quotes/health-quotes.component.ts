@@ -27,7 +27,7 @@ export class HealthQuotesComponent implements OnInit {
   sidata: any = [];
   savedtitle: any;
   storecompareTitle: any = [];
-  pushedArrayInsurer: any[]=[];
+  pushedArrayInsurer: any[] = [];
 
   compareplan: any;
   policyBrochure: any;
@@ -92,10 +92,10 @@ export class HealthQuotesComponent implements OnInit {
   exclusionDiv: boolean = false;
   featureList: any = [
     {
-      name: "Co-Pay",
+      name: "Co-pay",
       class: "copay"
     }, {
-      name: "Pre-Existing Diseases",
+      name: "Pre-existing Diseases",
       class: "preexistingdiseases"
     }, {
       name: "Recharge Benefit",
@@ -106,7 +106,7 @@ export class HealthQuotesComponent implements OnInit {
     },
 
     {
-      name: "Ayush / Alternative Treatment Cover",
+      name: "Ayush/Alternative Treatment Cover",
       class: "ayushalternativetreatmentcover"
     },
     {
@@ -126,7 +126,7 @@ export class HealthQuotesComponent implements OnInit {
       class: "prehospitalisationcover"
     },
     {
-      name: "Post Hospitalization",
+      name: "Post Hospitalisation Cover",
       class: "posthospitalisationcover"
     },
     {
@@ -138,7 +138,7 @@ export class HealthQuotesComponent implements OnInit {
       class: "roomrent"
     },
     {
-      name: "icucharges",
+      name: "ICU Charges",
       class: "ICU Charges"
     },
     {
@@ -278,60 +278,60 @@ export class HealthQuotesComponent implements OnInit {
       code: "",
     },
   ]
-  termArray =[{
-id: 'term1',
-name: '1 year'
+  termArray = [{
+    id: 'term1',
+    name: '1 year'
   },
 
   {
     id: 'term2',
-name: '2 years'
+    name: '2 years'
   },
-{
-  id: 'term1',
-name: '3 year3'
-  },
-]
-
-insurersArray=[
   {
-id: 'Rs',
-name: 'Royal Sundaram',
-company_code: 'G009',
-},
-{
-id:'Am',
-name: 'Appoloo Munich',
-company_code: 'G016',
-},
+    id: 'term1',
+    name: '3 year3'
+  },
+  ]
 
-{
-id: 'Ab',
-name: 'Aditya Birla',
-company_code: 'G028',
-},
-{
-id:'HE',
-name: 'HDFC ERGO',
-company_code: 'G012',
-},
-{
-  id: 'Mc',
-  name: 'Manipal Cigna',
-  company_code: 'G027',
-},
-{
-  id:'Rl',
-  name: 'Religare',
-  company_code: 'G025',
-},
+  insurersArray = [
+    {
+      id: 'Rs',
+      name: 'Royal Sundaram',
+      company_code: 'G009',
+    },
+    {
+      id: 'Am',
+      name: 'Appoloo Munich',
+      company_code: 'G016',
+    },
 
-{
-  id : 'st',
-  name: 'Star',
-  company_code : 'G015'
-}
-]
+    {
+      id: 'Ab',
+      name: 'Aditya Birla',
+      company_code: 'G028',
+    },
+    {
+      id: 'HE',
+      name: 'HDFC ERGO',
+      company_code: 'G012',
+    },
+    {
+      id: 'Mc',
+      name: 'Manipal Cigna',
+      company_code: 'G027',
+    },
+    {
+      id: 'Rl',
+      name: 'Religare',
+      company_code: 'G025',
+    },
+
+    {
+      id: 'st',
+      name: 'Star',
+      company_code: 'G015'
+    }
+  ]
 
   addDetails = {
     device: "Desktop",
@@ -668,6 +668,7 @@ company_code: 'G012',
         this.quotesArray.map((e) => {
           e.newArray = [];
 
+
           for (let i = 0; i < 4; i++) {
             if (e.SpecialFeatureLists[i]) {
               e.newArray.push(e.SpecialFeatureLists[i]);
@@ -727,7 +728,7 @@ company_code: 'G012',
     this.changeFilter();
   }
 
-  changeFilter(){
+  changeFilter() {
     this.quotesArray2 = this.quotesArray.filter((e) => {
       for (let c = 0; c < this.pushedArray2.length; c++) {
         let flag = false;
@@ -750,16 +751,16 @@ company_code: 'G012',
       return true;
     })
 
-   
+    //done
   }
 
-  checkInsurer(value, i, code){
+  checkInsurer(value, i, code) {
     if (value.target.checked == true) {
       this.pushedArrayInsurer.push(code);
     }
     else {
       for (let i = 0; i < this.pushedArrayInsurer.length; i++) {
-        if (this.pushedArrayInsurer[i].company_code == code.company_code ) {
+        if (this.pushedArrayInsurer[i].company_code == code.company_code) {
           this.pushedArrayInsurer.splice(i, 1);
         }
       }
@@ -907,6 +908,10 @@ company_code: 'G012',
         this.quotesArray.map((e) => {
           e.newArray = [];
 
+          e.featureListt = [];
+
+          e.featureList = this.featureList.splice();
+
           for (let i = 0; i < 4; i++) {
             if (e.SpecialFeatureLists[i]) {
               e.newArray.push(e.SpecialFeatureLists[i]);
@@ -934,6 +939,26 @@ company_code: 'G012',
         console.log(this.quotesArray)
         this.quotesArray.map((e) => {
           e.newArray = [];
+
+          e.totalFeatureList = this.featureList.slice();
+          console.log(e.totalFeatureList)
+          e.totalFeatureList.map((m) => {
+            let desc = e.productDetailListsApp.specialFeatures.filter((f) => {
+              // console.log(m.name)
+              // console.log(f.title)
+              // console.log(f.title == m.name)
+              return f.title == m.name
+
+            })
+            console.log(e.totalFeatureList)
+            console.log(desc)
+            if (desc.length) {
+              m.description = desc[0].description;
+            }
+            else {
+              m.description = "";
+            }
+          })
 
           for (let i = 0; i < 4; i++) {
             if (e.SpecialFeatureLists[i]) {
