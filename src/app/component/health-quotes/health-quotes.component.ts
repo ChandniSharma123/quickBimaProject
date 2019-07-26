@@ -502,6 +502,7 @@ export class HealthQuotesComponent implements OnInit {
   attr: any;
   getdata: any;
   ngOnInit() {
+    console.log(this.featureList)
     console.log(this.checkboxesArray)
     this.route.queryParams.subscribe((params) => {
       console.log(params)
@@ -690,21 +691,21 @@ export class HealthQuotesComponent implements OnInit {
 
     this.compareplan = true;
     console.log(this.pushAray)
-    this.pushAray.map((e) => {
+    // this.pushAray.map((e) => {
 
-      e.newArray = e.newArray.filter((ele) => {
-        for (let i = 0; i < this.featureList.length; i++) {
-          if (this.featureList[i].name == ele.title) {
+    //   e.newArray = e.newArray.filter((ele) => {
+    //     for (let i = 0; i < this.featureList.length; i++) {
+    //       if (this.featureList[i].name == ele.title) {
 
-            return false;
-          } else {
-            return true;
-          }
-        }
-      })
-      console.log(e.newArray)
+    //         return false;
+    //       } else {
+    //         return true;
+    //       }
+    //     }
+    //   })
+    //   console.log(e.newArray)
 
-    })
+    // })
     console.log(this.pushAray);
 
     // this.router.navigate(['hommodule/one/comparePlan'])
@@ -908,9 +909,9 @@ export class HealthQuotesComponent implements OnInit {
         this.quotesArray.map((e) => {
           e.newArray = [];
 
-          e.featureListt = [];
+          // e.featureListt = [];
 
-          e.featureList = this.featureList.splice();
+          // e.featureList = this.featureList.splice();
 
           for (let i = 0; i < 4; i++) {
             if (e.SpecialFeatureLists[i]) {
@@ -937,23 +938,28 @@ export class HealthQuotesComponent implements OnInit {
         this.responsePlan = this.quotesArray2.length
         this.quotesArray = res['results'].response;
         console.log(this.quotesArray)
-        this.quotesArray.map((e) => {
+        this.quotesArray2.map((e) => {
           e.newArray = [];
-
+          console.log(e.SpecialFeatureLists)
           e.totalFeatureList = this.featureList.slice();
           console.log(e.totalFeatureList)
           e.totalFeatureList.map((m) => {
-            let desc = e.productDetailListsApp.specialFeatures.filter((f) => {
-              // console.log(m.name)
-              // console.log(f.title)
-              // console.log(f.title == m.name)
-              return f.title == m.name
+            let desc = e.SpecialFeatureLists.filter((f) => {
+              // if (f.title == m.name) {
+              //   console.log('gud')
+              //   console.log(f.title)
+              //   console.log(f.title == m.name)
+             return f.title == m.name
+              // }
 
             })
-            console.log(e.totalFeatureList)
+            // console.log(e.totalFeatureList)
             console.log(desc)
             if (desc.length) {
               m.description = desc[0].description;
+              console.log(m.description);
+              
+
             }
             else {
               m.description = "";

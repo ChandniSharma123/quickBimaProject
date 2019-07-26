@@ -350,22 +350,24 @@
                         <h4 class="title text-uppercase">Insurers</h4>
                         <div *ngFor="let ins of insurersArray">
                             <span class="covers">
-                                <input type="checkbox" id="{{ins.id}}" name="cb" (click)="checkInsurer($event,checked, ins )" class="checkbox" />
+                                <input type="checkbox" id="{{ins.id}}" name="cb"
+                                    (click)="checkInsurer($event,checked, ins )" class="checkbox" />
                                 <label for="{{ins.id}}">{{ins.name}}</label>
                             </span>
-                        </div>
-                          
                         </div>
 
                     </div>
 
-                    <!---Quotes Section-->
-                    <div class="col-sm-9 right-section">
-                        <div class="quote-wrapper">
-                            <h4 class="noofplans" *ngIf="message == 'Success'">We have {{quotesArray2.length}} great plans for
-                                you
-                            </h4>
-                            <!-- <div class="quote gray col-sm-12 col-md-9">
+                </div>
+
+                <!---Quotes Section-->
+                <div class="col-sm-9 right-section">
+                    <div class="quote-wrapper">
+                        <h4 class="noofplans" *ngIf="message == 'Success'">We have {{quotesArray2.length}} great plans
+                            for
+                            you
+                        </h4>
+                        <!-- <div class="quote gray col-sm-12 col-md-9">
                             <div class="dropdown">
                                 <button type="button" data-toggle="dropdown">
                                     <span class="circle"></span>
@@ -405,11 +407,11 @@
 
                             </div>
                         </div> -->
-                        </div>
-                        <div class="" *ngFor="let i of quotesArray2 ; let j = index">
-                            <div class="quote-wrapper">
-                                <div class="quote col-sm-12 col-md-9">
-                                    <!-- <div class="dropdown">
+                    </div>
+                    <div class="" *ngFor="let i of quotesArray2 ; let j = index">
+                        <div class="quote-wrapper">
+                            <div class="quote col-sm-12 col-md-9">
+                                <!-- <div class="dropdown">
                                     <button type="button" data-toggle="dropdown">
                                         <span class="circle"></span>
                                         <span class="circle"></span>
@@ -420,173 +422,170 @@
                                         <li><a href="#">Policy Document</a></li>
                                     </ul>
                                 </div> -->
-                                    <div>
-                                        <!-- <select>Brouchre
+                                <div>
+                                    <!-- <select>Brouchre
                                             <option><a href="{{brochure}}"></a></option>
                                             <option><a href="#">Policy Document</a></option>
                                         </select> -->
 
-                                        <button (click)="downloadPdf(i)" style="float:right"><i class="fa fa-file-pdf-o"
-                                                style="font-size:28px;color:black;"></i></button>
-                                    </div>
-                                    <div class="col-xs-3 text-center">
-                                        <span class="compare text-left">
-                                            <input type="checkbox" id="compare{{j}}" name="compare"
-                                                (click)="compareCard(i,j,$event)" class="checkbox">
-                                            <label for="compare{{j}}">Compare </label>
-                                        </span>
-                                        <img src="{{i.CompanyDetails.logo}}" class="insurer" alt="insurer">
-                                        <p class="planName">{{i.productDetails.product_name}}</p>
-                                        <p class="sumInsured">Sum Insured<i class="fa fa-inr" aria-hidden="true"></i>
-                                            <strong>{{i.sumInsured}}</strong></p>
-                                    </div>
-
-
-                                    <div class="col-xs-6">
-                                        <div class="v-center">
-                                            <div>
-                                                <ul class="addonCovers" *ngFor="let j of i.newArray">
-                                                    <li *ngIf="j.code == 'HF006'" class="restoration">
-                                                        <p>{{j.title}}-{{j.description}}</p>
-                                                    </li>
-                                                    <li *ngIf="j.code == 'HF004'" class="internationaltreaments">
-                                                        <p>{{j.title}}-{{j.description}}</p>
-                                                    </li>
-
-
-                                                    <li *ngIf="j.code == 'HF007'"
-                                                        class="ayushalternativetreatmentcover">
-                                                        <p>{{j.title}}-{{j.description}} </p>
-                                                    </li>
-                                                    <li *ngIf="j.code == 'HF008'" class="healthcheckup">
-                                                        <p>{{j.title}}-{{j.description}}</p>
-                                                    </li>
-                                                    <li *ngIf="j.code == 'HF015'" class="daycaretreatments">
-                                                        <p>{{j.title}}-{{j.description}}</p>
-                                                    </li>
-                                                    <li *ngIf="j.code == 'HF021'" class="secondmedicalopinion">
-                                                        <p>{{j.title}}-{{j.description}}</p>
-                                                    </li>
-                                                    <li *ngIf="j.code == 'HF002'" class="preexistingdiseases">
-                                                        <p>{{j.title}}-{{j.description}}</p>
-                                                    </li>
-                                                    <li *ngIf="j.code == 'HF013'" class="roomrent">
-                                                        <p>{{j.title}}-{{j.description}}</p>
-                                                    </li>
-                                                    <li *ngIf="j.code == 'HF024'" class="maternitycover">
-                                                        <p>{{j.title}}-{{j.description}}</p>
-                                                    </li>
-                                                    <li *ngIf="j.code == 'HF027'" class="newborncover">
-                                                        <p>{{j.title}}-{{j.description}}</p>
-                                                    </li>
-                                                    <li *ngIf="j.code == 'HF028'" class="newbornvaccination">
-                                                        <p>{{j.title}}-{{j.description}}</p>
-                                                    </li>
-                                                    <li *ngIf="j.code == 'HF005'" class="rechargebenifit">
-                                                        <p>{{j.title}}-{{j.description}}</p>
-                                                    </li>
-                                                    <li *ngIf="j.code == 'HF009'"
-                                                        class="preposthospitalisationexpenses">
-                                                        <p>{{j.title}}-{{j.description}}</p>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="detail-box row">
-                                            <div class="col-xs-1">
-                                                <span *ngFor="let k of i.newCount"> <span>{{k}}</span>
-                                                </span>
-                                            </div>
-                                            <div class="form-group col-xs-8" tabindex="-1">
-                                                <select class="form-control" tabindex="-1"
-                                                    style="margin-left: 6px;height:31px;margin-top:-2px">
-                                                    <option tabindex="-1" style="width:50px" value="">Cashless Hospitals
-                                                    </option>
-                                                    <option tabindex="-1" style="width:50px"
-                                                        *ngFor="let j of i.CashlessHospitalLists">
-                                                        {{j.hospital_name}}</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <a href="javascript:void(0);" id="breakup"
-                                                    (click)="showDetails(i)">Details</a>
-                                            </div>
-                                        </div>
-
-
-
-                                    </div>
-                                    <div class="col-xs-3">
-                                        <h4 class="premium"><i class="fa fa-inr" aria-hidden="true"></i>
-                                            <span>{{i.premiumDetails.finalPremium.toFixed(2)}}</span> <small>(Incl.
-                                                GST)</small></h4>
-                                        <a href="" class="buybima">Buy Bima</a>
-                                        <a href="#emipayment" class="emi" data-toggle="modal">EMI from <i
-                                                class="fa fa-inr" aria-hidden="true"></i>
-                                            <span>{{i.EmiDetails.emi_minimum}}</span> </a>
-                                    </div>
+                                    <button (click)="downloadPdf(i)" style="float:right"><i class="fa fa-file-pdf-o"
+                                            style="font-size:28px;color:black;"></i></button>
                                 </div>
-                                <!-- More Details -->
-                                <div *ngIf="detailsDiv" id="breakupdetails"
-                                    class="popup-content premium-breakup animated">
-                                    <a (click)="closePopup()" class="close"></a>
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-sm-9 col-sm-offset-3 text-center">
-                                                <h2>Complete Healthcare Insurance (Essential)</h2>
-                                            </div>
+                                <div class="col-xs-3 text-center">
+                                    <span class="compare text-left">
+                                        <input type="checkbox" id="compare{{j}}" name="compare"
+                                            (click)="compareCard(i,j,$event)" class="checkbox">
+                                        <label for="compare{{j}}">Compare </label>
+                                    </span>
+                                    <img src="{{i.CompanyDetails.logo}}" class="insurer" alt="insurer">
+                                    <p class="planName">{{i.productDetails.product_name}}</p>
+                                    <p class="sumInsured">Sum Insured<i class="fa fa-inr" aria-hidden="true"></i>
+                                        <strong>{{i.sumInsured}}</strong></p>
+                                </div>
+
+
+                                <div class="col-xs-6">
+                                    <div class="v-center">
+                                        <div>
+                                            <ul class="addonCovers" *ngFor="let j of i.newArray">
+                                                <li *ngIf="j.code == 'HF006'" class="restoration">
+                                                    <p>{{j.title}}-{{j.description}}</p>
+                                                </li>
+                                                <li *ngIf="j.code == 'HF004'" class="internationaltreaments">
+                                                    <p>{{j.title}}-{{j.description}}</p>
+                                                </li>
+
+
+                                                <li *ngIf="j.code == 'HF007'" class="ayushalternativetreatmentcover">
+                                                    <p>{{j.title}}-{{j.description}} </p>
+                                                </li>
+                                                <li *ngIf="j.code == 'HF008'" class="healthcheckup">
+                                                    <p>{{j.title}}-{{j.description}}</p>
+                                                </li>
+                                                <li *ngIf="j.code == 'HF015'" class="daycaretreatments">
+                                                    <p>{{j.title}}-{{j.description}}</p>
+                                                </li>
+                                                <li *ngIf="j.code == 'HF021'" class="secondmedicalopinion">
+                                                    <p>{{j.title}}-{{j.description}}</p>
+                                                </li>
+                                                <li *ngIf="j.code == 'HF002'" class="preexistingdiseases">
+                                                    <p>{{j.title}}-{{j.description}}</p>
+                                                </li>
+                                                <li *ngIf="j.code == 'HF013'" class="roomrent">
+                                                    <p>{{j.title}}-{{j.description}}</p>
+                                                </li>
+                                                <li *ngIf="j.code == 'HF024'" class="maternitycover">
+                                                    <p>{{j.title}}-{{j.description}}</p>
+                                                </li>
+                                                <li *ngIf="j.code == 'HF027'" class="newborncover">
+                                                    <p>{{j.title}}-{{j.description}}</p>
+                                                </li>
+                                                <li *ngIf="j.code == 'HF028'" class="newbornvaccination">
+                                                    <p>{{j.title}}-{{j.description}}</p>
+                                                </li>
+                                                <li *ngIf="j.code == 'HF005'" class="rechargebenifit">
+                                                    <p>{{j.title}}-{{j.description}}</p>
+                                                </li>
+                                                <li *ngIf="j.code == 'HF009'" class="preposthospitalisationexpenses">
+                                                    <p>{{j.title}}-{{j.description}}</p>
+                                                </li>
+
+                                            </ul>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <img src="{{detailsLogo}}" class="insurer" alt="insurer">
-                                                <h3>Sum Insured <i class="fa fa-inr"></i>
-                                                    <span>{{detailsSuminsured}}</span>
-                                                </h3>
-                                                <p><small>(Incl. GST)</small></p>
+                                    </div>
+                                    <div class="detail-box row">
+                                        <div class="col-xs-1">
+                                            <span *ngFor="let k of i.newCount"> <span>{{k}}</span>
+                                            </span>
+                                        </div>
+                                        <div class="form-group col-xs-8" tabindex="-1">
+                                            <select class="form-control" tabindex="-1"
+                                                style="margin-left: 6px;height:31px;margin-top:-2px">
+                                                <option tabindex="-1" style="width:50px" value="">Cashless Hospitals
+                                                </option>
+                                                <option tabindex="-1" style="width:50px"
+                                                    *ngFor="let j of i.CashlessHospitalLists">
+                                                    {{j.hospital_name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <a href="javascript:void(0);" id="breakup"
+                                                (click)="showDetails(i)">Details</a>
+                                        </div>
+                                    </div>
 
-                                                <h3 class="pull-left"><i class="fa fa-inr"></i> <span
-                                                        class="premium-amount">{{detailspremium}} </span> </h3>
-                                                <a href="" class="buybima pull-left">Buy Bima</a>
 
-                                                <div class="clearfix"></div>
 
-                                                <h4>Policy Tenure 1 Year</h4>
-                                                <br>
-                                                <h4>For more details view:</h4>
-                                                <button (click)="downloadPolicy(i)">Policy Brochure</button>
-                                                <a href="" class="hospitals">Network Hospitals </a>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <div id="policyfeatures" class="inner-part active" *ngIf="featuresList">
-                                                    <div class="row coveredFeatures">
-                                                        <div class="col-sm-12">
-                                                            <h4 class="text-uppercase"> Covered Special Features</h4>
+                                </div>
+                                <div class="col-xs-3">
+                                    <h4 class="premium"><i class="fa fa-inr" aria-hidden="true"></i>
+                                        <span>{{i.premiumDetails.finalPremium.toFixed(2)}}</span> <small>(Incl.
+                                            GST)</small></h4>
+                                    <a href="" class="buybima">Buy Bima</a>
+                                    <a href="#emipayment" class="emi" data-toggle="modal">EMI from <i class="fa fa-inr"
+                                            aria-hidden="true"></i>
+                                        <span>{{i.EmiDetails.emi_minimum}}</span> </a>
+                                </div>
+                            </div>
+                            <!-- More Details -->
+                            <div *ngIf="detailsDiv" id="breakupdetails" class="popup-content premium-breakup animated">
+                                <a (click)="closePopup()" class="close"></a>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-9 col-sm-offset-3 text-center">
+                                            <h2>Complete Healthcare Insurance (Essential)</h2>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <img src="{{detailsLogo}}" class="insurer" alt="insurer">
+                                            <h3>Sum Insured <i class="fa fa-inr"></i>
+                                                <span>{{detailsSuminsured}}</span>
+                                            </h3>
+                                            <p><small>(Incl. GST)</small></p>
 
-                                                            <div *ngFor="let sp of specialFeature">
-                                                                <p>{{sp.title}}</p>
+                                            <h3 class="pull-left"><i class="fa fa-inr"></i> <span
+                                                    class="premium-amount">{{detailspremium}} </span> </h3>
+                                            <a href="" class="buybima pull-left">Buy Bima</a>
 
-                                                            </div>
+                                            <div class="clearfix"></div>
+
+                                            <h4>Policy Tenure 1 Year</h4>
+                                            <br>
+                                            <h4>For more details view:</h4>
+                                            <button (click)="downloadPolicy(i)">Policy Brochure</button>
+                                            <a href="" class="hospitals">Network Hospitals </a>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <div id="policyfeatures" class="inner-part active" *ngIf="featuresList">
+                                                <div class="row coveredFeatures">
+                                                    <div class="col-sm-12">
+                                                        <h4 class="text-uppercase"> Covered Special Features</h4>
+
+                                                        <div *ngFor="let sp of specialFeature">
+                                                            <p>{{sp.title}}</p>
+
                                                         </div>
                                                     </div>
-                                                    <div class="row coveredFeatures">
-                                                        <div class="col-sm-12">
-                                                            <div class="col-sm-6" *ngFor="let data of specialFeaturee">
+                                                </div>
+                                                <div class="row coveredFeatures">
+                                                    <div class="col-sm-12">
+                                                        <div class="col-sm-6" *ngFor="let data of specialFeaturee">
 
-                                                                <h4 style="font-family: 'Roboto' , sans-serif">
-                                                                    <span>{{data.title}}-</span>{{data.description}}
-                                                                </h4>
-                                                            </div>
-                                                            <div class="col-sm-6" *ngFor="let data of specialFeaturee1">
-
-                                                                <h4 style="font-family: 'Roboto' , sans-serif">
-                                                                    <!-- *ngIf="data.description!= 'NA' && data.description!= 'Yes' && data.description!= 'No'"> -->
-                                                                    <span>{{data.title}}-</span>{{data.description}}
-                                                                </h4>
-                                                            </div>
+                                                            <h4 style="font-family: 'Roboto' , sans-serif">
+                                                                <span>{{data.title}}-</span>{{data.description}}
+                                                            </h4>
                                                         </div>
+                                                        <div class="col-sm-6" *ngFor="let data of specialFeaturee1">
 
-                                                        <!-- <div class="col-sm-6">
+                                                            <h4 style="font-family: 'Roboto' , sans-serif">
+                                                                <!-- *ngIf="data.description!= 'NA' && data.description!= 'Yes' && data.description!= 'No'"> -->
+                                                                <span>{{data.title}}-</span>{{data.description}}
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- <div class="col-sm-6">
                                                         <h4><span>Room Rent -</span> No Limit</h4>
                                                     </div>
                                                     <div class="col-sm-6">
@@ -600,74 +599,74 @@
                                                             2,000
                                                         </h4>
                                                     </div> -->
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <h4>Tax Benifit</h4>
-                                                            <p>Premiums paid are eligible for tax deduction under
-                                                                Section
-                                                                80D and
-                                                                10 (10D) of the Income Tax Act, 1961.</p>
-                                                        </div>
-                                                    </div>
-
                                                 </div>
-                                                <div *ngIf="showExclusion">
-                                                    <div class="inner-part active" id="policyexclusions">
-                                                        <div class="row">
-                                                            <h4 class="text-uppercase">Exclusions</h4>
-                                                            <div class="col-sm-12">
-                                                                <div class="points"
-                                                                    *ngFor="let prod of exclusionArray; let i = index">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <h4>Tax Benifit</h4>
+                                                        <p>Premiums paid are eligible for tax deduction under
+                                                            Section
+                                                            80D and
+                                                            10 (10D) of the Income Tax Act, 1961.</p>
+                                                    </div>
+                                                </div>
 
-                                                                    <div class="circle">
-                                                                        {{i}}
-                                                                    </div>
+                                            </div>
+                                            <div *ngIf="showExclusion">
+                                                <div class="inner-part active" id="policyexclusions">
+                                                    <div class="row">
+                                                        <h4 class="text-uppercase">Exclusions</h4>
+                                                        <div class="col-sm-12">
+                                                            <div class="points"
+                                                                *ngFor="let prod of exclusionArray; let i = index">
 
-                                                                    <p>{{prod.title}}</p>
-                                                                    <p>{{prod.description}}</p>
-
-
-
+                                                                <div class="circle">
+                                                                    {{i}}
                                                                 </div>
 
+                                                                <p>{{prod.title}}</p>
+                                                                <p>{{prod.description}}</p>
+
+
+
                                                             </div>
-                                                            <div *ngIf="exclusionArray.length <=0">
-                                                                <p style="text-align: center;
+
+                                                        </div>
+                                                        <div *ngIf="exclusionArray.length <=0">
+                                                            <p style="text-align: center;
                                                            
                                                             margin-top: 22%;font-size:31px">There is no Exclusion for
-                                                                    this Plan !!</p>
-                                                            </div>
+                                                                this Plan !!</p>
                                                         </div>
                                                     </div>
-
                                                 </div>
+
                                             </div>
-                                            <!--Right Section End-->
-
                                         </div>
-                                        <div class="footer">
-                                            <div class="container">
-                                                <div class="col-sm-3">
-                                                    <a href="" class="email-plan">Email Plan</a>
-                                                </div>
-                                                <div class="col-sm-9 text-center">
-                                                    <ul class="nav-tabs">
-                                                        <li class="breakup active" (click)="findFeatures()">
-                                                            <a data-toggle="tab">
-                                                                Features</a></li>
-                                                        <li class="coverage active" (click)="findExclusion()">
-                                                            <a data-toggle="tab">Exclusions</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                        <!--Right Section End-->
+
+                                    </div>
+                                    <div class="footer">
+                                        <div class="container">
+                                            <div class="col-sm-3">
+                                                <a href="" class="email-plan">Email Plan</a>
+                                            </div>
+                                            <div class="col-sm-9 text-center">
+                                                <ul class="nav-tabs">
+                                                    <li class="breakup active" (click)="findFeatures()">
+                                                        <a data-toggle="tab">
+                                                            Features</a></li>
+                                                    <li class="coverage active" (click)="findExclusion()">
+                                                        <a data-toggle="tab">Exclusions</a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="quote-wrapper">
+                    </div>
+                    <!-- <div class="quote-wrapper">
                         <div class="quote col-sm-12 col-md-9">
                             <div class="dropdown">
                                     <button type="button" data-toggle="dropdown">
@@ -728,692 +727,671 @@
                         
                     </div> -->
 
-                        <!-- <div class="not-quote col-sm-12 col-md-9 text-center">
+                    <!-- <div class="not-quote col-sm-12 col-md-9 text-center">
                         <p>We did not get a quote from these insurers - <span>Universal Sompo, Iffco Tokio, ICICI
                                 Lombard</span>.</p>
                         <p>Maybe your location or vehicle model is not serviced by these insurer.</p>
                     </div> -->
 
-                    </div>
-                    <!--- Quotes Section End -->
+                </div>
+                <!--- Quotes Section End -->
 
-                    <div id="emipayment" class="modal" role="dialog">
-                        <div class="modal-dialog emipayment">
-                            <!-- Modal content-->
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <button type="button"
-                                        class="close ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
-                                        data-dismiss="modal" role="button" aria-disabled="false"><span
-                                            class="ui-button-text"></span></button>
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-12 text-center text-uppercase">
-                                                <h3>EMI PAYMENT OPTIONS - CREDIT CARD</h3>
-                                            </div>
+                <div id="emipayment" class="modal" role="dialog">
+                    <div class="modal-dialog emipayment">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <button type="button"
+                                    class="close ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                                    data-dismiss="modal" role="button" aria-disabled="false"><span
+                                        class="ui-button-text"></span></button>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center text-uppercase">
+                                            <h3>EMI PAYMENT OPTIONS - CREDIT CARD</h3>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-xs-4">
-                                                <!-- Nav tabs -->
-                                                <ul class="nav nav-tabs tabs-left sideways">
-                                                    <li class="active"><a href="#Axis" data-toggle="tab">Axis Bank</a>
-                                                    </li>
-                                                    <li><a href="#Citibank" data-toggle="tab">Citibank</a></li>
-                                                    <li><a href="#HDFC" data-toggle="tab">HDFC Bank</a></li>
-                                                    <li><a href="#HSBC" data-toggle="tab">HSBC</a></li>
-                                                    <li><a href="#ICICI" data-toggle="tab">ICICI Bank</a></li>
-                                                    <li><a href="#IndusInd" data-toggle="tab">IndusInd Bank</a></li>
-                                                    <li><a href="#Kotak" data-toggle="tab">Kotak Bank</a></li>
-                                                    <li><a href="#RBL" data-toggle="tab">RBL Bank Credit Card</a></li>
-                                                    <li><a href="#Standard" data-toggle="tab">Standard Chartered
-                                                            Bank</a>
-                                                    </li>
-                                                    <li><a href="#State" data-toggle="tab">State Bank of India</a></li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="col-xs-8">
-                                                <!-- Tab panes -->
-                                                <div class="tab-content">
-                                                    <div class="tab-pane active" id="Axis">
-                                                        <h4>Axis Bank EMI Plans</h4>
-                                                        <div class="panel-group" id="accordion" role="tablist"
-                                                            aria-multiselectable="true">
-                                                            <div class="panel panel-default">
-                                                                <div class="panel-heading" role="tab" id="headingOne">
-                                                                    <div class="panel-title">
-                                                                        <a role="button" data-toggle="collapse"
-                                                                            data-parent="#accordion" href="#collapseOne"
-                                                                            aria-expanded="true"
-                                                                            aria-controls="collapseOne">
-                                                                            <div class="col-xs-7">3 EMIs @ 13% pa</div>
-                                                                            <div class="col-xs-5"><i
-                                                                                    class="fa fa-inr"></i>
-                                                                                4,257/month <i
-                                                                                    class="more-less fa fa-plus-square-o"></i>
-                                                                            </div>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div id="collapseOne" class="panel-collapse collapse"
-                                                                    role="tabpanel" aria-labelledby="headingOne">
-                                                                    <div class="panel-body">
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Premium</div>
-                                                                            <div class="col-xs-5"><strong><i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,499</strong></div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Interest paid to bank
-                                                                            </div>
-                                                                            <div class="col-xs-5"><strong>+ <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    271</strong>
-                                                                            </div>
-                                                                        </div>
-                                                                        <hr>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Total Amount Payable
-                                                                                (3 x
-                                                                                <i class="fa fa-inr"></i> 4,257)</div>
-                                                                            <div class="col-xs-5"><strong>+ <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,771</strong></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="panel panel-default">
-                                                                <div class="panel-heading" role="tab" id="headingTwo">
-                                                                    <div class="panel-title">
-                                                                        <a class="collapsed" role="button"
-                                                                            data-toggle="collapse"
-                                                                            data-parent="#accordion" href="#collapseTwo"
-                                                                            aria-expanded="false"
-                                                                            aria-controls="collapseTwo">
-                                                                            <div class="col-xs-7">6 EMIs @ 13% pa</div>
-                                                                            <div class="col-xs-5"><i
-                                                                                    class="fa fa-inr"></i>
-                                                                                2,163/month <i
-                                                                                    class="more-less fa fa-plus-square-o"></i>
-                                                                            </div>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div id="collapseTwo" class="panel-collapse collapse"
-                                                                    role="tabpanel" aria-labelledby="headingTwo">
-                                                                    <div class="panel-body">
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Premium</div>
-                                                                            <div class="col-xs-5"><strong><i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,499</strong></div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Interest paid to bank
-                                                                            </div>
-                                                                            <div class="col-xs-5"><strong>+ <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    271</strong>
-                                                                            </div>
-                                                                        </div>
-                                                                        <hr>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Total Amount Payable
-                                                                                (3 x
-                                                                                <i class="fa fa-inr"></i> 4,257)</div>
-                                                                            <div class="col-xs-5"><strong>+ <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,771</strong></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="panel panel-default">
-                                                                <div class="panel-heading" role="tab" id="headingThree">
-                                                                    <div class="panel-title">
-                                                                        <a class="collapsed" role="button"
-                                                                            data-toggle="collapse"
-                                                                            data-parent="#accordion"
-                                                                            href="#collapseThree" aria-expanded="false"
-                                                                            aria-controls="collapseThree">
-                                                                            <div class="col-xs-7">9 EMIs @ 13% pa</div>
-                                                                            <div class="col-xs-5"><i
-                                                                                    class="fa fa-inr"></i>
-                                                                                1,466/month <i
-                                                                                    class="more-less fa fa-plus-square-o"></i>
-                                                                            </div>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div id="collapseThree" class="panel-collapse collapse"
-                                                                    role="tabpanel" aria-labelledby="headingThree">
-                                                                    <div class="panel-body">
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Premium</div>
-                                                                            <div class="col-xs-5"><strong><i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,499</strong></div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Interest paid to bank
-                                                                            </div>
-                                                                            <div class="col-xs-5"><strong>+ <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    271</strong>
-                                                                            </div>
-                                                                        </div>
-                                                                        <hr>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Total Amount Payable
-                                                                                (3 x
-                                                                                <i class="fa fa-inr"></i> 4,257)</div>
-                                                                            <div class="col-xs-5"><strong>+ <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,771</strong></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="panel panel-default">
-                                                                <div class="panel-heading" role="tab" id="headingFour">
-                                                                    <div class="panel-title">
-                                                                        <a class="collapsed" role="button"
-                                                                            data-toggle="collapse"
-                                                                            data-parent="#accordion"
-                                                                            href="#collapseFour" aria-expanded="false"
-                                                                            aria-controls="collapseFour">
-                                                                            <div class="col-xs-7">12 EMIs @ 13% pa</div>
-                                                                            <div class="col-xs-5"><i
-                                                                                    class="fa fa-inr"></i>
-                                                                                1,117/month <i
-                                                                                    class="more-less fa fa-plus-square-o"></i>
-                                                                            </div>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div id="collapseFour" class="panel-collapse collapse"
-                                                                    role="tabpanel" aria-labelledby="headingFour">
-                                                                    <div class="panel-body">
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Premium</div>
-                                                                            <div class="col-xs-5"><strong><i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,499</strong></div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Interest paid to bank
-                                                                            </div>
-                                                                            <div class="col-xs-5"><strong>+ <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    271</strong>
-                                                                            </div>
-                                                                        </div>
-                                                                        <hr>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Total Amount Payable
-                                                                                (3 x
-                                                                                <i class="fa fa-inr"></i> 4,257)</div>
-                                                                            <div class="col-xs-5"><strong>+ <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,771</strong></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                        <!-- panel-group -->
-
-                                                    </div>
-                                                    <div class="tab-pane" id="Citibank">
-                                                        <h4>Citibank EMI Plans</h4>
-                                                        <div class="panel-group" id="accordion" role="tablist"
-                                                            aria-multiselectable="true">
-                                                            <div class="panel panel-default">
-                                                                <div class="panel-heading" role="tab" id="headingOne">
-                                                                    <div class="panel-title">
-                                                                        <a role="button" data-toggle="collapse"
-                                                                            data-parent="#accordion" href="#collapseOne"
-                                                                            aria-expanded="true"
-                                                                            aria-controls="collapseOne">
-                                                                            <div class="col-xs-7">3 EMIs @ 12% pa</div>
-                                                                            <div class="col-xs-5"><i
-                                                                                    class="fa fa-inr"></i>
-                                                                                4,257/month <i
-                                                                                    class="more-less glyphicon glyphicon-plus"></i>
-                                                                            </div>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div id="collapseOne" class="panel-collapse collapse"
-                                                                    role="tabpanel" aria-labelledby="headingOne">
-                                                                    <div class="panel-body">
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Premium</div>
-                                                                            <div class="col-xs-5"><strong> <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,499</strong></div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Interest paid to bank
-                                                                            </div>
-                                                                            <div class="col-xs-5"><strong>+ <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    271</strong>
-                                                                            </div>
-                                                                        </div>
-                                                                        <hr>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Total Amount Payable
-                                                                                (3 x
-                                                                                <i class="fa fa-inr"></i> 4,257)</div>
-                                                                            <div class="col-xs-5"><strong> <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,771</strong></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="panel panel-default">
-                                                                <div class="panel-heading" role="tab" id="headingTwo">
-                                                                    <div class="panel-title">
-                                                                        <a class="collapsed" role="button"
-                                                                            data-toggle="collapse"
-                                                                            data-parent="#accordion" href="#collapseTwo"
-                                                                            aria-expanded="false"
-                                                                            aria-controls="collapseTwo">
-                                                                            <div class="col-xs-7">6 EMIs @ 12% pa</div>
-                                                                            <div class="col-xs-5"><i
-                                                                                    class="fa fa-inr"></i>
-                                                                                2,163/month <i
-                                                                                    class="more-less glyphicon glyphicon-plus"></i>
-                                                                            </div>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div id="collapseTwo" class="panel-collapse collapse"
-                                                                    role="tabpanel" aria-labelledby="headingTwo">
-                                                                    <div class="panel-body">
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Premium</div>
-                                                                            <div class="col-xs-5"><strong><i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,499</strong></div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Interest paid to bank
-                                                                            </div>
-                                                                            <div class="col-xs-5"><strong>+ <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    271</strong>
-                                                                            </div>
-                                                                        </div>
-                                                                        <hr>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Total Amount Payable
-                                                                                (3 x
-                                                                                <i class="fa fa-inr"></i> 4,257)</div>
-                                                                            <div class="col-xs-5"><strong>+ <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,771</strong></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="panel panel-default">
-                                                                <div class="panel-heading" role="tab" id="headingThree">
-                                                                    <div class="panel-title">
-                                                                        <a class="collapsed" role="button"
-                                                                            data-toggle="collapse"
-                                                                            data-parent="#accordion"
-                                                                            href="#collapseThree" aria-expanded="false"
-                                                                            aria-controls="collapseThree">
-                                                                            <div class="col-xs-7">9 EMIs @ 12% pa</div>
-                                                                            <div class="col-xs-5"><i
-                                                                                    class="fa fa-inr"></i>
-                                                                                1,466/month <i
-                                                                                    class="more-less glyphicon glyphicon-plus"></i>
-                                                                            </div>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div id="collapseThree" class="panel-collapse collapse"
-                                                                    role="tabpanel" aria-labelledby="headingThree">
-                                                                    <div class="panel-body">
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Premium</div>
-                                                                            <div class="col-xs-5"><strong><i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,499</strong></div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Interest paid to bank
-                                                                            </div>
-                                                                            <div class="col-xs-5"><strong>+ <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    271</strong>
-                                                                            </div>
-                                                                        </div>
-                                                                        <hr>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Total Amount Payable
-                                                                                (3 x
-                                                                                <i class="fa fa-inr"></i> 4,257)</div>
-                                                                            <div class="col-xs-5"><strong>+ <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,771</strong></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="panel panel-default">
-                                                                <div class="panel-heading" role="tab" id="headingFour">
-                                                                    <div class="panel-title">
-                                                                        <a class="collapsed" role="button"
-                                                                            data-toggle="collapse"
-                                                                            data-parent="#accordion"
-                                                                            href="#collapseFour" aria-expanded="false"
-                                                                            aria-controls="collapseFour">
-                                                                            <div class="col-xs-7">12 EMIs @ 12% pa</div>
-                                                                            <div class="col-xs-5"><i
-                                                                                    class="fa fa-inr"></i>
-                                                                                1,117/month <i
-                                                                                    class="more-less glyphicon glyphicon-plus"></i>
-                                                                            </div>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div id="collapseFour" class="panel-collapse collapse"
-                                                                    role="tabpanel" aria-labelledby="headingFour">
-                                                                    <div class="panel-body">
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Premium</div>
-                                                                            <div class="col-xs-5"><strong><i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,499</strong></div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Interest paid to bank
-                                                                            </div>
-                                                                            <div class="col-xs-5"><strong>+ <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    271</strong>
-                                                                            </div>
-                                                                        </div>
-                                                                        <hr>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Total Amount Payable
-                                                                                (3 x
-                                                                                <i class="fa fa-inr"></i> 4,257)</div>
-                                                                            <div class="col-xs-5"><strong>+ <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,771</strong></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                        <!-- panel-group -->
-
-                                                    </div>
-                                                    <div class="tab-pane" id="HDFC">
-                                                        <h4>HDFC Bank EMI Plans</h4>
-                                                        <div class="panel-group" id="accordion" role="tablist"
-                                                            aria-multiselectable="true">
-                                                            <div class="panel panel-default">
-                                                                <div class="panel-heading" role="tab" id="headingOne">
-                                                                    <div class="panel-title">
-                                                                        <a role="button" data-toggle="collapse"
-                                                                            data-parent="#accordion" href="#collapseOne"
-                                                                            aria-expanded="true"
-                                                                            aria-controls="collapseOne">
-                                                                            <div class="col-xs-7">3 EMIs @ 13% pa</div>
-                                                                            <div class="col-xs-5"><i
-                                                                                    class="fa fa-inr"></i>
-                                                                                4,257/month <i
-                                                                                    class="more-less glyphicon glyphicon-plus"></i>
-                                                                            </div>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div id="collapseOne" class="panel-collapse collapse"
-                                                                    role="tabpanel" aria-labelledby="headingOne">
-                                                                    <div class="panel-body">
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Premium</div>
-                                                                            <div class="col-xs-5"><strong><i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,499</strong></div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Interest paid to bank
-                                                                            </div>
-                                                                            <div class="col-xs-5"><strong>+ <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    271</strong>
-                                                                            </div>
-                                                                        </div>
-                                                                        <hr>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Total Amount Payable
-                                                                                (3 x
-                                                                                <i class="fa fa-inr"></i> 4,257)</div>
-                                                                            <div class="col-xs-5"><strong>+ <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,771</strong></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="panel panel-default">
-                                                                <div class="panel-heading" role="tab" id="headingTwo">
-                                                                    <div class="panel-title">
-                                                                        <a class="collapsed" role="button"
-                                                                            data-toggle="collapse"
-                                                                            data-parent="#accordion" href="#collapseTwo"
-                                                                            aria-expanded="false"
-                                                                            aria-controls="collapseTwo">
-                                                                            <div class="col-xs-7">6 EMIs @ 13% pa</div>
-                                                                            <div class="col-xs-5"><i
-                                                                                    class="fa fa-inr"></i>
-                                                                                2,163/month <i
-                                                                                    class="more-less glyphicon glyphicon-plus"></i>
-                                                                            </div>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div id="collapseTwo" class="panel-collapse collapse"
-                                                                    role="tabpanel" aria-labelledby="headingTwo">
-                                                                    <div class="panel-body">
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Premium</div>
-                                                                            <div class="col-xs-5"><strong><i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,499</strong></div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Interest paid to bank
-                                                                            </div>
-                                                                            <div class="col-xs-5"><strong>+ <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    271</strong>
-                                                                            </div>
-                                                                        </div>
-                                                                        <hr>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Total Amount Payable
-                                                                                (3 x
-                                                                                <i class="fa fa-inr"></i> 4,257)</div>
-                                                                            <div class="col-xs-5"><strong>+ <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,771</strong></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="panel panel-default">
-                                                                <div class="panel-heading" role="tab" id="headingThree">
-                                                                    <div class="panel-title">
-                                                                        <a class="collapsed" role="button"
-                                                                            data-toggle="collapse"
-                                                                            data-parent="#accordion"
-                                                                            href="#collapseThree" aria-expanded="false"
-                                                                            aria-controls="collapseThree">
-                                                                            <div class="col-xs-7">9 EMIs @ 13% pa</div>
-                                                                            <div class="col-xs-5"><i
-                                                                                    class="fa fa-inr"></i>
-                                                                                1,466/month <i
-                                                                                    class="more-less glyphicon glyphicon-plus"></i>
-                                                                            </div>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div id="collapseThree" class="panel-collapse collapse"
-                                                                    role="tabpanel" aria-labelledby="headingThree">
-                                                                    <div class="panel-body">
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Premium</div>
-                                                                            <div class="col-xs-5"><strong><i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,499</strong></div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Interest paid to bank
-                                                                            </div>
-                                                                            <div class="col-xs-5"><strong>+ <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    271</strong>
-                                                                            </div>
-                                                                        </div>
-                                                                        <hr>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Total Amount Payable
-                                                                                (3 x
-                                                                                <i class="fa fa-inr"></i> 4,257)</div>
-                                                                            <div class="col-xs-5"><strong>+ <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,771</strong></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="panel panel-default">
-                                                                <div class="panel-heading" role="tab" id="headingFour">
-                                                                    <div class="panel-title">
-                                                                        <a class="collapsed" role="button"
-                                                                            data-toggle="collapse"
-                                                                            data-parent="#accordion"
-                                                                            href="#collapseFour" aria-expanded="false"
-                                                                            aria-controls="collapseFour">
-                                                                            <div class="col-xs-7">12 EMIs @ 13% pa</div>
-                                                                            <div class="col-xs-5"><i
-                                                                                    class="fa fa-inr"></i>
-                                                                                1,117/month <i
-                                                                                    class="more-less glyphicon glyphicon-plus"></i>
-                                                                            </div>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div id="collapseFour" class="panel-collapse collapse"
-                                                                    role="tabpanel" aria-labelledby="headingFour">
-                                                                    <div class="panel-body">
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Premium</div>
-                                                                            <div class="col-xs-5"><strong><i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,499</strong></div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Interest paid to bank
-                                                                            </div>
-                                                                            <div class="col-xs-5"><strong>+ <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    271</strong>
-                                                                            </div>
-                                                                        </div>
-                                                                        <hr>
-                                                                        <div class="row">
-                                                                            <div class="col-xs-7">Total Amount Payable
-                                                                                (3 x
-                                                                                <i class="fa fa-inr"></i> 4,257)</div>
-                                                                            <div class="col-xs-5"><strong>+ <i
-                                                                                        class="fa fa-inr"></i>
-                                                                                    12,771</strong></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                        <!-- panel-group -->
-
-                                                    </div>
-                                                    <div class="tab-pane" id="HSBC">Settings Tab.</div>
-                                                    <div class="tab-pane" id="ICICI">Settings Tab.</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <a href="" class="tandc">EMI Terms &amp; Conditions</a>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <!-- Nav tabs -->
+                                            <ul class="nav nav-tabs tabs-left sideways">
+                                                <li class="active"><a href="#Axis" data-toggle="tab">Axis Bank</a>
+                                                </li>
+                                                <li><a href="#Citibank" data-toggle="tab">Citibank</a></li>
+                                                <li><a href="#HDFC" data-toggle="tab">HDFC Bank</a></li>
+                                                <li><a href="#HSBC" data-toggle="tab">HSBC</a></li>
+                                                <li><a href="#ICICI" data-toggle="tab">ICICI Bank</a></li>
+                                                <li><a href="#IndusInd" data-toggle="tab">IndusInd Bank</a></li>
+                                                <li><a href="#Kotak" data-toggle="tab">Kotak Bank</a></li>
+                                                <li><a href="#RBL" data-toggle="tab">RBL Bank Credit Card</a></li>
+                                                <li><a href="#Standard" data-toggle="tab">Standard Chartered
+                                                        Bank</a>
+                                                </li>
+                                                <li><a href="#State" data-toggle="tab">State Bank of India</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="col-xs-8">
+                                            <!-- Tab panes -->
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" id="Axis">
+                                                    <h4>Axis Bank EMI Plans</h4>
+                                                    <div class="panel-group" id="accordion" role="tablist"
+                                                        aria-multiselectable="true">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab" id="headingOne">
+                                                                <div class="panel-title">
+                                                                    <a role="button" data-toggle="collapse"
+                                                                        data-parent="#accordion" href="#collapseOne"
+                                                                        aria-expanded="true"
+                                                                        aria-controls="collapseOne">
+                                                                        <div class="col-xs-7">3 EMIs @ 13% pa</div>
+                                                                        <div class="col-xs-5"><i class="fa fa-inr"></i>
+                                                                            4,257/month <i
+                                                                                class="more-less fa fa-plus-square-o"></i>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div id="collapseOne" class="panel-collapse collapse"
+                                                                role="tabpanel" aria-labelledby="headingOne">
+                                                                <div class="panel-body">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Premium</div>
+                                                                        <div class="col-xs-5"><strong><i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,499</strong></div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Interest paid to bank
+                                                                        </div>
+                                                                        <div class="col-xs-5"><strong>+ <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                271</strong>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Total Amount Payable
+                                                                            (3 x
+                                                                            <i class="fa fa-inr"></i> 4,257)</div>
+                                                                        <div class="col-xs-5"><strong>+ <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,771</strong></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab" id="headingTwo">
+                                                                <div class="panel-title">
+                                                                    <a class="collapsed" role="button"
+                                                                        data-toggle="collapse" data-parent="#accordion"
+                                                                        href="#collapseTwo" aria-expanded="false"
+                                                                        aria-controls="collapseTwo">
+                                                                        <div class="col-xs-7">6 EMIs @ 13% pa</div>
+                                                                        <div class="col-xs-5"><i class="fa fa-inr"></i>
+                                                                            2,163/month <i
+                                                                                class="more-less fa fa-plus-square-o"></i>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div id="collapseTwo" class="panel-collapse collapse"
+                                                                role="tabpanel" aria-labelledby="headingTwo">
+                                                                <div class="panel-body">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Premium</div>
+                                                                        <div class="col-xs-5"><strong><i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,499</strong></div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Interest paid to bank
+                                                                        </div>
+                                                                        <div class="col-xs-5"><strong>+ <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                271</strong>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Total Amount Payable
+                                                                            (3 x
+                                                                            <i class="fa fa-inr"></i> 4,257)</div>
+                                                                        <div class="col-xs-5"><strong>+ <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,771</strong></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab" id="headingThree">
+                                                                <div class="panel-title">
+                                                                    <a class="collapsed" role="button"
+                                                                        data-toggle="collapse" data-parent="#accordion"
+                                                                        href="#collapseThree" aria-expanded="false"
+                                                                        aria-controls="collapseThree">
+                                                                        <div class="col-xs-7">9 EMIs @ 13% pa</div>
+                                                                        <div class="col-xs-5"><i class="fa fa-inr"></i>
+                                                                            1,466/month <i
+                                                                                class="more-less fa fa-plus-square-o"></i>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div id="collapseThree" class="panel-collapse collapse"
+                                                                role="tabpanel" aria-labelledby="headingThree">
+                                                                <div class="panel-body">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Premium</div>
+                                                                        <div class="col-xs-5"><strong><i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,499</strong></div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Interest paid to bank
+                                                                        </div>
+                                                                        <div class="col-xs-5"><strong>+ <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                271</strong>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Total Amount Payable
+                                                                            (3 x
+                                                                            <i class="fa fa-inr"></i> 4,257)</div>
+                                                                        <div class="col-xs-5"><strong>+ <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,771</strong></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab" id="headingFour">
+                                                                <div class="panel-title">
+                                                                    <a class="collapsed" role="button"
+                                                                        data-toggle="collapse" data-parent="#accordion"
+                                                                        href="#collapseFour" aria-expanded="false"
+                                                                        aria-controls="collapseFour">
+                                                                        <div class="col-xs-7">12 EMIs @ 13% pa</div>
+                                                                        <div class="col-xs-5"><i class="fa fa-inr"></i>
+                                                                            1,117/month <i
+                                                                                class="more-less fa fa-plus-square-o"></i>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div id="collapseFour" class="panel-collapse collapse"
+                                                                role="tabpanel" aria-labelledby="headingFour">
+                                                                <div class="panel-body">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Premium</div>
+                                                                        <div class="col-xs-5"><strong><i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,499</strong></div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Interest paid to bank
+                                                                        </div>
+                                                                        <div class="col-xs-5"><strong>+ <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                271</strong>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Total Amount Payable
+                                                                            (3 x
+                                                                            <i class="fa fa-inr"></i> 4,257)</div>
+                                                                        <div class="col-xs-5"><strong>+ <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,771</strong></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <!-- panel-group -->
+
+                                                </div>
+                                                <div class="tab-pane" id="Citibank">
+                                                    <h4>Citibank EMI Plans</h4>
+                                                    <div class="panel-group" id="accordion" role="tablist"
+                                                        aria-multiselectable="true">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab" id="headingOne">
+                                                                <div class="panel-title">
+                                                                    <a role="button" data-toggle="collapse"
+                                                                        data-parent="#accordion" href="#collapseOne"
+                                                                        aria-expanded="true"
+                                                                        aria-controls="collapseOne">
+                                                                        <div class="col-xs-7">3 EMIs @ 12% pa</div>
+                                                                        <div class="col-xs-5"><i class="fa fa-inr"></i>
+                                                                            4,257/month <i
+                                                                                class="more-less glyphicon glyphicon-plus"></i>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div id="collapseOne" class="panel-collapse collapse"
+                                                                role="tabpanel" aria-labelledby="headingOne">
+                                                                <div class="panel-body">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Premium</div>
+                                                                        <div class="col-xs-5"><strong> <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,499</strong></div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Interest paid to bank
+                                                                        </div>
+                                                                        <div class="col-xs-5"><strong>+ <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                271</strong>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Total Amount Payable
+                                                                            (3 x
+                                                                            <i class="fa fa-inr"></i> 4,257)</div>
+                                                                        <div class="col-xs-5"><strong> <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,771</strong></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab" id="headingTwo">
+                                                                <div class="panel-title">
+                                                                    <a class="collapsed" role="button"
+                                                                        data-toggle="collapse" data-parent="#accordion"
+                                                                        href="#collapseTwo" aria-expanded="false"
+                                                                        aria-controls="collapseTwo">
+                                                                        <div class="col-xs-7">6 EMIs @ 12% pa</div>
+                                                                        <div class="col-xs-5"><i class="fa fa-inr"></i>
+                                                                            2,163/month <i
+                                                                                class="more-less glyphicon glyphicon-plus"></i>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div id="collapseTwo" class="panel-collapse collapse"
+                                                                role="tabpanel" aria-labelledby="headingTwo">
+                                                                <div class="panel-body">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Premium</div>
+                                                                        <div class="col-xs-5"><strong><i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,499</strong></div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Interest paid to bank
+                                                                        </div>
+                                                                        <div class="col-xs-5"><strong>+ <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                271</strong>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Total Amount Payable
+                                                                            (3 x
+                                                                            <i class="fa fa-inr"></i> 4,257)</div>
+                                                                        <div class="col-xs-5"><strong>+ <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,771</strong></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab" id="headingThree">
+                                                                <div class="panel-title">
+                                                                    <a class="collapsed" role="button"
+                                                                        data-toggle="collapse" data-parent="#accordion"
+                                                                        href="#collapseThree" aria-expanded="false"
+                                                                        aria-controls="collapseThree">
+                                                                        <div class="col-xs-7">9 EMIs @ 12% pa</div>
+                                                                        <div class="col-xs-5"><i class="fa fa-inr"></i>
+                                                                            1,466/month <i
+                                                                                class="more-less glyphicon glyphicon-plus"></i>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div id="collapseThree" class="panel-collapse collapse"
+                                                                role="tabpanel" aria-labelledby="headingThree">
+                                                                <div class="panel-body">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Premium</div>
+                                                                        <div class="col-xs-5"><strong><i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,499</strong></div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Interest paid to bank
+                                                                        </div>
+                                                                        <div class="col-xs-5"><strong>+ <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                271</strong>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Total Amount Payable
+                                                                            (3 x
+                                                                            <i class="fa fa-inr"></i> 4,257)</div>
+                                                                        <div class="col-xs-5"><strong>+ <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,771</strong></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab" id="headingFour">
+                                                                <div class="panel-title">
+                                                                    <a class="collapsed" role="button"
+                                                                        data-toggle="collapse" data-parent="#accordion"
+                                                                        href="#collapseFour" aria-expanded="false"
+                                                                        aria-controls="collapseFour">
+                                                                        <div class="col-xs-7">12 EMIs @ 12% pa</div>
+                                                                        <div class="col-xs-5"><i class="fa fa-inr"></i>
+                                                                            1,117/month <i
+                                                                                class="more-less glyphicon glyphicon-plus"></i>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div id="collapseFour" class="panel-collapse collapse"
+                                                                role="tabpanel" aria-labelledby="headingFour">
+                                                                <div class="panel-body">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Premium</div>
+                                                                        <div class="col-xs-5"><strong><i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,499</strong></div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Interest paid to bank
+                                                                        </div>
+                                                                        <div class="col-xs-5"><strong>+ <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                271</strong>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Total Amount Payable
+                                                                            (3 x
+                                                                            <i class="fa fa-inr"></i> 4,257)</div>
+                                                                        <div class="col-xs-5"><strong>+ <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,771</strong></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <!-- panel-group -->
+
+                                                </div>
+                                                <div class="tab-pane" id="HDFC">
+                                                    <h4>HDFC Bank EMI Plans</h4>
+                                                    <div class="panel-group" id="accordion" role="tablist"
+                                                        aria-multiselectable="true">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab" id="headingOne">
+                                                                <div class="panel-title">
+                                                                    <a role="button" data-toggle="collapse"
+                                                                        data-parent="#accordion" href="#collapseOne"
+                                                                        aria-expanded="true"
+                                                                        aria-controls="collapseOne">
+                                                                        <div class="col-xs-7">3 EMIs @ 13% pa</div>
+                                                                        <div class="col-xs-5"><i class="fa fa-inr"></i>
+                                                                            4,257/month <i
+                                                                                class="more-less glyphicon glyphicon-plus"></i>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div id="collapseOne" class="panel-collapse collapse"
+                                                                role="tabpanel" aria-labelledby="headingOne">
+                                                                <div class="panel-body">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Premium</div>
+                                                                        <div class="col-xs-5"><strong><i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,499</strong></div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Interest paid to bank
+                                                                        </div>
+                                                                        <div class="col-xs-5"><strong>+ <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                271</strong>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Total Amount Payable
+                                                                            (3 x
+                                                                            <i class="fa fa-inr"></i> 4,257)</div>
+                                                                        <div class="col-xs-5"><strong>+ <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,771</strong></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab" id="headingTwo">
+                                                                <div class="panel-title">
+                                                                    <a class="collapsed" role="button"
+                                                                        data-toggle="collapse" data-parent="#accordion"
+                                                                        href="#collapseTwo" aria-expanded="false"
+                                                                        aria-controls="collapseTwo">
+                                                                        <div class="col-xs-7">6 EMIs @ 13% pa</div>
+                                                                        <div class="col-xs-5"><i class="fa fa-inr"></i>
+                                                                            2,163/month <i
+                                                                                class="more-less glyphicon glyphicon-plus"></i>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div id="collapseTwo" class="panel-collapse collapse"
+                                                                role="tabpanel" aria-labelledby="headingTwo">
+                                                                <div class="panel-body">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Premium</div>
+                                                                        <div class="col-xs-5"><strong><i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,499</strong></div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Interest paid to bank
+                                                                        </div>
+                                                                        <div class="col-xs-5"><strong>+ <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                271</strong>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Total Amount Payable
+                                                                            (3 x
+                                                                            <i class="fa fa-inr"></i> 4,257)</div>
+                                                                        <div class="col-xs-5"><strong>+ <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,771</strong></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab" id="headingThree">
+                                                                <div class="panel-title">
+                                                                    <a class="collapsed" role="button"
+                                                                        data-toggle="collapse" data-parent="#accordion"
+                                                                        href="#collapseThree" aria-expanded="false"
+                                                                        aria-controls="collapseThree">
+                                                                        <div class="col-xs-7">9 EMIs @ 13% pa</div>
+                                                                        <div class="col-xs-5"><i class="fa fa-inr"></i>
+                                                                            1,466/month <i
+                                                                                class="more-less glyphicon glyphicon-plus"></i>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div id="collapseThree" class="panel-collapse collapse"
+                                                                role="tabpanel" aria-labelledby="headingThree">
+                                                                <div class="panel-body">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Premium</div>
+                                                                        <div class="col-xs-5"><strong><i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,499</strong></div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Interest paid to bank
+                                                                        </div>
+                                                                        <div class="col-xs-5"><strong>+ <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                271</strong>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Total Amount Payable
+                                                                            (3 x
+                                                                            <i class="fa fa-inr"></i> 4,257)</div>
+                                                                        <div class="col-xs-5"><strong>+ <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,771</strong></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab" id="headingFour">
+                                                                <div class="panel-title">
+                                                                    <a class="collapsed" role="button"
+                                                                        data-toggle="collapse" data-parent="#accordion"
+                                                                        href="#collapseFour" aria-expanded="false"
+                                                                        aria-controls="collapseFour">
+                                                                        <div class="col-xs-7">12 EMIs @ 13% pa</div>
+                                                                        <div class="col-xs-5"><i class="fa fa-inr"></i>
+                                                                            1,117/month <i
+                                                                                class="more-less glyphicon glyphicon-plus"></i>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div id="collapseFour" class="panel-collapse collapse"
+                                                                role="tabpanel" aria-labelledby="headingFour">
+                                                                <div class="panel-body">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Premium</div>
+                                                                        <div class="col-xs-5"><strong><i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,499</strong></div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Interest paid to bank
+                                                                        </div>
+                                                                        <div class="col-xs-5"><strong>+ <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                271</strong>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7">Total Amount Payable
+                                                                            (3 x
+                                                                            <i class="fa fa-inr"></i> 4,257)</div>
+                                                                        <div class="col-xs-5"><strong>+ <i
+                                                                                    class="fa fa-inr"></i>
+                                                                                12,771</strong></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <!-- panel-group -->
+
+                                                </div>
+                                                <div class="tab-pane" id="HSBC">Settings Tab.</div>
+                                                <div class="tab-pane" id="ICICI">Settings Tab.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="" class="tandc">EMI Terms &amp; Conditions</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                </div>
-            </div>
-            <div>
-                <div class="quotes-page" *ngIf="showCard">
-                    <div class="compareQuotes">
-                        <div>
-                            <div class="selectedQuote" *ngFor="let k of pushAray" id="checker">
-
-                                <a href="javascript:void(0);" (click)="removecard(k)" class="removeQuote"></a>
-
-
-                                <img src="{{k.CompanyDetails.logo}}" alt="insurer">
-                                <h4><i class="fa fa-inr"></i>{{k.premiumDetails.finalPremium}}<small>(Incl. GST)</small>
-                                </h4>
-                                <p>{{k.productDetails.product_name}}</p>
-                            </div>
-                        </div>
-
-
-
-                        <div class="btn comparePlans" (click)="comparePlan()" style="display:none" id="compareButton">
-                            <a>Compare
-                                Plans</a></div>
-
-
-                    </div>
                 </div>
 
             </div>
-            <div class="comparison" *ngIf="compareplan">
-                <div class="featuresCols">
-                    <div class="topPart fixedsticky" (click)="backTOquation()">
-                        <div class="planNames">
-                            <a href=""><i class="fa fa-long-arrow-left"></i> Quotes</a>
+        </div>
+        <div>
+            <div class="quotes-page" *ngIf="showCard">
+                <div class="compareQuotes">
+                    <div>
+                        <div class="selectedQuote" *ngFor="let k of pushAray" id="checker">
+
+                            <a href="javascript:void(0);" (click)="removecard(k)" class="removeQuote"></a>
+
+
+                            <img src="{{k.CompanyDetails.logo}}" alt="insurer">
+                            <h4><i class="fa fa-inr"></i>{{k.premiumDetails.finalPremium}}<small>(Incl. GST)</small>
+                            </h4>
+                            <p>{{k.productDetails.product_name}}</p>
                         </div>
                     </div>
 
-                    <ul>
-                        <li *ngFor="let i of featureList" class="{{i.class}}">
-                            <p> {{i.name}}</p>
-                        </li>
-                        <!-- <li>
+
+
+                    <div class="btn comparePlans" (click)="comparePlan()" style="display:none" id="compareButton">
+                        <a>Compare
+                            Plans</a></div>
+
+
+                </div>
+            </div>
+
+        </div>
+        <div class="comparison" *ngIf="compareplan">
+            <div class="featuresCols">
+                <div class="topPart fixedsticky" (click)="backTOquation()">
+                    <div class="planNames">
+                        <a href=""><i class="fa fa-long-arrow-left"></i> Quotes</a>
+                    </div>
+                </div>
+
+                <ul>
+                    <li *ngFor="let i of featureList" class="{{i.class}}">
+                        <p> {{i.name}}</p>
+                    </li>
+                    <!-- <li>
                         <p class="copay">Co-Pay</p>
                     </li>
 
@@ -1535,159 +1513,39 @@
                     <li>
                         <p class="terminalillness">Terminal Illness Cover</p>
                     </li> -->
-                    </ul>
+                </ul>
 
-                    <div class="productPremium fixedsticky">
-                        <a href="javascript:void(0);" class="emailComparison">Email Comparison</a>
+                <div class="productPremium fixedsticky">
+                    <a href="javascript:void(0);" class="emailComparison">Email Comparison</a>
+                </div>
+            </div>
+            <div class="featuresCols" *ngFor="let p of pushAray">
+                <div class="topPart fixedsticky">
+                    <a href="javascript:void(0);" class="close-quote" (click)="removeFeatureCols(p)"></a>
+                    <img src="{{p.CompanyDetails.logo}}" class="insurerLogo" alt="insurer">
+                    <div class="planNames">
+                        <p>{{p.CompanyDetails.short_desc}}</p>
                     </div>
                 </div>
-                <div class="featuresCols" *ngFor="let p of pushAray">
-                    <div class="topPart fixedsticky">
-                        <a href="javascript:void(0);" class="close-quote" (click)="removeFeatureCols(p)"></a>
-                        <img src="{{p.CompanyDetails.logo}}" class="insurerLogo" alt="insurer">
-                        <div class="planNames">
-                            <p>{{p.CompanyDetails.short_desc}}</p>
-                        </div>
-                    </div>
-                    <ul>
-                        <li *ngFor="let q of totalFeatureList">
+                <ul>
+                   
+                        <li *ngFor="let q of p.totalFeatureList">
                             <p> {{q.description}}</p>
                             <p *ngIf="q.description == 'Yes'"><i class="fa fa-check"></i></p>
                             <p *ngIf="q.description == ''"><i class="fa fa-times"></i></p>
-                            <!---<p *ngIf="q.code == 'HF007'">{{q.description}}</p>
-                        <p *ngIf="q.code == 'HF008'">{{q.description}}</p>
-                        <p *ngIf="q.code == 'HF013'">{{q.description}}</p>
-                        <p *ngIf="q.code == 'HF017'">{{q.description}}</p> -->
+                           
 
                         </li>
-
-                        <!-- <li *ngIf = "q.show_desc == 0">
-                        <p><i class="fa fa-check"></i></p>
-                    </li>   -->
-                        <!-- <li>
-                        <p>Covered after 4 years</p>
-                    </li>
-                    <li>
-                        <p>Upto Sum Insured</p>
-                    </li>
-                    <li>
-                        <p>150% of Sum Insured</p>
-                    </li>
-                    <li>
-                        <p>100% of Sum Insured</p>
-                    </li>
-                    <li>
-                        <p>Upto Sum Insured</p>
-                    </li>
-                    <li>
-                        <p>Every Claim Free Year</p>
-                    </li>
-                    <li>
-                        <p><i class="fa fa-check"></i></p>
-                    </li>
-                    <li>
-                        <p>30 - 60 Days</p>
-                    </li>
-                    <li>
-                        <p>60 - 90 Days</p>
-                    </li>
-                    <li>
-                        <p>Consulation, Covered after 3 years</p>
-                    </li>
-                    <li>
-                        <p>No Limit</p>
-                    </li>
-                    <li>
-                        <p>No Limit</p>
-                    </li>
-                    <li>
-                        <p><i class="fa fa-times"></i></p>
-                    </li>
-                    <li>
-                        <p><i class="fa fa-times"></i></p>
-                    </li>
-                    <li>
-                        <p>141 Treatments</p>
-                    </li>
-                    <li>
-                        <p>10% of Sum Insured upto 50%</p>
-                    </li>
-                    <li>
-                        <p>Upto <i class="fa fa-inr"></i> 2,000</p>
-                    </li>
-                    <li>
-                        <p><i class="fa fa-times"></i></p>
-                    </li>
-                    <li>
-                        <p><i class="fa fa-check"></i></p>
-                    </li>
-                    <li>
-                        <p><i class="fa fa-check"></i></p>
-                    </li>
-                    <li>
-                        <p>3 Years</p>
-                    </li>
-                    <li>
-                        <p><i class="fa fa-times"></i></p>
-                    </li>
-                    <li>
-                        <p><i class="fa fa-check"></i></p>
-                    </li>
-                    <li>
-                        <p><i class="fa fa-times"></i></p>
-                    </li>
-                    <li>
-                        <p><i class="fa fa-check"></i></p>
-                    </li>
-                    <li>
-                        <p><i class="fa fa-inr"></i> 500 per day</p>
-                    </li>
-                    <li>
-                        <p><i class="fa fa-times"></i></p>
-                    </li>
-                    <li>
-                        <p>Mandatory, From 45 years of Age</p>
-                    </li>
-                    <li>
-                        <p><i class="fa fa-times"></i></p>
-                    </li>
-                    <li>
-                        <p>Covered as Day Care</p>
-                    </li>
-                    <li>
-                        <p>Optional</p>
-                    </li>
-                    <li>
-                        <p><i class="fa fa-times"></i></p>
-                    </li>
-                    <li>
-                        <p>As per OPD Limit</p>
-                    </li>
-                    <li>
-                        <p>As per OPD Limit</p>
-                    </li>
-                    <li>
-                        <p><i class="fa fa-times"></i></p>
-                    </li>
-                    <li>
-                        <p><i class="fa fa-times"></i></p>
-                    </li>
-                    <li>
-                        <p><i class="fa fa-times"></i></p>
-                    </li>
-                    <li>
-                        <p>Optional</p>
-                    </li>
-                    <li>
-                        <p><i class="fa fa-times"></i></p>
-                    </li> -->
-                    </ul>
-                    <div class="productPremium fixedsticky">
-                        <p><i class="fa fa-inr"></i>{{p.premiumDetails.finalPremium}}<small>(Incl. GST)</small></p>
-                        <a href="javascript:void(0);" class="buybima">Buy Bima</a>
-                    </div>
+                    
+                  
+                 
+                </ul>
+                <div class="productPremium fixedsticky">
+                    <p><i class="fa fa-inr"></i>{{p.premiumDetails.finalPremium}}<small>(Incl. GST)</small></p>
+                    <a href="javascript:void(0);" class="buybima">Buy Bima</a>
                 </div>
-                <!-- <div class="featuresCols">
+            </div>
+            <!-- <div class="featuresCols">
                 <div class="topPart fixedsticky">
                     <img src="assets/images/Universal-Sompo-General-Insurance-Co-Ltd.svg" class="insurerLogo"
                         alt="insurer">
@@ -1822,7 +1680,7 @@
                     <a href="javascript:void(0);" class="buybima">Buy Bima</a>
                 </div>
             </div> -->
-                <!-- <div class="featuresCols">
+            <!-- <div class="featuresCols">
                 <div class="topPart fixedsticky">
                     <img src="assets/images/CignaTTK-Health-Insurance-Company-Limited.svg" class="insurerLogo"
                         alt="insurer">
@@ -1957,389 +1815,389 @@
                     <a href="javascript:void(0);" class="buybima">Buy Bima</a>
                 </div>
             </div> -->
-                <div class="footerPart">
+            <div class="footerPart">
 
-                </div>
             </div>
-
         </div>
 
-        <script>
-            $(".incr-btn").on("click", function (e) {
-                var $button = $(this);
-                var oldValue = $button.parent().find('.quantity').val();
-                $button.parent().find('.incr-btn[data-action="decrease"]').removeClass('inactive');
-                if ($button.data('action') == "increase") {
-                    var newVal = parseFloat(oldValue) + 1;
+    </div>
+
+    <script>
+        $(".incr-btn").on("click", function (e) {
+            var $button = $(this);
+            var oldValue = $button.parent().find('.quantity').val();
+            $button.parent().find('.incr-btn[data-action="decrease"]').removeClass('inactive');
+            if ($button.data('action') == "increase") {
+                var newVal = parseFloat(oldValue) + 1;
+            } else {
+                // Don't allow decrementing below 1
+                if (oldValue > 0) {
+                    var newVal = parseFloat(oldValue) - 1;
                 } else {
-                    // Don't allow decrementing below 1
-                    if (oldValue > 0) {
-                        var newVal = parseFloat(oldValue) - 1;
-                    } else {
-                        newVal = 0;
-                        $button.addClass('inactive');
-                    }
+                    newVal = 0;
+                    $button.addClass('inactive');
                 }
-                $button.parent().find('.quantity').val(newVal);
-                e.preventDefault();
-            });
-
-            $(function () {
-                $('.nacovers input.checkbox').prop('type', 'text');
-
-                function toggleIcon(e) {
-                    $(e.target)
-                        .prev('.panel-heading')
-                        .find(".more-less")
-                        .toggleClass('fa-plus-square-o fa-minus-square-o');
-                }
-                $('.panel-group').on('hidden.bs.collapse', toggleIcon);
-                $('.panel-group').on('shown.bs.collapse', toggleIcon);
-            });
-
-            $(document).ready(function () {
-                $('.dropdown').hover(function () {
-                    $('.dropdownhover-bottom').addClass('arrowup');
-                    $('.dropdownhover-top').addClass('arrowdown');
-                });
-            });
-
-            // Compare Plans
-            $('.comparePlans').click(function () {
-                $('.comparison').removeClass('sr-only');
-            });
-
-
-            // Email Quotes
-            $('.emailQuotes').click(function () {
-                $('.enterEmail').removeClass('sr-only');
-                $('.emailQuotes').addClass('sr-only');
-
-            });
-            // Email Quotes
-            $('#sendEmail').click(function () {
-                $(this).html('<i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i>');
-
-                setTimeout(function () {
-                    $('.enterEmail').addClass('sr-only');
-                }, 1900);
-
-                setTimeout(function () {
-                    $('.sentSuccessfull').removeClass('sr-only');
-                }, 2000);
-
-                setTimeout(function () {
-                    $('.sentSuccessfull').addClass('sr-only');
-                }, 4000);
-
-                setTimeout(function () {
-                    $('.emailQuotes').removeClass('sr-only');
-                }, 4100);
-
-            });
-
-            // Add Zero Dep
-            $('.zerodep').click(function () {
-                $(".added").text($(".added").text() == 'ADD' ? 'ADDED' : 'ADD');
-                $('#sure').toggleClass('sr-only');
-            });
-
-            // View more claim cases
-            $('#viewmore').click(function () {
-                $('.more-options').addClass('expanded');
-                $('#viewmore').hide();
-                $('#viewless').show();
-            });
-            $('#viewless').click(function () {
-                $('.more-options').removeClass('expanded');
-                $('#viewless').hide();
-                $('#viewmore').show();
-            });
-
-            // Modify Details Popup
-            $('#editcardetail').click(function () {
-                $('#cardetails').removeClass('sr-only');
-                $('#cardetails').addClass('fadeInDown');
-                $('body').addClass('modal-open');
-            });
-            $('.skip').click(function () {
-                $('#cardetails').addClass('sr-only');
-                $('#cardetails').removeClass('fadeInDown');
-                $('body').removeClass('modal-open');
-            });
-
-            // Discount Popup
-            $('#discounts').click(function () {
-                $('#discountdetails').removeClass('sr-only');
-                $('#discountdetails').addClass('fadeInDown');
-                $('body').addClass('modal-open');
-            });
-            $('.skip').click(function () {
-                $('#discountdetails').addClass('sr-only');
-                $('#discountdetails').removeClass('fadeInDown');
-                $('body').removeClass('modal-open');
-            });
-
-            // Brekup Popup
-            $('#breakup').click(function () {
-                $('#breakupdetails').removeClass('sr-only');
-                $('#breakupdetails').addClass('fadeInDown');
-                $('body').addClass('modal-open');
-            });
-
-            $('.skip').click(function () {
-                $('#breakupdetails').addClass('sr-only');
-                $('#breakupdetails').removeClass('fadeInDown');
-                $('body').removeClass('modal-open');
-            });
-            // Hide Breakup
-            $('#close-breakup').click(function () {
-                $('#breakupdetails').addClass('sr-only');
-                $('body').removeClass('modal-open');
-            });
-
-            jQuery(function ($) {
-                // Function which adds the 'animated' class to any '.animatable' in view
-                var doAnimations = function () {
-                    // Calc current offset and get all animatables
-                    var offset = $(window).scrollTop() + $(window).height(),
-                        $animatables = $('.animatable');
-                    // Unbind scroll handler if we have no animatables
-                    if ($animatables.size() == 0) {
-                        $(window).off('scroll', doAnimations);
-                    }
-                    // Check all animatables and animate them if necessary
-                    $animatables.each(function (i) {
-                        var $animatable = $(this);
-                        if (($animatable.offset().top + $animatable.height() - 20) < offset) {
-                            $animatable.removeClass('animatable').addClass('animated');
-                        }
-                    });
-                };
-                // Hook doAnimations on scroll, and trigger a scroll
-                $(window).on('scroll', doAnimations);
-                $(window).trigger('scroll');
-            });
-
-            $(window).load(function () {
-                $(".icardv").focusout(function () {
-                    if ($(this).val() != "") {
-                        $('.apply').removeClass("sr-only");
-                    } else {
-                        $('.apply').addClass("sr-only");
-                    }
-                })
-                $(".icardv").focusin(function () {
-                    $('.apply').removeClass("sr-only");
-                })
-            });
-
-            $(window).load(function () {
-                $(".input-effect input").focusout(function () {
-                    if ($(this).val() != "") {
-                        $(this).addClass("has-content");
-                    } else {
-                        $(this).removeClass("has-content");
-                    }
-                })
-                $(".input-effect input").focusin(function () {
-                    $(this).removeClass("has-content");
-                })
-            });
-
-            $(function () {
-                $('.ui.dropdown').dropdown();
-            });
-
-            function getIndianMoneyFormat(amount) {
-                x = amount.toString();
-                var lastThree = x.substring(x.length - 3);
-                var otherNumbers = x.substring(0, x.length - 3);
-                if (otherNumbers != '') lastThree = ',' + lastThree;
-                var res = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
-                return res;
             }
+            $button.parent().find('.quantity').val(newVal);
+            e.preventDefault();
+        });
 
-            $(document).ready(function () {
-                $("#cusIDV").keydown(function (e) {
-                    // Allow: backspace, delete, tab, escape, enter and .
+        $(function () {
+            $('.nacovers input.checkbox').prop('type', 'text');
 
-                    if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
-                        // Allow: Ctrl+A, Command+A
-                        (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
-                        // Allow: home, end, left, right, down, up
-                        (e.keyCode >= 35 && e.keyCode <= 40)) {
-                        // let it happen, don't do anything
-                        // var cusIDV   = parseInt($('#cusIDV').val().replace(/,/g, ''));
-                        //$('#cusIDV').val(getIndianMoneyFormat(cusIDV));
-                        return;
-                    }
-                    // Ensure that it is a number and stop the keypress
-                    if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-                        e.preventDefault();
-                    }
-                }).keyup(function () {
-                    var cusIDV = $('#cusIDV').val();
-                    if (cusIDV != '') {
-                        var cusIDV = parseInt($('#cusIDV').val().replace(/,/g, ''));
-                        $('#cusIDV').val(getIndianMoneyFormat(cusIDV));
-                    } else {
+            function toggleIcon(e) {
+                $(e.target)
+                    .prev('.panel-heading')
+                    .find(".more-less")
+                    .toggleClass('fa-plus-square-o fa-minus-square-o');
+            }
+            $('.panel-group').on('hidden.bs.collapse', toggleIcon);
+            $('.panel-group').on('shown.bs.collapse', toggleIcon);
+        });
 
+        $(document).ready(function () {
+            $('.dropdown').hover(function () {
+                $('.dropdownhover-bottom').addClass('arrowup');
+                $('.dropdownhover-top').addClass('arrowdown');
+            });
+        });
+
+        // Compare Plans
+        $('.comparePlans').click(function () {
+            $('.comparison').removeClass('sr-only');
+        });
+
+
+        // Email Quotes
+        $('.emailQuotes').click(function () {
+            $('.enterEmail').removeClass('sr-only');
+            $('.emailQuotes').addClass('sr-only');
+
+        });
+        // Email Quotes
+        $('#sendEmail').click(function () {
+            $(this).html('<i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i>');
+
+            setTimeout(function () {
+                $('.enterEmail').addClass('sr-only');
+            }, 1900);
+
+            setTimeout(function () {
+                $('.sentSuccessfull').removeClass('sr-only');
+            }, 2000);
+
+            setTimeout(function () {
+                $('.sentSuccessfull').addClass('sr-only');
+            }, 4000);
+
+            setTimeout(function () {
+                $('.emailQuotes').removeClass('sr-only');
+            }, 4100);
+
+        });
+
+        // Add Zero Dep
+        $('.zerodep').click(function () {
+            $(".added").text($(".added").text() == 'ADD' ? 'ADDED' : 'ADD');
+            $('#sure').toggleClass('sr-only');
+        });
+
+        // View more claim cases
+        $('#viewmore').click(function () {
+            $('.more-options').addClass('expanded');
+            $('#viewmore').hide();
+            $('#viewless').show();
+        });
+        $('#viewless').click(function () {
+            $('.more-options').removeClass('expanded');
+            $('#viewless').hide();
+            $('#viewmore').show();
+        });
+
+        // Modify Details Popup
+        $('#editcardetail').click(function () {
+            $('#cardetails').removeClass('sr-only');
+            $('#cardetails').addClass('fadeInDown');
+            $('body').addClass('modal-open');
+        });
+        $('.skip').click(function () {
+            $('#cardetails').addClass('sr-only');
+            $('#cardetails').removeClass('fadeInDown');
+            $('body').removeClass('modal-open');
+        });
+
+        // Discount Popup
+        $('#discounts').click(function () {
+            $('#discountdetails').removeClass('sr-only');
+            $('#discountdetails').addClass('fadeInDown');
+            $('body').addClass('modal-open');
+        });
+        $('.skip').click(function () {
+            $('#discountdetails').addClass('sr-only');
+            $('#discountdetails').removeClass('fadeInDown');
+            $('body').removeClass('modal-open');
+        });
+
+        // Brekup Popup
+        $('#breakup').click(function () {
+            $('#breakupdetails').removeClass('sr-only');
+            $('#breakupdetails').addClass('fadeInDown');
+            $('body').addClass('modal-open');
+        });
+
+        $('.skip').click(function () {
+            $('#breakupdetails').addClass('sr-only');
+            $('#breakupdetails').removeClass('fadeInDown');
+            $('body').removeClass('modal-open');
+        });
+        // Hide Breakup
+        $('#close-breakup').click(function () {
+            $('#breakupdetails').addClass('sr-only');
+            $('body').removeClass('modal-open');
+        });
+
+        jQuery(function ($) {
+            // Function which adds the 'animated' class to any '.animatable' in view
+            var doAnimations = function () {
+                // Calc current offset and get all animatables
+                var offset = $(window).scrollTop() + $(window).height(),
+                    $animatables = $('.animatable');
+                // Unbind scroll handler if we have no animatables
+                if ($animatables.size() == 0) {
+                    $(window).off('scroll', doAnimations);
+                }
+                // Check all animatables and animate them if necessary
+                $animatables.each(function (i) {
+                    var $animatable = $(this);
+                    if (($animatable.offset().top + $animatable.height() - 20) < offset) {
+                        $animatable.removeClass('animatable').addClass('animated');
                     }
                 });
+            };
+            // Hook doAnimations on scroll, and trigger a scroll
+            $(window).on('scroll', doAnimations);
+            $(window).trigger('scroll');
+        });
 
-                // Claimed last year 
-                $('#noclaimedlast').click(function () {
-                    if ($('#noclaimedlast').is(':checked')) {
-                        $('.lastncb').addClass('expended');
-                    }
-                    else {
-                        $('.lastncb').removeClass('expended');
-                    }
-                });
-                $('#yesclaimedlast').click(function () {
-                    $('.lastncb').removeClass('expended');
-                });
+        $(window).load(function () {
+            $(".icardv").focusout(function () {
+                if ($(this).val() != "") {
+                    $('.apply').removeClass("sr-only");
+                } else {
+                    $('.apply').addClass("sr-only");
+                }
+            })
+            $(".icardv").focusin(function () {
+                $('.apply').removeClass("sr-only");
+            })
+        });
 
-                // Passenger Cover Add or Remove 
-                $('.passenger').click(function () {
-                    if ($('.passenger').is(':checked')) {
-                        $('.passenger-cover').show();
-                    }
-                    else {
-                        $('.passenger-cover').hide();
-                    }
-                });
+        $(window).load(function () {
+            $(".input-effect input").focusout(function () {
+                if ($(this).val() != "") {
+                    $(this).addClass("has-content");
+                } else {
+                    $(this).removeClass("has-content");
+                }
+            })
+            $(".input-effect input").focusin(function () {
+                $(this).removeClass("has-content");
+            })
+        });
 
-                // Claimed
-                $('#noclaimed').click(function () {
-                    if ($('#noclaimed').is(':checked')) {
-                        $('.prevncb').removeClass('sr-only');
-                    }
-                    else {
-                        $('.prevncb').addClass('sr-only');
-                    }
-                });
+        $(function () {
+            $('.ui.dropdown').dropdown();
+        });
 
-                // CNG Kit
-                $('#yeskit').click(function () {
-                    if ($('#yeskit').is(':checked')) {
-                        $('.kitvalue').removeClass('sr-only');
-                    }
-                    else {
-                        $('.kitvalue').addClass('sr-only');
-                    }
-                });
+        function getIndianMoneyFormat(amount) {
+            x = amount.toString();
+            var lastThree = x.substring(x.length - 3);
+            var otherNumbers = x.substring(0, x.length - 3);
+            if (otherNumbers != '') lastThree = ',' + lastThree;
+            var res = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+            return res;
+        }
 
-                $('#yesclaimed').click(function () {
-                    $('.prevncb').addClass('sr-only');
-                });
+        $(document).ready(function () {
+            $("#cusIDV").keydown(function (e) {
+                // Allow: backspace, delete, tab, escape, enter and .
 
-                $('[data-toggle="tooltip"]').tooltip();
-
-                // Accessories Add or Remove 
-                $('.accessories').click(function () {
-                    if ($('.accessories').is(':checked')) {
-                        $('.accessoriesfileds').removeClass('sr-only');
-                    }
-                    else {
-                        $('.accessoriesfileds').addClass('sr-only');
-                    }
-                });
-
-                // IDV Modify
-                $('.apply').click(function () {
-                    $('#choose-idv').addClass('sr-only');
-                    $('#choosenidv').removeClass('sr-only');
-                    $('.apply').addClass('sr-only');
-                    $('.reset').removeClass('sr-only');
-                    $('.change').removeClass('sr-only');
-                });
-
-                $('.apply').on('click', function (e) {
+                if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                    // Allow: Ctrl+A, Command+A
+                    (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                    // Allow: home, end, left, right, down, up
+                    (e.keyCode >= 35 && e.keyCode <= 40)) {
+                    // let it happen, don't do anything
+                    // var cusIDV   = parseInt($('#cusIDV').val().replace(/,/g, ''));
+                    //$('#cusIDV').val(getIndianMoneyFormat(cusIDV));
+                    return;
+                }
+                // Ensure that it is a number and stop the keypress
+                if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
                     e.preventDefault();
-                    $('#idvval').text($('#cusIDV').val());
-                });
+                }
+            }).keyup(function () {
+                var cusIDV = $('#cusIDV').val();
+                if (cusIDV != '') {
+                    var cusIDV = parseInt($('#cusIDV').val().replace(/,/g, ''));
+                    $('#cusIDV').val(getIndianMoneyFormat(cusIDV));
+                } else {
 
-                $('.change, .reset').click(function () {
-                    $('#choose-idv').removeClass('sr-only');
-                    $('#choosenidv').addClass('sr-only');
-                    $('.apply').addClass('sr-only');
-                    $('.reset').addClass('sr-only');
-                    $('.change').addClass('sr-only');
-                });
-
-                $('.reset').click(function () {
-                    $('#cusIDV').val('');
-                });
-
+                }
             });
-        </script>
 
-        <script>
-            $(document).ready(function () {
-                $("#test-circle1").circliful({
-                    animationStep: 1,
-                    foregroundBorderWidth: 5,
-                    backgroundBorderWidth: 5,
-                    foregroundColor: "#0076be",
-                    backgroundColor: "#ddd",
-                    fontColor: '#3a4855',
-                    percent: 56,
-                    halfCircle: 1,
-                });
-                $("#test-circle2").circliful({
-                    animationStep: 1,
-                    foregroundBorderWidth: 5,
-                    backgroundBorderWidth: 5,
-                    foregroundColor: "#be7000",
-                    backgroundColor: "#ddd",
-                    fontColor: '#3a4855',
-                    percent: 23,
-                    halfCircle: 1,
-                });
-                $("#test-circle3").circliful({
-                    animationStep: 1,
-                    foregroundBorderWidth: 5,
-                    backgroundBorderWidth: 5,
-                    foregroundColor: "#00b3be",
-                    backgroundColor: "#ddd",
-                    fontColor: '#3a4855',
-                    percent: 78,
-                    halfCircle: 1,
-                });
-                $("#test-circle4").circliful({
-                    animationStep: 1,
-                    foregroundBorderWidth: 5,
-                    backgroundBorderWidth: 5,
-                    foregroundColor: "#00bf4a",
-                    backgroundColor: "#ddd",
-                    fontColor: '#3a4855',
-                    percent: 19,
-                    halfCircle: 1,
-                });
-                $("#test-circle5").circliful({
-                    animationStep: 1,
-                    foregroundBorderWidth: 5,
-                    backgroundBorderWidth: 5,
-                    foregroundColor: "#be000b",
-                    backgroundColor: "#ddd",
-                    fontColor: '#3a4855',
-                    percent: 5,
-                    halfCircle: 1,
-                });
-                $("#test-circle6").circliful({
-                    animationStep: 1,
-                    foregroundBorderWidth: 5,
-                    backgroundBorderWidth: 5,
-                    foregroundColor: "#be000b",
-                    backgroundColor: "#ddd",
-                    fontColor: '#3a4855',
-                    percent: 5,
-                    halfCircle: 1,
-                });
+            // Claimed last year 
+            $('#noclaimedlast').click(function () {
+                if ($('#noclaimedlast').is(':checked')) {
+                    $('.lastncb').addClass('expended');
+                }
+                else {
+                    $('.lastncb').removeClass('expended');
+                }
             });
-        </script>
+            $('#yesclaimedlast').click(function () {
+                $('.lastncb').removeClass('expended');
+            });
+
+            // Passenger Cover Add or Remove 
+            $('.passenger').click(function () {
+                if ($('.passenger').is(':checked')) {
+                    $('.passenger-cover').show();
+                }
+                else {
+                    $('.passenger-cover').hide();
+                }
+            });
+
+            // Claimed
+            $('#noclaimed').click(function () {
+                if ($('#noclaimed').is(':checked')) {
+                    $('.prevncb').removeClass('sr-only');
+                }
+                else {
+                    $('.prevncb').addClass('sr-only');
+                }
+            });
+
+            // CNG Kit
+            $('#yeskit').click(function () {
+                if ($('#yeskit').is(':checked')) {
+                    $('.kitvalue').removeClass('sr-only');
+                }
+                else {
+                    $('.kitvalue').addClass('sr-only');
+                }
+            });
+
+            $('#yesclaimed').click(function () {
+                $('.prevncb').addClass('sr-only');
+            });
+
+            $('[data-toggle="tooltip"]').tooltip();
+
+            // Accessories Add or Remove 
+            $('.accessories').click(function () {
+                if ($('.accessories').is(':checked')) {
+                    $('.accessoriesfileds').removeClass('sr-only');
+                }
+                else {
+                    $('.accessoriesfileds').addClass('sr-only');
+                }
+            });
+
+            // IDV Modify
+            $('.apply').click(function () {
+                $('#choose-idv').addClass('sr-only');
+                $('#choosenidv').removeClass('sr-only');
+                $('.apply').addClass('sr-only');
+                $('.reset').removeClass('sr-only');
+                $('.change').removeClass('sr-only');
+            });
+
+            $('.apply').on('click', function (e) {
+                e.preventDefault();
+                $('#idvval').text($('#cusIDV').val());
+            });
+
+            $('.change, .reset').click(function () {
+                $('#choose-idv').removeClass('sr-only');
+                $('#choosenidv').addClass('sr-only');
+                $('.apply').addClass('sr-only');
+                $('.reset').addClass('sr-only');
+                $('.change').addClass('sr-only');
+            });
+
+            $('.reset').click(function () {
+                $('#cusIDV').val('');
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#test-circle1").circliful({
+                animationStep: 1,
+                foregroundBorderWidth: 5,
+                backgroundBorderWidth: 5,
+                foregroundColor: "#0076be",
+                backgroundColor: "#ddd",
+                fontColor: '#3a4855',
+                percent: 56,
+                halfCircle: 1,
+            });
+            $("#test-circle2").circliful({
+                animationStep: 1,
+                foregroundBorderWidth: 5,
+                backgroundBorderWidth: 5,
+                foregroundColor: "#be7000",
+                backgroundColor: "#ddd",
+                fontColor: '#3a4855',
+                percent: 23,
+                halfCircle: 1,
+            });
+            $("#test-circle3").circliful({
+                animationStep: 1,
+                foregroundBorderWidth: 5,
+                backgroundBorderWidth: 5,
+                foregroundColor: "#00b3be",
+                backgroundColor: "#ddd",
+                fontColor: '#3a4855',
+                percent: 78,
+                halfCircle: 1,
+            });
+            $("#test-circle4").circliful({
+                animationStep: 1,
+                foregroundBorderWidth: 5,
+                backgroundBorderWidth: 5,
+                foregroundColor: "#00bf4a",
+                backgroundColor: "#ddd",
+                fontColor: '#3a4855',
+                percent: 19,
+                halfCircle: 1,
+            });
+            $("#test-circle5").circliful({
+                animationStep: 1,
+                foregroundBorderWidth: 5,
+                backgroundBorderWidth: 5,
+                foregroundColor: "#be000b",
+                backgroundColor: "#ddd",
+                fontColor: '#3a4855',
+                percent: 5,
+                halfCircle: 1,
+            });
+            $("#test-circle6").circliful({
+                animationStep: 1,
+                foregroundBorderWidth: 5,
+                backgroundBorderWidth: 5,
+                foregroundColor: "#be000b",
+                backgroundColor: "#ddd",
+                fontColor: '#3a4855',
+                percent: 5,
+                halfCircle: 1,
+            });
+        });
+    </script>
 
 
 </body>
