@@ -929,9 +929,8 @@ export class HealthQuotesComponent implements OnInit {
 
         this.quotesArray = res['results'].response;
         this.quotesArray2 = this.quotesArray.slice();
-
-        this.message = res['results'].message
-        console.log(this.quotesArray2)
+           this.message = res['results'].message
+     
 
 
 
