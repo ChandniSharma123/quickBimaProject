@@ -502,31 +502,31 @@ export class HealthQuotesComponent implements OnInit {
   attr: any;
   getdata: any;
   ngOnInit() {
-   
-  
+
+
     this.route.queryParams.subscribe((params) => {
-    
+
       this.id = params['id']
 
-    
+
       if (this.id == 'add' || this.id == 'skip') {
-      
+
         this.addData = true;
         this.storing = JSON.parse(localStorage.getItem('user') || '[]');
         this.healthCover = this.storing.healthCover;
-      
+
         this.addDetails.sum_insured = this.storing.sum_insured;
-   
+
         this.addDetails.email = this.storing.email;
         this.addDetails.gender = this.storing.gender;
         this.addDetails.pincode = this.storing.pincode;
         this.addDetails.mobile = this.storing.mobile;
-    
+
         this.addDetails.quote_no = this.storing.quote_no;
 
 
         this.addDetails.city = this.storing.city;
-   
+
         this.addDetails.child = this.storing.child;
         this.addDetails.state = this.storing.state;
 
@@ -536,37 +536,37 @@ export class HealthQuotesComponent implements OnInit {
         this.addDetails.adult = this.storing.adult;
 
 
- 
+
       } else if (this.id == 'update') {
         this.editData = true;
         this.upStoring = JSON.parse(localStorage.getItem('user') || '[]');
-      
+
         this.healthCover = this.upStoring.healthCover;
-     
+
         this.editDetails.quote_no = this.upStoring.quote_no;
-      
+
         this.editDetails.cover = this.upStoring.cover;
         this.editDetails.gender = this.upStoring.gender;
-      
+
         this.editDetails.city = this.upStoring.city;
         this.editDetails.state = this.upStoring.state;
         this.editDetails.age = this.upStoring.age;
-       
+
         this.editDetails.sum_insured = this.upStoring.sum_insured;
-        
+
         this.editDetails.pincode = this.upStoring.pincode;
         this.editDetails.child = this.upStoring.child;
-       
+
         this.editDetails.adult = this.upStoring.adult;
         this.editDetails.mobile = this.addDetails.mobile;
-     
+
         this.editDetails.email = this.addDetails.email;
         this.editDetails.term = this.addDetails.mobile;
 
         this.editDetails.term = this.upStoring.term;
         this.id = params["id"];
       }
-  
+
 
     });
 
@@ -576,7 +576,7 @@ export class HealthQuotesComponent implements OnInit {
   }
 
   compareFeaturesList() {
-   
+
   }
 
   closePopup() {
@@ -587,7 +587,7 @@ export class HealthQuotesComponent implements OnInit {
   // }
 
   update(sumInsured) {
-   
+
     if (this.id == "add") {
 
 
@@ -605,12 +605,11 @@ export class HealthQuotesComponent implements OnInit {
         healthGender: this.addDetails.gender,
       }
       this.editserv.updateHealthQuotes(data).subscribe((store) => {
-      
+
       })
       this.healthquote.gethealthQuotes(this.addDetails).subscribe((res) => {
         this.quotesArray = res['results'].response;
         this.message = res['results'].message
-
         console.log(this.quotesArray)
         this.quotesArray2 = this.quotesArray.slice();
         this.responsePlan = this.quotesArray2.length
@@ -622,7 +621,7 @@ export class HealthQuotesComponent implements OnInit {
               e.newArray.push(e.SpecialFeatureLists[i]);
             }
           }
-         
+
         })
       }
       )
@@ -632,7 +631,7 @@ export class HealthQuotesComponent implements OnInit {
 
 
     else if (this.id == "update") {
-   
+
 
 
       let data = {
@@ -648,17 +647,17 @@ export class HealthQuotesComponent implements OnInit {
         pincode: this.editDetails.pincode,
         healthGender: this.editDetails.gender,
       }
-    
+
       this.editserv.updateHealthQuotes(data).subscribe((store) => {
-      
+
       })
-    
+
       this.healthquote.gethealthQuotes(this.editDetails).subscribe((res) => {
-    
+
         this.quotesArray = res['results'].response;
         this.message = res['results'].message;
         this.sidata = res['results'].sumInsured;
-     
+
         this.quotesArray2 = this.quotesArray.slice();
         this.responsePlan = this.quotesArray2.length;
         this.quotesArray.map((e) => {
@@ -670,7 +669,7 @@ export class HealthQuotesComponent implements OnInit {
               e.newArray.push(e.SpecialFeatureLists[i]);
             }
           }
-       
+
         })
       }
       )
@@ -685,7 +684,7 @@ export class HealthQuotesComponent implements OnInit {
   comparePlan() {
 
     this.compareplan = true;
-   
+
     // this.pushAray.map((e) => {
 
     //   e.newArray = e.newArray.filter((ele) => {
@@ -701,16 +700,16 @@ export class HealthQuotesComponent implements OnInit {
 
 
     // })
-  
+
 
     // this.router.navigate(['hommodule/one/comparePlan'])
   }
 
   HealthcoverChecked(value, i, code) {
-  
+
     if (value.target.checked == true) {
       this.pushedArray2.push(code);
-    
+
     }
     else {
       for (let i = 0; i < this.pushedArray2.length; i++) {
@@ -766,7 +765,7 @@ export class HealthQuotesComponent implements OnInit {
   removecard(k) {
 
     this.pushAray.splice(k, 1);
-   
+
     for (let j = 0; j < this.quotesArray.length; j++) {
 
       if (this.quotesArray[j].id == k.id) {
@@ -784,29 +783,29 @@ export class HealthQuotesComponent implements OnInit {
   }
 
   compareCard(id, j, e) {
-  
+
 
     let data = document.getElementById('compareButton')
- 
+
 
 
     if (e.target.checked == true) {
       this.showCard = true;
 
       this.pushAray.push(id);
-    
+
 
 
       if (this.pushAray.length >= 2) {
         document.getElementById('compareButton').style.display = "block";
-      
+
 
       }
 
       else if (this.pushAray.length < 1) {
 
         document.getElementById('compareButton').style.display = "none";
-      
+
       }
 
     }
@@ -885,12 +884,17 @@ export class HealthQuotesComponent implements OnInit {
 
   }
 
+  proposalArray = [
+    {
+
+    }
+  ]
   getHealthquotesData() {
 
     if (this.id == "update") {
-    
+
       this.healthquote.gethealthQuotes(this.editDetails).subscribe((res) => {
-      
+
         this.quotesArray = res['results'].response;
         this.message = res['results'].message;
         this.quotesArray2 = this.quotesArray.slice();
@@ -898,11 +902,9 @@ export class HealthQuotesComponent implements OnInit {
         console.log(this.quotesArray2)
         this.responsePlan = this.quotesArray2.length;
         this.quotesArray.map((e) => {
+
           e.newArray = [];
 
-          // e.featureListt = [];
-
-          // e.featureList = this.featureList.splice();
 
           for (let i = 0; i < 4; i++) {
             if (e.SpecialFeatureLists[i]) {
@@ -915,39 +917,143 @@ export class HealthQuotesComponent implements OnInit {
       )
     }
     else {
-     
+
       this.healthquote.gethealthQuotes(this.addDetails).subscribe((res) => {
 
         this.quotesArray = res['results'].response;
         this.quotesArray2 = this.quotesArray.slice();
-           this.message = res['results'].message
-     
+        this.message = res['results'].message
+
 
 
 
         this.responsePlan = this.quotesArray2.length
         this.quotesArray = res['results'].response;
-       
+
         this.quotesArray2.map((e) => {
           e.newArray = [];
-       
+          e.url = "";
+          e.middleSection = [];
+          if (e.productDetails.product_code == "HPRS02") {
+            e.url = "https://www.quickbima.com/api/royal-sundarams/get-premium.json",
+              e.middleSection = [{
+                title: "Hospital Cash",
+                text: "Get Hospital cash benefit of  2,000 /day for an additional premium of",
+              },
+              {
+                title: "Opt for a Top-up Plan and avail discount on your premium",
+                text: "Top-up plans would have lower premium and offer higher coverage."
+              }
+              ]
+
+          }
+          else if (e.productDetails.product_code = "HPAM05") {
+            e.url = "https://www.quickbima.com/api/apollos/get-family-premium.json",
+
+              e.middleSection = [{
+                title: "Critical Illness",
+                text: "20% of the Sum Assured up to a maximum of Rs. 24,000 per eye",
+              }]
+
+          }
+
+
+          else if (e.productDetails.product_code == "G025") {
+            e.url = "https://www.quickbima.com/api/health-rates/get-premium.json"
+
+          }
+          else if (e.productDetails.product_code == "HFC001") {
+            e.url = "https://www.quickbima.com/api/cigna-ttks/get-premium.json",
+              e.middleSection = [{
+                title: "Portability",
+                text: "Do you want to port your existing insurance?",
+              },
+              {
+                title: "Critical Illness",
+                text: "Critical illness give a lump sum amount equal to Sum Insured in case of first diagnosis of the covered critical illnesses. It protect the insured against financial loss in the event of a terminal illness."
+              },
+              {
+                title: "Pro Health-Cumulative Bonus Booster",
+                text: "Additional Sum Insured of 25% will be added as cumulative bonus at the time of renewal in case there is no claim in the expiring policy"
+              },]
+          }
+          else if (e.productDetails.product_code == "HFC002") {
+            e.url = "https://www.quickbima.com/api/cigna-ttks/get-premium.json",
+              e.middleSection = [{
+                title: "Portability",
+                text: "Do you want to port your existing insurance?",
+              },
+              {
+                title: "Critical Illness",
+                text: "Critical illness give a lump sum amount equal to Sum Insured in case of first diagnosis of the covered critical illnesses. It protect the insured against financial loss in the event of a terminal illness."
+              },
+              {
+                title: "Pro Health-Cumulative Bonus Booster",
+                text: "Additional Sum Insured of 25% will be added as cumulative bonus at the time of renewal in case there is no claim in the expiring policy"
+              },]
+
+
+          }
+          else if (e.productDetails.product_code == "HFR002") {
+            e.url = "https://www.quickbima.com/api/health-rates/get-premium.json",
+              e.middleSection = [{
+                title: "For Care with Unlimited Recharge",
+                text: "If due to claims made, you ever exhaust your health cover, we recharge the entire sum insured of your policy for you, in the policy year. All this at no extra cost",
+              },
+              {
+                title: "Add No Claim Bonus Super",
+                text: "No claim Bonus Super is a benefit where the insured gets an increase of 50% in the sum insured for every claim free year, up to the maximum of 100% of the sum insured."
+
+              },
+              ]
+          }
+          else if (e.productDetails.product_code == "HPAB031") {
+            e.url = "https://www.quickbima.com/api/aditya-birlas/get-premium-diamond.json",
+              e.middleSection = [{
+                title: "Super NCB",
+                text: "Receive a Super NCB of 50% of your Sum Insured for every claim free year. Maximum up to 100%"
+
+              },
+              {
+                title: "Unlimited Reload of Sum Insured",
+                text: "Sum insured shall be reinstated unlimited times in a policy year if you run out cover due to claims."
+              },
+              {
+                title: "Any Room Upgrade",
+                text: "Choose any room in hospital without any restriction?"
+              }
+              ]
+          }
+          else if (e.productDetails.product_code == "HFH003") {
+            e.middleSection = [{
+              title: "Critical Illness",
+              text: "Double Sum Insured For Critical illness."
+            },
+            {
+              title: "Waiver of Room Rent Sub-limits",
+              text: ""
+            },
+
+            ]
+          }
+
           e.totalFeatureList = this.featureList.slice();
-         
+
           e.totalFeatureList.map((m) => {
             let desc = e.SpecialFeatureLists.filter((f) => {
               // if (f.title == m.name) {
               //   console.log('gud')
               //   console.log(f.title)
               //   console.log(f.title == m.name)
-             return f.title == m.name
+              return f.title == m.name
               // }
 
             })
             // console.log(e.totalFeatureList)
-               if (desc.length) {
+            if (desc.length) {
               m.description = desc[0].description;
-          
-              
+
+
 
             }
             else {
@@ -960,7 +1066,7 @@ export class HealthQuotesComponent implements OnInit {
               e.newArray.push(e.SpecialFeatureLists[i]);
             }
           }
-       
+
         })
 
 
@@ -1005,7 +1111,7 @@ export class HealthQuotesComponent implements OnInit {
               e.newArray.push(e.SpecialFeatureLists[i]);
             }
           }
-      
+
         })
       }
       )
@@ -1030,7 +1136,7 @@ export class HealthQuotesComponent implements OnInit {
     document.body.appendChild(link);
     link.click();
     link.remove();
- 
+
   }
 
   showDetails(i) {
@@ -1042,7 +1148,7 @@ export class HealthQuotesComponent implements OnInit {
     this.specialFeaturee = this.specialFeatures.slice(0, 2);
     // }
     this.specialFeaturee1 = this.specialFeatures.slice(2, 6);
-   
+
 
 
 
