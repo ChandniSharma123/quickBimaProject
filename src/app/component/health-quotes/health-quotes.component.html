@@ -521,7 +521,7 @@
                                     <h4 class="premium"><i class="fa fa-inr" aria-hidden="true"></i>
                                         <span>{{i.premiumDetails.finalPremium.toFixed(2)}}</span> <small>(Incl.
                                             GST)</small></h4>
-                                    <a href="" class="buybima">Buy Bima</a>
+                                    <a href="" class="buybima" (click) = "buyBima(i)" >Buy Bima</a>
                                     <a href="#emipayment" class="emi" data-toggle="modal">EMI from <i class="fa fa-inr"
                                             aria-hidden="true"></i>
                                         <span>{{i.EmiDetails.emi_minimum}}</span> </a>

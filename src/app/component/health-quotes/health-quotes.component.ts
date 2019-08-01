@@ -846,6 +846,12 @@ export class HealthQuotesComponent implements OnInit {
     this.router.navigate(['/health-insurance/quotes'])
   }
 
+  buyBima(i) {
+    // this.router.navigate(['/health-insurance/quotes/proposal'])
+    console.log(i)
+
+  }
+
 
   // checkgender() {
   //     if (this.updateForm.get('adult').value == "one" && this.updateForm.get('child').value == 0) {
@@ -922,7 +928,7 @@ export class HealthQuotesComponent implements OnInit {
 
         this.quotesArray = res['results'].response;
         this.quotesArray2 = this.quotesArray.slice();
-        this.message = res['results'].message
+        this.message = res['results'].message;
 
 
 
@@ -948,12 +954,25 @@ export class HealthQuotesComponent implements OnInit {
 
           }
           else if (e.productDetails.product_code = "HPAM05") {
-            e.url = "https://www.quickbima.com/api/apollos/get-family-premium.json",
+            e.url = "https://www.quickbima.com/api/cigna-ttks/get-premium.json",
 
               e.middleSection = [{
+                title: "Portability",
+                text: "Do you want to port your existing insurance?",
+              },
+              {
+                title: "Hospital Cash",
+                text: "Hospital Cash Benefit provides a daily hospital cash in fixed amount if the insured is hospitalized due to accident or illness."
+              },
+              {
                 title: "Critical Illness",
-                text: "20% of the Sum Assured up to a maximum of Rs. 24,000 per eye",
-              }]
+                text: "Critical illness give a lump sum amount equal to Sum Insured in case of first diagnosis of the covered critical illnesses. It protect the insured against financial loss in the event of a terminal illness."
+              },
+              {
+                title: "Pro Health-Cumulative Bonus Booster",
+                text: "Additional Sum Insured of 25% will be added as cumulative bonus at the time of renewal in case there is no claim in the expiring policy"
+              }
+              ]
 
           }
 
@@ -1069,7 +1088,7 @@ export class HealthQuotesComponent implements OnInit {
 
         })
 
-
+        console.log(this.quotesArray2)
 
 
 
