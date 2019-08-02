@@ -76,6 +76,7 @@ export class HealthQuotesComponent implements OnInit {
   sumInsured_city: any;
   sumInsured_state: any;
   sumInsured_email: any;
+  healthdata:any=[];
   sumInsured_age: any;
   pushedArray2: any[] = [];
   sumInsured_pincode: any;
@@ -842,14 +843,18 @@ export class HealthQuotesComponent implements OnInit {
 
   }
 
+
   backTOquation() {
     this.router.navigate(['/health-insurance/quotes'])
   }
 
-  buyBima(i) {
-    // this.router.navigate(['/health-insurance/quotes/proposal'])
+  buyBima(i,event) {
+    console.log(event)
+    event.preventDefault()
+    this.router.navigate(['/health-insurance/quotes/proposal'])
     console.log(i)
-
+ this. healthdata = localStorage.setItem('proposal', JSON.stringify(i))
+ console.log(this.healthdata)
   }
 
 
