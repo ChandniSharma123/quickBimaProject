@@ -19,4 +19,8 @@ updateRecord(data){
 return this.http.post("https://www.quickbima.com/api/health-insurances/update-record.json", data)
 }
 
+getProposal(url, data){
+return this.http.post(url , data)
+}
+
 }

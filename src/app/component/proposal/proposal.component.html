@@ -44,18 +44,18 @@
 
 	<div class="container proposalWrapper">
 		<div class="row">
-			<div class="col-3 leftSidebar text-center" *ngFor = "let i of getData">
+			<div class="col-3 leftSidebar text-center">
 				<div class="oneMaleOneC"></div>
-				<h4 class="mb-3">2 Adults & 1 Child</h4>
-				<img src= "{{}}" class="imgHeight" alt="insurer">
+				<h4 class="mb-3">{{healthCover}}</h4>
+				<img src="{{imageLogo}}" class="imgHeight" alt="insurer">
 				<p>ProHealth Protect Plan</p>
-				<h4><i class="fa fa-inr"></i> 5.5 Lakhs</h4>
+				<h4><i class="fa fa-inr"></i>{{sumInsured}}</h4>
 				<p>Sum Insured</p>
 				<h4>1 Year</h4>
 				<p>Policy Tenure</p>
-				<h4 class="mb-4">New NCB 35%</h4>
-				<h4 class="premium"><img src="images/loader.svg" height="10px" alt="loader"></h4>
-				<h4 class="premium"><i class="fa fa-inr"></i> 1,24,867</h4>
+				<!-- <h4 class="mb-4">New NCB 35%</h4>
+				<h4 class="premium"><img src="images/loader.svg" height="10px" alt="loader"></h4> -->
+				<h4 class="premium"><i class="fa fa-inr"></i>{{finalPremium.toFixed(2)}}</h4>
 				<p>Total Premium (Incl. GST)</p>
 			</div>
 			<div class="col-9 proposalForm pl-5">
@@ -73,94 +73,54 @@
 
 				<!-- Add-on -->
 				<section class="d-" id="proposerAddOns">
-					<div class="row healthAddons">
+					<div class="row healthAddons" *ngFor="let i of middleSection">
 						<div class="col-md-9">
-							<span class="policyport"></span>
-							<div class="addonTitle">
-								<h5>Do you want to port your existing insurance?</h5>
+							<div *ngIf="i.title == 'Portability' ">
+								<span class="policyport"></span>
 							</div>
-						</div>
-						<div class="col-md-3 text-right">
-							<input id="existingpolicy" class="toggles" name="existingpolicy" type="checkbox">
-							<label for="existingpolicy"></label>
-						</div>
-					</div>
-					 <div class="row healthAddons">
-						<div class="col-md-9" >
-							<span class="hospitalcash" ></span>
-							<div class="addonTitle" *ngFor = "let i of middleSection" >
+							<div *ngIf="i.title == 'Opt for a Top-up Plan and avail discount on your premium' ">
+								<span class="topupplan"></span>
+							</div>
+							<div *ngIf="i.title == 'Hospital Cash' ">
+								<span class="hospitalcash"></span>
+							</div>
+							<div *ngIf="i.title == 'Critical Illness' ">
+								<span class="criticalillness"></span>
+							</div>
+							<div *ngIf="i.title == 'Pro Health-Cumulative Bonus Booster' ">
+								<span class="topupplan"></span>
+							</div>
+							<div *ngIf="i.title == 'ProHealth-Reduction in Maternity waiting' ">
+								<span class="maternity"></span>
+							</div>
+							<div *ngIf="i.title == 'For Care with Unlimited Recharge' ">
+								<span class="reload"></span>
+							</div>
+							<div *ngIf="i.title == 'Add No Claim Bonus Super' ">
+								<span class="maternity"></span>
+							</div>
+							<div *ngIf="i.title == 'ProHealth-Reduction in Maternity waiting' ">
+								<span class="bonus"></span>
+							</div>
+							<div *ngIf="i.title == 'Super NCB' ">
+								<span class="bonus"></span>
+							</div>
+							<div *ngIf="i.title == 'Unlimited Reload of Sum Insured' ">
+								<span class="reload"></span>
+							</div>
+							<div *ngIf="i.title == 'Any Room Upgrade' ">
+								<span class="roomupgrade"></span>
+							</div>
+
+							<div class="addonTitle">
 								<h5>{{i.title}}</h5>
-								<p>{{i.text}}<i class="fa fa-inr"></i></p>
+								<p>{{i.text}}</p>
 							</div>
-						</div> 
-						<!-- <div class="col-md-3 text-right">
-							<p class="addonPremium mb-1"><i class="fa fa-inr"></i> 975</p>
-							<input id="hospitalcash" class="toggles" name="hospitalcash" type="checkbox">
-							<label for="hospitalcash"></label>
-						</div> -->
+
+						</div>
 					</div>
-					<!-- <div class="row healthAddons">
-						<div class="col-md-9">
-							<span class="criticalillness"></span>
-							<div class="addonTitle">
-								<h5>Critical Illness</h5>
-								<p>Critical illness give a lump sum amount equal to Sum Insured in case of first
-									diagnosis of the covered critical illnesses. It protect the insured against
-									financial loss in the event of a terminal illness.</p>
-							</div>
-						</div>
-						<div class="col-md-3 text-right">
-							<select class="ui search dropdown">
-								<option value="">Deductible Amount</option>
-								<option value="0">0</option>
-								<option value="100000">1 Lakh</option>
-								<option value="200000">2 Lakhs</option>
-								<option value="300000">3 Lakhs</option>
-								<option value="500000">5 Lakhs</option>
-								<option value="1000000">10 Lakhs</option>
-							</select>
-						</div>
-					</div> -->
-					<!-- <div class="row healthAddons">
-						<div class="col-md-9">
-							<span class="bonus"></span>
-							<div class="addonTitle">
-								<h5>Pro Health-Cumulative Bonus Booster</h5>
-								<p>Additional Sum Insured of 25% will be added as cumulative bonus at the time of
-									renewal in case there is no claim in the expiring policy.</p>
-							</div>
-						</div>
-						<div class="col-md-3 text-right">
-							<p class="addonPremium mb-1"><i class="fa fa-inr"></i> 975</p>
-							<input id="hospitalcash" class="toggles" name="hospitalcash" type="checkbox">
-							<label for="hospitalcash"></label>
-						</div>
-					</div> -->
-					<!-- <div class="row healthAddons">
-						<div class="col-md-9">
-							<span class="familyprotect"></span>
-							<div class="addonTitle">
-								<h5>Protect Family</h5>
-							</div>
-						</div>
-						<div class="col-md-3 text-right">
-							<input id="hospitalcash" class="toggles" name="hospitalcash" type="checkbox">
-							<label for="hospitalcash"></label>
-						</div>
-					</div> -->
 
 				</section>
-
-				<!-- Proposer Details -->
-
-
-
-
-
-				<!-- Nominee Details -->
-
-
-				<!-- Address Details -->
 
 
 				<!-- This footer will be common for all sections -->
@@ -168,7 +128,8 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-9 offset-3">
-								<a href="javascript:void(0);" class="text-left backStep">Back to Quotes</a>
+								<a  (click)="backTOQuotes()" class="text-left backStep">Back
+									to Quotes</a>
 								<a href="javascript:void(0);" class="btn continue">Continue</a>
 							</div>
 						</div>
