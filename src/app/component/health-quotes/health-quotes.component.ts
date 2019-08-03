@@ -1071,19 +1071,20 @@ export class HealthQuotesComponent implements OnInit {
           if (e.productDetails.product_code == "HPRS02") {
             e.url = "https://www.quickbima.com/api/royal-sundarams/get-premium.json",
               e.payload = {
-                gender: this.addDetails.gender,
-                pincode: this.addDetails.pincode,
-                quote_no: this.addDetails.quote_no,
-                sum_insured: this.addDetails.sum_insured,
-                term: 1,
-                product_id: e.productDetails.id,
-                product_code: e.productDetails.product_code,
-                cover: this.addDetails.cover,
-                age: this.addDetails.age,
-                mobile: this.addDetails.mobile,
-                state: this.addDetails.state,
-                city: this.addDetails.city,
-                tax_calc_method: e.productDetails.tax_calc_method
+                // cover: 
+                // age: 19
+                // buy_online_code: ROYAL-SUPREME
+                // sum_insured: 500000
+                // city: Alwar
+                // term: 1
+                // name: 
+                // mobile: 9999999999
+                // email: test@quickbima.com
+                // opt_topup_opted: No
+                // deductible_amount: 
+                // hospital_benifit: on
+                // quote_no: QB1564835502739870904
+                // product_id: 99
               }
             e.middleSection = [{
               title: "Hospital Cash",
