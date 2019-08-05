@@ -920,125 +920,245 @@ export class HealthQuotesComponent implements OnInit {
           e.middleSection = [];
           if (e.productDetails.product_code == "HPRS02") {
             e.url = "https://www.quickbima.com/api/royal-sundarams/get-premium.json",
-
-              e.middleSection = [{
-                title: "Hospital Cash",
-                text: "Get Hospital cash benefit of  2,000 /day for an additional premium of",
-              },
-              {
-                title: "Opt for a Top-up Plan and avail discount on your premium",
-                text: "Top-up plans would have lower premium and offer higher coverage."
+              e.payload = {
+                cover: this.editDetails.cover,
+                age: this.editDetails.age,
+                buy_online_code: e.productDetails.buy_online_code,
+                sum_insured: this.editDetails.sum_insured,
+                city: this.editDetails.city,
+                term: 1,
+                mobile: this.editDetails.mobile,
+                email: this.editDetails.email,
+                opt_topup_opted: 'No',
+                deductible_amount: '',
+                hospital_benifit: 'on',
+                quote_no: this.editDetails.quote_no,
+                product_id: e.productDetails.id
               }
-              ]
-
-          }
-          else if (e.productDetails.product_code = "HPAM05") {
-            e.url = "https://www.quickbima.com/api/cigna-ttks/get-premium.json",
-
-              e.middleSection = [{
-                title: "Portability",
-                text: "Do you want to port your existing insurance?",
-              },
-              {
-                title: "Hospital Cash",
-                text: "Hospital Cash Benefit provides a daily hospital cash in fixed amount if the insured is hospitalized due to accident or illness."
-              },
-              {
-                title: "Critical Illness",
-                text: "Critical illness give a lump sum amount equal to Sum Insured in case of first diagnosis of the covered critical illnesses. It protect the insured against financial loss in the event of a terminal illness."
-              },
-              {
-                title: "Pro Health-Cumulative Bonus Booster",
-                text: "Additional Sum Insured of 25% will be added as cumulative bonus at the time of renewal in case there is no claim in the expiring policy"
-              }
-              ]
-
-          }
-
-
-          else if (e.productDetails.product_code == "G025") {
-            e.url = "https://www.quickbima.com/api/health-rates/get-premium.json"
-
-          }
-          else if (e.productDetails.product_code == "HFC001") {
-            e.url = "https://www.quickbima.com/api/cigna-ttks/get-premium.json",
-
-              e.middleSection = [{
-                title: "Portability",
-                text: "Do you want to port your existing insurance?",
-              },
-              {
-                title: "Critical Illness",
-                text: "Critical illness give a lump sum amount equal to Sum Insured in case of first diagnosis of the covered critical illnesses. It protect the insured against financial loss in the event of a terminal illness."
-              },
-              {
-                title: "Pro Health-Cumulative Bonus Booster",
-                text: "Additional Sum Insured of 25% will be added as cumulative bonus at the time of renewal in case there is no claim in the expiring policy"
-              },]
-          }
-          else if (e.productDetails.product_code == "HFC002") {
-            e.url = "https://www.quickbima.com/api/cigna-ttks/get-premium.json",
-
-              e.middleSection = [{
-                title: "Portability",
-                text: "Do you want to port your existing insurance?",
-              },
-              {
-                title: "Critical Illness",
-                text: "Critical illness give a lump sum amount equal to Sum Insured in case of first diagnosis of the covered critical illnesses. It protect the insured against financial loss in the event of a terminal illness."
-              },
-              {
-                title: "Pro Health-Cumulative Bonus Booster",
-                text: "Additional Sum Insured of 25% will be added as cumulative bonus at the time of renewal in case there is no claim in the expiring policy"
-              },]
-
-
-          }
-          else if (e.productDetails.product_code == "HFR002") {
-            e.url = "https://www.quickbima.com/api/health-rates/get-premium.json",
-
-              e.middleSection = [{
-                title: "For Care with Unlimited Recharge",
-                text: "If due to claims made, you ever exhaust your health cover, we recharge the entire sum insured of your policy for you, in the policy year. All this at no extra cost",
-              },
-              {
-                title: "Add No Claim Bonus Super",
-                text: "No claim Bonus Super is a benefit where the insured gets an increase of 50% in the sum insured for every claim free year, up to the maximum of 100% of the sum insured."
-
-              },
-              ]
-          }
-          else if (e.productDetails.product_code == "HPAB031") {
-            e.url = "https://www.quickbima.com/api/aditya-birlas/get-premium-diamond.json",
-
-              e.middleSection = [{
-                title: "Super NCB",
-                text: "Receive a Super NCB of 50% of your Sum Insured for every claim free year. Maximum up to 100%"
-
-              },
-              {
-                title: "Unlimited Reload of Sum Insured",
-                text: "Sum insured shall be reinstated unlimited times in a policy year if you run out cover due to claims."
-              },
-              {
-                title: "Any Room Upgrade",
-                text: "Choose any room in hospital without any restriction?"
-              }
-              ]
-          }
-          else if (e.productDetails.product_code == "HFH003") {
             e.middleSection = [{
-              title: "Critical Illness",
-              text: "Double Sum Insured For Critical illness."
+              title: "Hospital Cash",
+              text: "Get Hospital cash benefit of  2,000 /day for an additional premium of",
             },
             {
-              title: "Waiver of Room Rent Sub-limits",
-              text: ""
-            },
+              title: "Opt for a Top-up Plan and avail discount on your premium",
+              text: "Top-up plans would have lower premium and offer higher coverage."
+            }
+            ]
 
+          }
+          else if (e.productDetails.product_code == "HPAM04") {
+            e.url = "https://www.quickbima.com/api/apollos/get-family-premium.json"
+            e.payload = {
+              sum_insured: this.editDetails.sum_insured,
+              term: 1,
+              product_id: e.productDetails.id,
+              product_code: e.productDetails.product_code,
+              cover: this.editDetails.cover,
+              age: this.editDetails.age,
+              pincode: this.editDetails.pincode,
+              state: this.editDetails.state,
+              city: this.editDetails.city,
+              buy_online_code: e.productDetails.buy_online_code,
+              tax_calc_method: e.productDetails.tax_calc_method,
+              deductible_amount: ''
+            }
+            e.middleSection = [
+              {
+                title: "Critical Illness",
+                text: "20% of the Sum Assured up to a maximum of Rs. 24,000 per eye."
+              }]
+
+          }
+          else if (e.productDetails.product_code = "HFC001") {
+            e.url = "https://www.quickbima.com/api/cigna-ttks/get-premium.json",
+              e.payload = {
+                gender: this.editDetails.gender,
+                pincode: this.editDetails.pincode,
+                quote_no: this.editDetails.quote_no,
+                sum_insured: this.editDetails.sum_insured,
+                term: 1,
+                product_id: e.productDetails.id,
+                product_code: e.productDetails.product_code,
+                cover: this.editDetails.cover,
+                age: this.editDetails.age,
+                mobile: this.editDetails.mobile,
+                state: this.editDetails.state,
+                city: this.editDetails.city,
+                tax_calc_method: e.productDetails.tax_calc_method
+              }
+
+            e.middleSection = [{
+              title: "Portability",
+              text: "Do you want to port your existing insurance?",
+            },
+            {
+              title: "Hospital Cash",
+              text: "Hospital Cash Benefit provides a daily hospital cash in fixed amount if the insured is hospitalized due to accident or illness."
+            },
+            {
+              title: "Critical Illness",
+              text: "Critical illness give a lump sum amount equal to Sum Insured in case of first diagnosis of the covered critical illnesses. It protect the insured against financial loss in the event of a terminal illness."
+            },
+            {
+              title: "Pro Health-Cumulative Bonus Booster",
+              text: "Additional Sum Insured of 25% will be added as cumulative bonus at the time of renewal in case there is no claim in the expiring policy"
+            }
+            ]
+
+          }
+
+          else if (e.productDetails.product_code = "HFC002") {
+            e.url = "https://www.quickbima.com/api/cigna-ttks/get-premium.json",
+              e.payload = {
+                gender: this.editDetails.gender,
+                pincode: this.editDetails.pincode,
+                quote_no: this.editDetails.quote_no,
+                sum_insured: this.editDetails.sum_insured,
+                term: 1,
+                product_id: e.productDetails.id,
+                product_code: e.productDetails.product_code,
+                cover: this.editDetails.cover,
+                age: this.editDetails.age,
+                mobile: this.editDetails.mobile,
+                state: this.editDetails.state,
+                city: this.editDetails.city,
+                tax_calc_method: e.productDetails.tax_calc_method
+              }
+
+            e.middleSection = [{
+              title: "Portability",
+              text: "Do you want to port your existing insurance?",
+            },
+            {
+              title: "Hospital Cash",
+              text: "Hospital Cash Benefit provides a daily hospital cash in fixed amount if the insured is hospitalized due to accident or illness."
+            },
+            {
+              title: "Critical Illness",
+              text: "Critical illness give a lump sum amount equal to Sum Insured in case of first diagnosis of the covered critical illnesses. It protect the insured against financial loss in the event of a terminal illness."
+            },
+            {
+              title: "Pro Health-Cumulative Bonus Booster",
+              text: "Additional Sum Insured of 25% will be added as cumulative bonus at the time of renewal in case there is no claim in the expiring policy"
+            }
+            ]
+
+          }
+
+
+          else if (e.productDetails.product_code == "HPAM05") {
+            e.url = "https://www.quickbima.com/api/apollos/get-family-premium.json"
+            e.payload = {
+              sum_insured: this.editDetails.sum_insured,
+              term: 1,
+              product_id: e.productDetails.id,
+              product_code: e.productDetails.product_code,
+              cover: this.editDetails.cover,
+              age: this.editDetails.age,
+              pincode: this.editDetails.pincode,
+              state: this.editDetails.state,
+              city: this.editDetails.city,
+              buy_online_code: e.productDetails.buy_online_code,
+              tax_calc_method: e.productDetails.tax_calc_method,
+              deductible_amount: ''
+            }
+            e.middleSection = [
+              {
+                title: "Critical Illness",
+                text: "20% of the Sum Assured up to a maximum of Rs. 24,000 per eye."
+              },
             ]
           }
 
+          else if (e.productDetails.product_code == "HPAM06") {
+            e.url = "https://www.quickbima.com/api/apollos/get-family-premium.json"
+            e.payload = {
+              sum_insured: this.editDetails.sum_insured,
+              term: 1,
+              product_id: e.productDetails.id,
+              product_code: e.productDetails.product_code,
+              cover: this.editDetails.cover,
+              age: this.editDetails.age,
+              pincode: this.editDetails.pincode,
+              state: this.editDetails.state,
+              city: this.editDetails.city,
+              buy_online_code: e.productDetails.buy_online_code,
+              tax_calc_method: e.productDetails.tax_calc_method,
+              deductible_amount: ''
+            }
+            e.middleSection = [
+              {
+                title: "Critical Illness",
+                text: "20% of the Sum Assured up to a maximum of Rs. 24,000 per eye."
+              },
+            ]
+          }
+
+          else if (e.productDetails.product_code == "HPAM13") {
+            e.url  = "",
+            e.payload ={}
+            e.middleSection = [
+              {
+                title: "Critical Illness",
+                text: "20% of the Sum Assured up to a maximum of Rs. 24,000 per eye."
+              },
+            ]
+          }
+          
+          
+          else if (e.productDetails.product_code == "HFR002") {
+            e.url = "https://www.quickbima.com/api/health-rates/get-premium.json",
+              e.payload = {
+                
+                sum_insured: this.editDetails.sum_insured,
+                term: 1,
+                product_id: e.productDetails.id,
+               
+                cover: this.editDetails.cover,
+                age: this.editDetails.age,
+                
+                buy_online_code: e.productDetails.buy_online_code
+              }
+            e.middleSection = [{
+              title: "For Care with Unlimited Recharge",
+              text: "If due to claims made, you ever exhaust your health cover, we recharge the entire sum insured of your policy for you, in the policy year. All this at no extra cost",
+            },
+            {
+              title: "Add No Claim Bonus Super",
+              text: "No claim Bonus Super is a benefit where the insured gets an increase of 50% in the sum insured for every claim free year, up to the maximum of 100% of the sum insured."
+
+            },
+            ]
+          }
+          else if (e.productDetails.product_code == "HPAB031") {
+            e.url = "https://www.quickbima.com/api/aditya-birlas/get-premium-diamond.json",
+              e.payload = {
+
+                sum_insured: this.editDetails.sum_insured,
+                term: 1,
+                product_id: e.productDetails.id,
+                product_code: e.productDetails.product_code,
+                cover: this.editDetails.cover,
+                age: this.editDetails.age,
+                buy_online_code: e.productDetails.buy_online_code,
+                tax_calc_method: e.productDetails.tax_calc_method
+              }
+            e.middleSection = [{
+              title: "Super NCB",
+              text: "Receive a Super NCB of 50% of your Sum Insured for every claim free year. Maximum up to 100%"
+
+            },
+            {
+              title: "Unlimited Reload of Sum Insured",
+              text: "Sum insured shall be reinstated unlimited times in a policy year if you run out cover due to claims."
+            },
+            {
+              title: "Any Room Upgrade",
+              text: "Choose any room in hospital without any restriction?"
+            }
+            ]
+          }
+         
 
           for (let i = 0; i < 4; i++) {
             if (e.SpecialFeatureLists[i]) {
@@ -1055,8 +1175,10 @@ export class HealthQuotesComponent implements OnInit {
       this.healthquote.gethealthQuotes(this.addDetails).subscribe((res) => {
 
         this.quotesArray = res['results'].response;
+        console.log(this.quotesArray)
         this.quotesArray2 = this.quotesArray.slice();
         this.message = res['results'].message;
+        console.log(this.quotesArray2)
 
 
 
@@ -1071,20 +1193,19 @@ export class HealthQuotesComponent implements OnInit {
           if (e.productDetails.product_code == "HPRS02") {
             e.url = "https://www.quickbima.com/api/royal-sundarams/get-premium.json",
               e.payload = {
-                // cover: 
-                // age: 19
-                // buy_online_code: ROYAL-SUPREME
-                // sum_insured: 500000
-                // city: Alwar
-                // term: 1
-                // name: 
-                // mobile: 9999999999
-                // email: test@quickbima.com
-                // opt_topup_opted: No
-                // deductible_amount: 
-                // hospital_benifit: on
-                // quote_no: QB1564835502739870904
-                // product_id: 99
+                cover: this.addDetails.cover,
+                age: this.addDetails.age,
+                buy_online_code: e.productDetails.buy_online_code,
+                sum_insured: this.addDetails.sum_insured,
+                city: this.addDetails.city,
+                term: 1,
+                mobile: this.addDetails.mobile,
+                email: this.addDetails.email,
+                opt_topup_opted: 'No',
+                deductible_amount: '',
+                hospital_benifit: 'on',
+                quote_no: this.addDetails.quote_no,
+                product_id: e.productDetails.id
               }
             e.middleSection = [{
               title: "Hospital Cash",
@@ -1097,7 +1218,68 @@ export class HealthQuotesComponent implements OnInit {
             ]
 
           }
-          else if (e.productDetails.product_code = "HPAM05") {
+          else if (e.productDetails.product_code == "HPAM04") {
+            e.url = "https://www.quickbima.com/api/apollos/get-family-premium.json"
+            e.payload = {
+              sum_insured: this.addDetails.sum_insured,
+              term: 1,
+              product_id: e.productDetails.id,
+              product_code: e.productDetails.product_code,
+              cover: this.addDetails.cover,
+              age: this.addDetails.age,
+              pincode: this.addDetails.pincode,
+              state: this.addDetails.state,
+              city: this.addDetails.city,
+              buy_online_code: e.productDetails.buy_online_code,
+              tax_calc_method: e.productDetails.tax_calc_method,
+              deductible_amount: ''
+            }
+            e.middleSection = [
+              {
+                title: "Critical Illness",
+                text: "20% of the Sum Assured up to a maximum of Rs. 24,000 per eye."
+              }]
+
+          }
+          else if (e.productDetails.product_code = "HFC001") {
+            e.url = "https://www.quickbima.com/api/cigna-ttks/get-premium.json",
+              e.payload = {
+                gender: this.addDetails.gender,
+                pincode: this.addDetails.pincode,
+                quote_no: this.addDetails.quote_no,
+                sum_insured: this.addDetails.sum_insured,
+                term: 1,
+                product_id: e.productDetails.id,
+                product_code: e.productDetails.product_code,
+                cover: this.addDetails.cover,
+                age: this.addDetails.age,
+                mobile: this.addDetails.mobile,
+                state: this.addDetails.state,
+                city: this.addDetails.city,
+                tax_calc_method: e.productDetails.tax_calc_method
+              }
+
+            e.middleSection = [{
+              title: "Portability",
+              text: "Do you want to port your existing insurance?",
+            },
+            {
+              title: "Hospital Cash",
+              text: "Hospital Cash Benefit provides a daily hospital cash in fixed amount if the insured is hospitalized due to accident or illness."
+            },
+            {
+              title: "Critical Illness",
+              text: "Critical illness give a lump sum amount equal to Sum Insured in case of first diagnosis of the covered critical illnesses. It protect the insured against financial loss in the event of a terminal illness."
+            },
+            {
+              title: "Pro Health-Cumulative Bonus Booster",
+              text: "Additional Sum Insured of 25% will be added as cumulative bonus at the time of renewal in case there is no claim in the expiring policy"
+            }
+            ]
+
+          }
+
+          else if (e.productDetails.product_code = "HFC002") {
             e.url = "https://www.quickbima.com/api/cigna-ttks/get-premium.json",
               e.payload = {
                 gender: this.addDetails.gender,
@@ -1136,88 +1318,78 @@ export class HealthQuotesComponent implements OnInit {
           }
 
 
-          else if (e.productDetails.product_code == "G025") {
-            e.url = "https://www.quickbima.com/api/health-rates/get-premium.json"
-
+          else if (e.productDetails.product_code == "HPAM05") {
+            e.url = "https://www.quickbima.com/api/apollos/get-family-premium.json"
+            e.payload = {
+              sum_insured: this.addDetails.sum_insured,
+              term: 1,
+              product_id: e.productDetails.id,
+              product_code: e.productDetails.product_code,
+              cover: this.addDetails.cover,
+              age: this.addDetails.age,
+              pincode: this.addDetails.pincode,
+              state: this.addDetails.state,
+              city: this.addDetails.city,
+              buy_online_code: e.productDetails.buy_online_code,
+              tax_calc_method: e.productDetails.tax_calc_method,
+              deductible_amount: ''
+            }
+            e.middleSection = [
+              {
+                title: "Critical Illness",
+                text: "20% of the Sum Assured up to a maximum of Rs. 24,000 per eye."
+              },
+            ]
           }
-          else if (e.productDetails.product_code == "HFC001") {
-            e.url = "https://www.quickbima.com/api/cigna-ttks/get-premium.json",
-              e.payload = {
-                gender: this.addDetails.gender,
-                pincode: this.addDetails.pincode,
-                quote_no: this.addDetails.quote_no,
-                sum_insured: this.addDetails.sum_insured,
-                term: 1,
-                product_id: e.productDetails.id,
-                product_code: e.productDetails.product_code,
-                cover: this.addDetails.cover,
-                age: this.addDetails.age,
-                mobile: this.addDetails.mobile,
-                state: this.addDetails.state,
-                city: this.addDetails.city,
-                tax_calc_method: e.productDetails.tax_calc_method
-              }
-            e.middleSection = [{
-              title: "Portability",
-              text: "Do you want to port your existing insurance?",
-            },
-            {
-              title: "Critical Illness",
-              text: "Critical illness give a lump sum amount equal to Sum Insured in case of first diagnosis of the covered critical illnesses. It protect the insured against financial loss in the event of a terminal illness."
-            },
-            {
-              title: "Pro Health-Cumulative Bonus Booster",
-              text: "Additional Sum Insured of 25% will be added as cumulative bonus at the time of renewal in case there is no claim in the expiring policy"
-            },]
-          }
-          else if (e.productDetails.product_code == "HFC002") {
-            e.url = "https://www.quickbima.com/api/cigna-ttks/get-premium.json",
-              e.payload = {
-                gender: this.addDetails.gender,
-                pincode: this.addDetails.pincode,
-                quote_no: this.addDetails.quote_no,
-                sum_insured: this.addDetails.sum_insured,
-                term: 1,
-                product_id: e.productDetails.id,
-                product_code: e.productDetails.product_code,
-                cover: this.addDetails.cover,
-                age: this.addDetails.age,
-                mobile: this.addDetails.mobile,
-                state: this.addDetails.state,
-                city: this.addDetails.city,
-                tax_calc_method: e.productDetails.tax_calc_method
-              }
-            e.middleSection = [{
-              title: "Portability",
-              text: "Do you want to port your existing insurance?",
-            },
-            {
-              title: "Critical Illness",
-              text: "Critical illness give a lump sum amount equal to Sum Insured in case of first diagnosis of the covered critical illnesses. It protect the insured against financial loss in the event of a terminal illness."
-            },
-            {
-              title: "Pro Health-Cumulative Bonus Booster",
-              text: "Additional Sum Insured of 25% will be added as cumulative bonus at the time of renewal in case there is no claim in the expiring policy"
-            },]
 
-
+          else if (e.productDetails.product_code == "HPAM06") {
+            e.url = "https://www.quickbima.com/api/apollos/get-family-premium.json"
+            e.payload = {
+              sum_insured: this.addDetails.sum_insured,
+              term: 1,
+              product_id: e.productDetails.id,
+              product_code: e.productDetails.product_code,
+              cover: this.addDetails.cover,
+              age: this.addDetails.age,
+              pincode: this.addDetails.pincode,
+              state: this.addDetails.state,
+              city: this.addDetails.city,
+              buy_online_code: e.productDetails.buy_online_code,
+              tax_calc_method: e.productDetails.tax_calc_method,
+              deductible_amount: ''
+            }
+            e.middleSection = [
+              {
+                title: "Critical Illness",
+                text: "20% of the Sum Assured up to a maximum of Rs. 24,000 per eye."
+              },
+            ]
           }
+
+          else if (e.productDetails.product_code == "HPAM13") {
+            e.url  = "",
+            e.payload ={}
+            e.middleSection = [
+              {
+                title: "Critical Illness",
+                text: "20% of the Sum Assured up to a maximum of Rs. 24,000 per eye."
+              },
+            ]
+          }
+          
+          
           else if (e.productDetails.product_code == "HFR002") {
             e.url = "https://www.quickbima.com/api/health-rates/get-premium.json",
               e.payload = {
-                gender: this.addDetails.gender,
-                pincode: this.addDetails.pincode,
-                quote_no: this.addDetails.quote_no,
+                
                 sum_insured: this.addDetails.sum_insured,
                 term: 1,
                 product_id: e.productDetails.id,
-                product_code: e.productDetails.product_code,
+               
                 cover: this.addDetails.cover,
                 age: this.addDetails.age,
-                mobile: this.addDetails.mobile,
-                state: this.addDetails.state,
-                city: this.addDetails.city,
-                tax_calc_method: e.productDetails.tax_calc_method
+                
+                buy_online_code: e.productDetails.buy_online_code
               }
             e.middleSection = [{
               title: "For Care with Unlimited Recharge",
@@ -1233,18 +1405,14 @@ export class HealthQuotesComponent implements OnInit {
           else if (e.productDetails.product_code == "HPAB031") {
             e.url = "https://www.quickbima.com/api/aditya-birlas/get-premium-diamond.json",
               e.payload = {
-                gender: this.addDetails.gender,
-                pincode: this.addDetails.pincode,
-                quote_no: this.addDetails.quote_no,
+
                 sum_insured: this.addDetails.sum_insured,
                 term: 1,
                 product_id: e.productDetails.id,
                 product_code: e.productDetails.product_code,
                 cover: this.addDetails.cover,
                 age: this.addDetails.age,
-                mobile: this.addDetails.mobile,
-                state: this.addDetails.state,
-                city: this.addDetails.city,
+                buy_online_code: e.productDetails.buy_online_code,
                 tax_calc_method: e.productDetails.tax_calc_method
               }
             e.middleSection = [{
@@ -1262,34 +1430,7 @@ export class HealthQuotesComponent implements OnInit {
             }
             ]
           }
-          // else if (e.productDetails.product_code == "HFH003") {
-
-          //   e.payload = {
-          //     gender: this.addDetails.gender,
-          //     pincode: this.addDetails.pincode,
-          //     quote_no: this.addDetails.quote_no,
-          //     sum_insured: this.addDetails.sum_insured,
-          //     term: 1,
-          //     product_id: e.productDetails.id,
-          //     product_code: e.productDetails.product_code,
-          //     cover: this.addDetails.cover,
-          //     age: this.addDetails.age,
-          //     mobile: this.addDetails.mobile,
-          //     state: this.addDetails.state,
-          //     city: this.addDetails.city,
-          //     tax_calc_method: e.productDetails.tax_calc_method
-          //   }
-          //   e.middleSection = [{
-          //     title: "Critical Illness",
-          //     text: "Double Sum Insured For Critical illness."
-          //   },
-          //   {
-          //     title: "Waiver of Room Rent Sub-limits",
-          //     text: ""
-          //   },
-
-          //   ]
-          // }
+         
 
           e.totalFeatureList = this.featureList.slice();
 
