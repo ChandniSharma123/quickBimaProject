@@ -6,6 +6,7 @@ import { BlockingProxy } from 'blocking-proxy';
 import { runInThisContext } from 'vm';
 import { HomeService } from '../home/home.service'
 import { strictEqual } from 'assert';
+import { getLocaleExtraDayPeriodRules } from '@angular/common';
 @Component({
   selector: 'app-health-quotes',
   templateUrl: './health-quotes.component.html',
@@ -897,6 +898,8 @@ export class HealthQuotesComponent implements OnInit {
     console.log(this.healthdata)
     this.healthquote.getProposal(url, payload).subscribe((res) => {
       console.log(res)
+      localStorage.setItem('premiumResponse' , JSON.stringify(res));
+
     })
 
   }
@@ -969,7 +972,7 @@ export class HealthQuotesComponent implements OnInit {
               }]
 
           }
-          else if (e.productDetails.product_code = "HFC001") {
+          else if (e.productDetails.product_code == "HFC001") {
             e.url = "https://www.quickbima.com/api/cigna-ttks/get-premium.json",
               e.payload = {
                 gender: this.editDetails.gender,
@@ -1007,7 +1010,7 @@ export class HealthQuotesComponent implements OnInit {
 
           }
 
-          else if (e.productDetails.product_code = "HFC002") {
+          else if (e.productDetails.product_code == "HFC002") {
             e.url = "https://www.quickbima.com/api/cigna-ttks/get-premium.json",
               e.payload = {
                 gender: this.editDetails.gender,
@@ -1095,8 +1098,8 @@ export class HealthQuotesComponent implements OnInit {
           }
 
           else if (e.productDetails.product_code == "HPAM13") {
-            e.url  = "",
-            e.payload ={}
+            e.url = "",
+              e.payload = {}
             e.middleSection = [
               {
                 title: "Critical Illness",
@@ -1104,19 +1107,19 @@ export class HealthQuotesComponent implements OnInit {
               },
             ]
           }
-          
-          
+
+
           else if (e.productDetails.product_code == "HFR002") {
             e.url = "https://www.quickbima.com/api/health-rates/get-premium.json",
               e.payload = {
-                
+
                 sum_insured: this.editDetails.sum_insured,
                 term: 1,
                 product_id: e.productDetails.id,
-               
+
                 cover: this.editDetails.cover,
                 age: this.editDetails.age,
-                
+
                 buy_online_code: e.productDetails.buy_online_code
               }
             e.middleSection = [{
@@ -1128,6 +1131,27 @@ export class HealthQuotesComponent implements OnInit {
               text: "No claim Bonus Super is a benefit where the insured gets an increase of 50% in the sum insured for every claim free year, up to the maximum of 100% of the sum insured."
 
             },
+            ]
+          }
+
+          else if (e.productDetails.product_code == "HPU004") {
+            e.url = "https://www.quickbima.com/api/universal-sompos/get-premium.json"
+            e.payload = {
+              sum_insured: this.editDetails.sum_insured,
+              term: 1,
+              product_id: e.productDetails.id,
+              product_code: e.productDetails.product_code,
+              cover: this.editDetails.cover,
+              age: this.editDetails.age,
+              buy_online_code: e.productDetails.buy_online_code,
+              tax_calc_method: e.productDetails.tax_calc_method,
+
+            }
+            e.middleSection = [
+              {
+                title: "uuuuuuuu",
+                text: "20% of the Sum Assured up to a maximum of Rs. 24,000 per eye."
+              },
             ]
           }
           else if (e.productDetails.product_code == "HPAB031") {
@@ -1158,7 +1182,7 @@ export class HealthQuotesComponent implements OnInit {
             }
             ]
           }
-         
+
 
           for (let i = 0; i < 4; i++) {
             if (e.SpecialFeatureLists[i]) {
@@ -1241,13 +1265,14 @@ export class HealthQuotesComponent implements OnInit {
               }]
 
           }
-          else if (e.productDetails.product_code = "HFC001") {
+          else if (e.productDetails.product_code == "HFC001") {
+            console.log("cignattk")
             e.url = "https://www.quickbima.com/api/cigna-ttks/get-premium.json",
               e.payload = {
                 gender: this.addDetails.gender,
                 pincode: this.addDetails.pincode,
                 quote_no: this.addDetails.quote_no,
-                sum_insured: this.addDetails.sum_insured,
+                sum_insured: e.sumInsured,
                 term: 1,
                 product_id: e.productDetails.id,
                 product_code: e.productDetails.product_code,
@@ -1279,13 +1304,15 @@ export class HealthQuotesComponent implements OnInit {
 
           }
 
-          else if (e.productDetails.product_code = "HFC002") {
+          else if (e.productDetails.product_code == "HFC002") {
+            console.log("cignattk2")
+
             e.url = "https://www.quickbima.com/api/cigna-ttks/get-premium.json",
               e.payload = {
                 gender: this.addDetails.gender,
                 pincode: this.addDetails.pincode,
                 quote_no: this.addDetails.quote_no,
-                sum_insured: this.addDetails.sum_insured,
+                sum_insured: e.sumInsured,
                 term: 1,
                 product_id: e.productDetails.id,
                 product_code: e.productDetails.product_code,
@@ -1366,9 +1393,30 @@ export class HealthQuotesComponent implements OnInit {
             ]
           }
 
+          else if (e.productDetails.product_code == "HPU004") {
+            e.url = "https://www.quickbima.com/api/universal-sompos/get-premium.json"
+            e.payload = {
+              sum_insured: this.addDetails.sum_insured,
+              term: 1,
+              product_id: e.productDetails.id,
+              product_code: e.productDetails.product_code,
+              cover: this.addDetails.cover,
+              age: this.addDetails.age,
+
+              buy_online_code: e.productDetails.buy_online_code,
+              tax_calc_method: e.productDetails.tax_calc_method,
+
+            }
+            e.middleSection = [
+              {
+                title: "uuuuuuuu",
+                text: "20% of the Sum Assured up to a maximum of Rs. 24,000 per eye."
+              },
+            ]
+          }
           else if (e.productDetails.product_code == "HPAM13") {
-            e.url  = "",
-            e.payload ={}
+            e.url = "",
+              e.payload = {}
             e.middleSection = [
               {
                 title: "Critical Illness",
@@ -1376,19 +1424,19 @@ export class HealthQuotesComponent implements OnInit {
               },
             ]
           }
-          
-          
+
+
           else if (e.productDetails.product_code == "HFR002") {
             e.url = "https://www.quickbima.com/api/health-rates/get-premium.json",
               e.payload = {
-                
+
                 sum_insured: this.addDetails.sum_insured,
                 term: 1,
                 product_id: e.productDetails.id,
-               
+
                 cover: this.addDetails.cover,
                 age: this.addDetails.age,
-                
+
                 buy_online_code: e.productDetails.buy_online_code
               }
             e.middleSection = [{
@@ -1430,7 +1478,7 @@ export class HealthQuotesComponent implements OnInit {
             }
             ]
           }
-         
+
 
           e.totalFeatureList = this.featureList.slice();
 

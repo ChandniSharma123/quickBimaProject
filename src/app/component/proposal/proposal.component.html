@@ -118,8 +118,22 @@
 							</div>
 
 						</div>
+					
 
-						<div class="col-md-3 text-right">
+						<!-- <div *ngIf = "i.title == 'Opt for a Top-up Plan and avail discount on your premium'">{{}}</div> -->
+
+						<div class="col-md-3 text-right" style="color: red">
+								<div *ngIf="i.title == 'Unlimited Reload of Sum Insured' ">₹{{reloadPremium}}</div>
+			
+									<div *ngIf="i.title == 'Any Room Upgrade'">₹{{roomCategoryPremium}}</div>
+									
+			
+									<div *ngIf="i.title == 'Super NCB'">₹{{ncbPremium}}</div>
+									<div *ngIf="i.title == 'Add No Claim Bonus Super'">₹{{bonus_premium_new}}</div>
+									
+									<div *ngIf="i.title == 'For Care with Unlimited Recharge'">₹{{carePremium}}</div>
+			
+									<div *ngIf="i.title == 'Hospital Cash'">₹{{hospitalPremium}}</div>
 							<input id="existingpolicy" class="toggles" name="existingpolicy" type="checkbox">
 							<label for="existingpolicy"></label>
 						</div>
@@ -133,7 +147,7 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-9 offset-3">
-								<a  (click)="backTOQuotes()" class="text-left backStep">Back
+								<a (click)="backTOQuotes()" class="text-left backStep">Back
 									to Quotes</a>
 								<a href="javascript:void(0);" class="btn continue">Continue</a>
 							</div>
