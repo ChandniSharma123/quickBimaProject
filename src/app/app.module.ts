@@ -10,6 +10,7 @@ import { HealthQuotesComponent } from './component/health-quotes/health-quotes.c
 import { EditInfoComponent } from './component/edit-info/edit-info.component';
 // import { D/etailsComponent } from './component/details/details.component';
 import { ProposalComponent } from './component/proposal/proposal.component';
+import { ProposalFormComponent } from './component/proposal-form/proposal-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,10 @@ import { ProposalComponent } from './component/proposal/proposal.component';
     EditInfoComponent,
   
    
-    ProposalComponent
+    ProposalComponent,
+  
+   
+    ProposalFormComponent
   ],
   imports: [
     BrowserModule,ReactiveFormsModule,

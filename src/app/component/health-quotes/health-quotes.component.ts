@@ -728,12 +728,13 @@ export class HealthQuotesComponent implements OnInit {
       for (let c = 0; c < this.pushedArray2.length; c++) {
         let flag = false;
         const pEle = this.pushedArray2[c];
+        console.log(pEle)
         for (let i = 0; i < e.SpecialFeatureLists.length; i++) {
           if (e.SpecialFeatureLists[i].code == pEle.code) {
             flag = true;
           }
         }
-        if (!flag) {
+        if (!flag) { 
           return false;
         }
       }

@@ -60,4 +60,10 @@ this.religareNcbPremium = this.premiumData.results.response.religareNcbPremium
     )
     console.log(this.getUserData)
   }
+  goOnProposalForm(event){
+        
+   
+        this.router.navigate(['/health-insurance/quotes/proposal/propForm'])
+  }
+
 }
