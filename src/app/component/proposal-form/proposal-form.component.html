@@ -37,14 +37,15 @@
 
 
   <nav class="navbar fixed-top">
-    <div class="container">
+
+    <!--     
+  <div class="container">
       <div class="row">
-        <div class="col-12">
+         <div class="col-12"> 
           <a class="navbar-brand"><img src="https://www.quickbima.com/images/QuickBima_logo.svg" class="quickbimaLogo"
-              alt="Quickbima"></a>
-        </div>
-      </div>
-    </div>
+              alt="Quickbima"></a> -->
+    <!-- </div> -->
+
   </nav>
 
 
@@ -53,7 +54,8 @@
       <div class="col-3 leftSidebar text-center">
         <div class="oneMaleTwoC"></div>
         <h4 class="mb-3">1 Adult <span>&</span> 2 Children</h4>
-        <!-- <img src="https://qbstatic.com/images/Religare-Health-Insurance-Company-Limited.svg" class="imgHeight" alt="insurer"> -->
+        <img src="https://qbstatic.com/images/Religare-Health-Insurance-Company-Limited.svg" class="imgHeight"
+          alt="insurer">
         <p>Care Elite</p>
         <h4><i class="fa fa-inr"></i> 5 Lakhs</h4>
         <p>Sum Insured</p>
@@ -66,142 +68,133 @@
       </div>
 
       <div class="col-9 proposalForm pl-5">
-        <form [formGroup]="proposalForm" (ngSubmit)="showhealthPage()" >
+        <form [formGroup]="proposalForm" (ngSubmit)="showhealthPage()">
 
-        <section class="d" id="customerDetailsForm">
-          <div class="row">
-            <div class="col-12 mb-4 formGroup">
+          <section class="d" id="customerDetailsForm">
+            <div class="row">
+              <!-- <div class="col-12 mb-4 formGroup">
               <span class="checkbox blueGradient">
                 <input type="checkbox" name="proposerRelationship"  formControlName = "Prl" id="proposerRelationship">
                 <label for="proposerRelationship" >Proposer is also an insured member.</label>
               </span>
-            </div>
-            <div class="col-lg-6 formGroup">
-              <div class="inputGroup mb-4">
-                <input class="inputEffect" id="proposerName"  formControlNmae = "pName" type="text" value="" required="">
-                <label>Full Name </label>
-                <span class="error d-none">Enter your full name.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-lg-4 col-md-6 formGroup">
-              <div class="inputGroup mb-3">
-                <input class="inputEffect datepicker hasDatepicker" formControlNaME = "dOB" id="proposerDOB" type="text" value="10/12/1988"
-                  required="">
-                <label>Date of Birth </label>
-                <span class="error d-none">Enter your DOB.</span>
-              </div>
-            </div>
-            <div class="col-lg-8 col-md-6 formGroup">
-              <p class="mb-1">Gender</p>
-              <span class="radioBox mb-3">
-                <input type="radio" id="Male" formControlName = "male "  checked="">
-                <label for="Male">Male</label>
-              </span>
-              <span class="radioBox ml-3 mb-3">
-                <input type="radio" id="Female"  formConrtolName = "f">
-                <label for="Female">Female</label>
-              </span>
-            </div>
-          </div>
-          <div class="row">
-
-            <div class="col-lg-4 col-md-6 formGroup">
-              <div class="inputGroup inputRead mb-4">
-                <input class="inputEffect" maxlength="10"  formControlName = "mob" type="tel" value="9034008486" required="">
-                <label>Mobile </label>
-                <span class="error d-none">Enter mobile number.</span>
-              </div>
-            </div>
-            <div class="col-lg-5 col-md-6 formGroup">
-              <div class="inputGroup mb-4">
-                <input class="inputEffect" type="email"  formControlName = "email" value="rahulraguvanshi@gmail.com" required="">
-                <label>Email Address </label>
-                <span class="error d-none">Enter email address.</span>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-4 col-md-6 formGroup">
-              <div class="inputGroup mb-4">
-                <input class="inputEffect" name="aadhar_number" formControlName = "aaDhar" maxlength="14" type="tel" value="" required="">
-                <label>Aadhar Number</label>
-                <span class="error d-none">Enter aadhar number.</span>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 formGroup" >
-              <div class="inputGroup mb-4">
-                <input class="inputEffect" maxlength="14"  formControlName = "tel" type="tel" value="" required="">
-                <label>Emegency Phone Number</label>
-                <span class="error d-none">Enter phone number.</span>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 formGroup">
-              <div class="ui search dropdown mb-4 selection"><select  formControlName = "occupation" name="occupation" id="occupation">
-                  <option value="">Occupation</option>
-                  <option value="O108-Government Employee">Government Employee</option>
-                  <option value="O001-Student">Student</option>
-                  <option value="O002-Private Service">Private Service</option>
-                  <option value="O003-Self Employed">Self Employed</option>
-                  <option value="O004-Housewife">Housewife</option>
-                  <option value="O005-Retired">Retired</option>
-                  <option value="O009-Defence/Uninsurable Occupation">Defence/Uninsurable Occupation</option>
-                  <option value="O052-Employee">Employee</option>
-                </select><label class="titleLabel">Occupation</label><input class="search" autocomplete="off"
-                  tabindex="0">
-                <div class="text"></div>
-                <div class="menu" tabindex="-1">
-                  <div class="item" data-value="O108-Government Employee">Government Employee</div>
-                  <div class="item" data-value="O001-Student">Student</div>
-                  <div class="item" data-value="O002-Private Service">Private Service</div>
-                  <div class="item" data-value="O003-Self Employed">Self Employed</div>
-                  <div class="item" data-value="O004-Housewife">Housewife</div>
-                  <div class="item" data-value="O005-Retired">Retired</div>
-                  <div class="item" data-value="O009-Defence/Uninsurable Occupation">Defence/Uninsurable Occupation
-                  </div>
-                  <div class="item" data-value="O052-Employee">Employee</div>
-                </div>
-              </div>
-              <span class="error">Select Occupation.</span>
-            </div>
-            <div class="col-lg-4 col-md-6 formGroup">
-              <div class="inputGroup mb-4 w-50 float-left">
-                <input class="inputEffect" maxlength="14"  formControlname = "income" type="tel" value="" required="">
-                <label>Annual Income</label>
-                <span class="error d-none">Enter income.</span>
-              </div>
-              <div class="ui search dropdown mb-4 w-50 selection formGroup"><select formControlName = "Notation">
-                  <option value="">Notation</option>
-                  <option value="Lakhs">Lakhs</option>
-                  <option value="Crore">Crore</option>
-                </select><label class="titleLabel">Notation</label><input class="search" autocomplete="off"
-                  tabindex="0">
-                <div class="text"></div>
-                <div class="menu" tabindex="-1">
-                  <div class="item" data-value="Lakhs">Lakhs</div>
-                  <div class="item" data-value="Crore">Crore</div>
+            </div> -->
+              <div class="col-lg-6 formGroup">
+                <div class="inputGroup mb-4">
+                  <input class="inputEffect" id="proposerName" formControlNmae="pName" type="text" value="" required="">
+                  <label>Full Name </label>
+                  <span class="error d-none">Enter your full name.</span>
                 </div>
               </div>
             </div>
-            <div class="col-md-4 formGroup" >
-              <div class="height">
-                <span class="weightMeasure w-25">
+
+            <div class="row">
+              <div class="col-lg-4 col-md-6 formGroup">
+                <div class="inputGroup mb-3">
+                  <input class="inputEffect datepicker hasDatepicker" formControlName="DOB" id="proposerDOB" type="text"
+                    value="10/12/1988" required="">
+                  <label>Date of Birth </label>
+                  <span class="error d-none">Enter your DOB.</span>
+                </div>
+              </div>
+              <div class="col-lg-8 col-md-6 formGroup">
+                <p class="mb-1">Gender</p>
+                <span class="radioBox mb-3">
+                  <input type="radio" id="Male" formControlName="gender" checked="">
+                  <label for="Male">Male</label>
                 </span>
+                <span class="radioBox ml-3 mb-3">
+                  <input type="radio" id="Female" formConrtolName="gender">
+                  <label for="Female">Female</label>
+                </span>
+              </div>
+            </div>
+            <div class="row">
+
+              <div class="col-lg-4 col-md-6 formGroup">
+                <div class="inputGroup inputRead mb-4">
+                  <input class="inputEffect" maxlength="10" formControlName="mob" type="tel" value="9034008486"
+                    required="">
+                  <label>Mobile </label>
+                  <span class="error d-none">Enter mobile number.</span>
+                </div>
+              </div>
+              <div class="col-lg-5 col-md-6 formGroup">
+                <div class="inputGroup mb-4">
+                  <input class="inputEffect" type="email" formControlName="email" value="rahulraguvanshi@gmail.com"
+                    required="">
+                  <label>Email Address </label>
+                  <span class="error d-none">Enter email address.</span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-md-6 formGroup">
+                <div class="inputGroup mb-4">
+                  <input class="inputEffect" name="aadhar_number" formControlName="aaDhar" maxlength="14" type="tel"
+                    value="" required="">
+                  <label>Aadhar Number</label>
+                  <span class="error d-none">Enter aadhar number.</span>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 formGroup">
+                <div class="inputGroup mb-4">
+                  <input class="inputEffect" maxlength="14" formControlName="tel" type="tel" value="" required="">
+                  <label>Emegency Phone Number</label>
+                  <span class="error d-none">Enter phone number.</span>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 formGroup">
+                <div class="inputGroup mb-4">
+                  <input class="inputEffect" maxlength="14" formControlName="tel" type="tel" value="" required="">
+                  <label>Marital Status</label>
+                  <span class="error d-none">Enter Status.</span>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 formGroup">
+                <div class="mdb-select md-form">
+                  <select formControlName="occupation" name="occupation" id="occupation">
+                    <option value="">Occupation</option>
+                    <option value="O108-Government Employee">Government Employee</option>
+                    <option value="O001-Student">Student</option>
+                    <option value="O002-Private Service">Private Service</option>
+                    <option value="O003-Self Employed">Self Employed</option>
+                    <option value="O004-Housewife">Housewife</option>
+                    <option value="O005-Retired">Retired</option>
+                    <option value="O009-Defence/Uninsurable Occupation">Defence/Uninsurable Occupation</option>
+                    <option value="O052-Employee">Employee</option>
+                  </select>
+                  <!-- <label class="titleLabel">Occupation</label><input class="search" autocomplete="off" -->
+                  <!-- tabindex="0"> -->
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6">
+                <div class="inputGroup mb-4 w-50 float-left formGroup">
+                  <input class="inputEffect" maxlength="14" formControlname="income" type="tel" value="" required="">
+                  <label>Annual Income</label>
+                  <span class="error d-none">Enter income.</span>
+                </div>
+
+              </div>
+              <div class="col-md-4">
+                <!-- <div class="height">
+                  <span class="weightMeasure w-25">
+                  </span> -->
                 <div class="inputGroup w-75 mb-4">
-                  <input class="inputEffect"  formControlName = "weight" maxlength="3" type="tel" value="" required="">
+                  <input class="inputEffect" formControlName="weight" maxlength="3" type="tel" value="" required="">
                   <label>Weight (Kg) </label>
                   <span class="error d-none">Enter weight.</span>
                 </div>
               </div>
             </div>
+
             <div class="col-lg-4 col-md-4">
               <div class="height">
                 <span class="heightMeasure">
                   <p>Height</p>
                 </span>
-                <div class="ui search dropdown mr-2 selection formGroup"><select formControlName = "feet">
+                <div class="mdb-select md-form">
+                  <select formControlName="height">
                     <option value="">Feet</option>
                     <option value="1">1 Feet</option>
                     <option value="2">2 Feet</option>
@@ -210,182 +203,194 @@
                     <option value="5">5 Feet</option>
                     <option value="6">6 Feet</option>
                     <option value="7">7 Feet</option>
-
-                  </select formConrtolName = "inches"><label class="titleLabel">Feet</label><input class="search" autocomplete="off" tabindex="0">
-                  <div class="text"></div>
-                  <div class="menu" tabindex="-1">
-                    <div class="item" data-value="1">1 Feet</div>
-                    <div class="item" data-value="2">2 Feet</div>
-                    <div class="item" data-value="3">3 Feet</div>
-                    <div class="item" data-value="4">4 Feet</div>
-                    <div class="item" data-value="5">5 Feet</div>
-                    <div class="item" data-value="6">6 Feet</div>
-                    <div class="item" data-value="7">7 Feet</div>
-                  </div>
-                </div>
-                <div class="ui search dropdown selection formGroup"><select formControlName = "Inches">
-                    <option value="">Inches</option>
-                    <option value="0">0 Inch</option>
-                    <option value="1">1 Inch</option>
-                    <option value="2">2 Inches</option>
-                    <option value="3">3 Inches</option>
-                    <option value="4">4 Inches</option>
-                    <option value="5">5 Inches</option>
-                    <option value="6">6 Inches</option>
-                    <option value="7">7 Inches</option>
-                    <option value="7">8 Inches</option>
-                    <option value="7">9 Inches</option>
-                    <option value="7">10 Inches</option>
-                    <option value="7">11 Inches</option>
-
                   </select>
-                  <label class="titleLabel">Inches</label><input class="search" autocomplete="off"
-                    tabindex="0">
-                  <div class="text"></div>
-                  <div class="menu" tabindex="-1">
-                    <div class="item" data-value="0">0 Inch</div>
-                    <div class="item" data-value="1">1 Inch</div>
-                    <div class="item" data-value="2">2 Inches</div>
-                    <div class="item" data-value="3">3 Inches</div>
-                    <div class="item" data-value="4">4 Inches</div>
-                    <div class="item" data-value="5">5 Inches</div>
-                    <div class="item" data-value="6">6 Inches</div>
-                    <div class="item" data-value="7">7 Inches</div>
-                    <div class="item" data-value="7">8 Inches</div>
-                    <div class="item" data-value="7">9 Inches</div>
-                    <div class="item" data-value="7">10 Inches</div>
-                    <div class="item" data-value="7">11 Inches</div>
+
+
+                  <div class="mdb-select md-form">
+                    <select formControlName="Inches">
+                      <option value="">Inches</option>
+                      <option value="0">0 Inch</option>
+                      <option value="1">1 Inch</option>
+                      <option value="2">2 Inches</option>
+                      <option value="3">3 Inches</option>
+                      <option value="4">4 Inches</option>
+                      <option value="5">5 Inches</option>
+                      <option value="6">6 Inches</option>
+                      <option value="7">7 Inches</option>
+                      <option value="7">8 Inches</option>
+                      <option value="7">9 Inches</option>
+                      <option value="7">10 Inches</option>
+                      <option value="7">11 Inches</option>
+
+                    </select>
                   </div>
                 </div>
-                <span class="error">Error message</span>
+
               </div>
             </div>
-          </div>
-        </section>
-        <section class="d-" id="nomineeDetailsForm">
-          <div class="row">
-            <div class="col-lg-6 formGroup">
+
+            <div class="col-lg-4 col-md-6 formGroup">
               <div class="inputGroup mb-4">
-                <input class="inputEffect text-capitalize" formControlName = "NomineeFname" type="text" value="" required="">
-                <label>Nominee Full Name </label>
-                <span class="error d-none">Enter full Number.</span>
+                <input class="inputEffect" name="aadhar_number" formControlName="BMI" maxlength="14" type="tel" value=""
+                  required="">
+                <label>BMI</label>
+                <span class="error d-none">Enter BMI.</span>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-4 col-md-6 formGroup">
-              <div class="inputGroup inputRead mb-4">
-                <input class="inputEffect datedropper" formControlName = "NomineeDob"  data-min-year="1950" data-format="d M, Y" data-large-mode="true"
-                  type="text" value="" required="">
-                <label>Date of Birth</label>
-                <span class="error ">Enter DOB.</span>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 formGroup">
-              <div class="ui search dropdown mb-4 selection"><select formControlName = "relationship">
-                  <option value="">Relationship</option>
-                  <option value="son">Son</option>
-                  <option value="Daughter">Daughter</option>
-                  <option value="Spouse">Spouse</option>
-                  <option value="Father">Father</option>
-                  <option value="Mother">Mother</option>
-                </select><label class="titleLabel">Relationship</label><input class="search" autocomplete="off"
-                  tabindex="0">
-                <div class="text"></div>
-                <div class="menu" tabindex="-1">
-                  <div class="item" data-value="son">Son</div>
-                  <div class="item" data-value="Daughter">Daughter</div>
-                  <div class="item" data-value="Spouse">Spouse</div>
-                  <div class="item" data-value="Father">Father</div>
-                  <div class="item" data-value="Mother">Mother</div>
+
+
+
+            <hr>
+            <h6 class="question mb-4"><i class="fa fa-hand-o-right mr-2"></i> Nominee Details</h6>
+            <div class="row saveAdult1Details">
+              <div class="col-lg-6">
+                <div class="inputGroup mb-4">
+                  <input class="inputEffect text-capitalize" type="text" name="nomineeName" id="nomineeName" value=""
+                    autocomplete="nope" required="">
+                  <label>Full Name</label>
+                  <span class="error" style="display:none;"></span>
                 </div>
               </div>
-              <span class="error">Select relationship.</span>
             </div>
-            <div class="col-12 formGroup">
-              <p class="mb-1">Gender</p>
-              <span class="radioBox">
-                <input type="radio" id="Male" formControlName = "Male" name="nomineegender" checked="">
-                <label for="Male">Male</label>
-              </span>
-              <span class="radioBox ml-3">
-                <input type="radio" id="Female" formcontrolName = "Female" name="nomineegender">
-                <label for="Female">Female</label>
-              </span>
-            </div>
-          </div>
-        </section>
-        <section class="d-" id="addressDetailsForm">
-          <div class="row">
-            <div class="col-lg-5 col-sm-6 formGroup">
-              <div class="inputGroup mb-4">
-                <input class="inputEffect" formControlName = "pincode" maxlength="6" type="tel" value="" required="">
-                <label>Pincode </label>
-                <span class="error d-none">Enter pincode.</span>
-              </div>
-            </div>
-            <div class="col-lg-5 col-sm-6 formGroup">
-              <p class="mt-3" formControlName = "State">Karnal, Haryana</p>
-            </div>
-            <div class="col-lg-5 formGroup">
-              <div class="inputGroup mb-4">
-                <input class="inputEffect"  formControlName = "H.No" type="text" value="" required="">
-                <label>H. No. / Building </label>
-                <span class="error d-none">Enter address.</span>
-              </div>
-            </div>
-            <div class="col-lg-5 formGroup">
-              <div class="inputGroup mb-4">
-                <input class="inputEffect" formControlName = "Area" type="text" value="" required="">
-                <label>Area / Town / Locality </label>
-                <span class="error d-none">Enter address.</span>
-              </div>
-            </div>
-            <div class="col-12 mt-3 mb-5 formGroup">
-              <span class="checkbox blueGradient">
-                <input type="checkbox" name="addressMailingSame" formControlName = "CorresAddress" value="" id="addressMailingSame" checked="">
-                <label for="addressMailingSame">Mailing / Correspondence Address is same as Permanent Address.</label>
-              </span>
-            </div>
-          </div>
 
-          <!-- Mailing Address -->
-          <!-- <div class="row d-none" id="mailingAddressSection">
-            <div class="col-12 mb-3">
-              <h5><i class="fa fa-address-card"></i> Mailing / Correspondence Address</h5>
-            </div>
-            <div class="col-lg-5 col-sm-6">
-              <div class="inputGroup mb-4">
-                <input class="inputEffect" maxlength="6" type="number" value="" required="">
-                <label>Pincode </label>
-                <span class="error d-none">Enter pincode.</span>
-              </div>
-            </div>
-            <div class="col-lg-5 col-sm-6">
-              <p class="mt-3">Karnal, Haryana</p>
-            </div>
-            <div class="col-lg-5">
-              <div class="inputGroup mb-4">
-                <input class="inputEffect" type="text" value="" required="">
-                <label>H. No. / Building </label>
-                <span class="error d-none">Enter address.</span>
-              </div>
-            </div>
-            <div class="col-lg-5">
-              <div class="inputGroup mb-4">
-                <input class="inputEffect" type="text" value="" required="">
-                <label>Area / Town / Locality </label>
-                <span class="error d-none">Enter address.</span>
-              </div>
-            </div>
-          </div> -->
 
-        </section>
-     
+            <div class="row saveAdult1Details">
+              <div class="col-lg-4 col-md-6">
+                <div class="inputGroup mb-3 inputRead">
+                  <input class="inputEffect datepicker hasDatepicker has-content" type="text" value="01-01-1970"
+                    name="nomineeDOB" id="nomineeDOB" autocomplete="nope" readonly="" required="">
+                  <label>Date of Birth </label>
+                  <span class="error" style="display:none;">Enter your DOB.</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="mdb-select md-form">
+                <select name="nomineeRelationShip" id="nomineeRelationShip" autocomplete="nope">
+                  <option value="">Nominee Relationship</option>
+                  <option value="Aunt-Aunt">Aunt</option>
+                  <option value="Brother in law-Brother in law">Brother in law</option>
+                  <option value="Brother-Brother">Brother</option>
+                  <option value="Cousin-Cousin">Cousin</option>
+                  <option value="Daughter-Daughter">Daughter</option>
+                  <option value="Daughter in law-Daughter in law">Daughter in law</option>
+                  <option value="Employer-Employer">Employer</option>
+                  <option value="Father in law-Father in law">Father in law</option>
+                  <option value="Father-Father">Father</option>
+                  <option value="Grand Daughter-Grand Daughter">Grand Daughter</option>
+                  <option value="Grand Father-Grand Father">Grand Father</option>
+                  <option value="Grand Mother-Grand Mother">Grand Mother</option>
+                  <option value="Grand Son-Grand Son">Grand Son</option>
+                  <option value="Mother in law-Mother in law">Mother in law</option>
+                  <option value="Mother-Mother">Mother</option>
+                  <option value="Nephew-Nephew">Nephew</option>
+                  <option value="Niece-Niece">Niece</option>
+                  <option value="Others-Others">Others</option>
+                  <option value="Sister in law-Sister in law">Sister in law</option>
+                  <option value="Sister-Sister">Sister</option>
+                  <option value="Son in law-Son in law">Son in law</option>
+                  <option value="Son-Son">Son</option>
+                  <option value="Spouse-Spouse" selected="selected">Spouse</option>
+                  <option value="Uncle-Uncle">Uncle</option>
+                </select>
+                <label class="titleLabel smLabel">Nominee Relationship</label>
+                <!-- <div class="text">Spouse</div> -->
+
+              </div>
+
+            </div>
+
+
+            <!-- <div class="row">
+                <div class="col-12 mb-3 bankdetails">
+                  <h5><i class="fa fa-address-card"></i> Permanent Address</h5>
+                </div>
+              </div>
+              <div class="col-12 mb-3 bankdetails">
+                  <h5><i class="fa fa-address-card"></i> Permanent Address</h5>
+                </div>
+                <div class="row saveAddressDetails">
+                    <div class="col-lg-5 col-sm-6">
+                      <div class="inputGroup mb-4">   
+                        <input class="inputEffect" value="" name="addressPPincode" id="addressPPincode" maxlength="6" onblur="changePincode(this,'addressPCity','addressPState');" onkeyup="changePincode(this,'addressPCity','addressPState');" type="text" required="" autocomplete="nope">
+                        <label>Pincode </label>
+                        <span class="error" style="display:none;">Enter pincode.</span>
+                      </div>
+                    </div>
+                    <div class="col-lg-5 col-sm-6">
+                      <p class="mt-3 state"><span class="addressPCity"></span> <span class="addressPState"></span></p>
+                    </div>
+                    <div class="col-lg-5">
+                      <div class="inputGroup mb-4">   
+                        <input onkeypress="return isAddressValidation(event)" value="" class="inputEffect text-capitalize" maxlength="100" name="addressPHouse" id="addressPHouse" type="text" required="" autocomplete="nope">
+                        <label>H. No. / Building </label>
+                        <span class="error" style="display:none;">Enter address.</span>
+                      </div>
+                    </div>
+                    <div class="col-lg-5">
+                      <div class="inputGroup mb-4">   
+                        <input onkeypress="return isAddressValidation(event)" class="inputEffect text-capitalize" value="" type="text" maxlength="100" name="addressPArea" id="addressPArea" required="" autocomplete="nope">
+                        <label>Area / Town / Locality </label>
+                        <span class="error" style="display:none;">Enter address.</span>
+                      </div>
+                    </div>
+                    
+                    <input type="hidden" name="addressPCity" id="addressPCity" value="">
+                    <input type="hidden" name="addressPState" id="addressPState" value="">
+                    
+                    <div class="col-12 mt-3 mb-5">
+                      <span class="checkbox blueGradient">
+                        <input type="checkbox" name="addressMailingSame" value="Yes" id="addressMailingSame" checked="">
+                        <label for="addressMailingSame">Mailing / Correspondence Address is same as Permanent Address.</label>
+                      </span>
+                    </div>
+                  </div> -->
+
+          </section>
+
         </form>
+
+
+
+        <footer>
+          <div class="container">
+            <div class="row">
+              <div class="col-9 offset-3">
+                <a href="/health-insurance/quotes" id="backAddOnsButton" class="text-left backStep">Back to Quotes</a>
+                <button id="addOnsButton" class="btn continue" type="button" tabindex="20">Continue</button>
+              </div>
+            </div>
+          </div>
+        </footer>
+
+
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
+
+
+
   </div>
+
+
+
 
 </body>
 

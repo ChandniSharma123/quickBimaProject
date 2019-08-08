@@ -8,28 +8,34 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 })
 export class ProposalFormComponent implements OnInit {
 
-  proposalForm : FormGroup
+  proposalForm: FormGroup
 
-  constructor(private router: Router, private  formBuilder : FormBuilder , private formGropup : FormGroup  ) { }
+  constructor(private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-this.proposalForm = this.formBuilder.group({
-//  proposalName  : ['' ,Validators.required],
-//  proposalAddress : ['', Validators.required],
-//  proposalid : ['', Validators.required],
-//  proposaldata : ['', Validators.required],
-//  proposalDob : ['', Validators.required],
-//  proosalAddharno : ['' , Validators.required],
-//  proposalArtifact  : ['', Validators.required],
-//  proposalPhoneNo : ['', Validators.required],
-//  proposerHeight : ['', Validators.required],
-//  proposerStatus : ['', Validators.required],
+    this.proposalForm = this.formBuilder.group({
+      pName: ['', Validators.required],
+      gender: ['', Validators.required],
+      tel: ['', Validators.required],
+      income: ['', Validators.required],
+      email: ['', Validators.required],
+      DOB: ['', Validators.required],
+      aaDhar: ['', Validators.required],
+      mob: ['', Validators.required],
+      weight: ['', Validators.required],
+      height: ['', Validators.required],
+      occupation: ['', Validators.required],
+      //  proposalAddress : ['', Validators.required],
+      //  proposalid : ['', Validators.required],
+      //  proposaldata : ['', Validators.required],
+      //  proposalArtifact  : ['', Validators.required],
+      proposerStatus: ['', Validators.required],
 
- 
 
-   
-})
+
+
+    })
   }
 
- 
+
 }

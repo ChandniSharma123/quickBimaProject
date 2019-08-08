@@ -87,6 +87,14 @@
 							<div *ngIf="i.title == 'Critical Illness' ">
 								<span class="criticalillness"></span>
 							</div>
+							<div *ngIf="i.title == 'Want to change Zone?'">
+								<span class="zonechange">
+								</span>
+							</div>
+							<div *ngIf="i.title == 'Any Room Upgrade'">
+								<span class="roomupgrade">
+								</span>
+							</div>
 							<div *ngIf="i.title == 'Pro Health-Cumulative Bonus Booster' ">
 								<span class="topupplan"></span>
 							</div>
@@ -108,7 +116,7 @@
 							<div *ngIf="i.title == 'Unlimited Reload of Sum Insured' ">
 								<span class="reload"></span>
 							</div>
-							<div *ngIf="i.title == 'Any Room Upgrade' ">
+							<div *ngIf="i.title == 'Any Room Upgrade'">
 								<span class="roomupgrade"></span>
 							</div>
 
@@ -119,6 +127,58 @@
 
 						</div>
 
+
+
+						<div *ngIf="i.title == 'Any Room Upgrade' && getData.productDetails.product_code == 'HPAB01' ">
+							<div class="col-md-3 text-right">
+
+								<!-- <div class="ui search dropdown"> -->
+									<select name="room_category"
+										id="room_category" autocomplete="nope">
+										<option value="">Room Category</option>
+										<option value="Single Private Room" selected="selected">Single Private Room
+										</option>
+									</select>
+									<!-- <label class="titleLabel smLabel">Room Category</label><input
+										class="search" autocomplete="off" tabindex="0"> -->
+									<!-- <div class="text">Single Private Room</div>
+									<div class="menu transition hidden" tabindex="-1">
+										<div class="item active selected" data-value="Single Private Room">Single
+											Private
+											Room</div>
+									</div> -->
+								<!-- </div> -->
+							</div>
+
+						</div>
+
+
+
+
+
+						<div *ngIf="i.title == 'Want to change Zone?'">
+							<div class="col-md-3 text-right">
+								<!-- <div class="ui search dropdown"> -->
+									<select name="zone_changed" id="zone_changed"
+										autocomplete="nope">
+
+
+										<option value="">Select Zone</option>
+										<option value="Z001">Zone 1</option>
+										<option value="Z002" selected="selected">Zone 2</option>
+										<option value="Z003">Zone 3</option>
+									</select>
+									<!-- <label class="titleLabel smLabel">Select Zone</label><input class="search"
+										autocomplete="off" tabindex="0">
+									<div class="text">Zone 2</div>
+									<div class="menu transition hidden" tabindex="-1">
+										<div class="item selected" data-value="Z001">Zone 1</div>
+										<div class="item" data-value="Z002">Zone 2</div>
+										<div class="item" data-value="Z003">Zone 3</div>
+									</div> -->
+								<!-- </div> -->
+							</div>
+						</div>
 						<div *ngIf="i.title == 'Portability'">
 							<div class="col-md-3 text-right">
 								<div class="switch mt-3">

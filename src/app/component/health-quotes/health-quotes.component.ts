@@ -1479,6 +1479,31 @@ export class HealthQuotesComponent implements OnInit {
             }
             ]
           }
+          else if (e.productDetails.product_code == "HPAB01") {
+            e.url = "https://www.quickbima.com/api/aditya-birlas/get-premium-diamond.json",
+              e.payload = {
+
+                sum_insured: this.addDetails.sum_insured,
+                term: 1,
+                product_id: e.productDetails.id,
+                product_code: e.productDetails.product_code,
+                cover: this.addDetails.cover,
+                age: this.addDetails.age,
+                buy_online_code: e.productDetails.buy_online_code,
+                tax_calc_method: e.productDetails.tax_calc_method
+              }
+            e.middleSection = [{
+              title: "Any Room Upgrade",
+              text: "Choose any room in hospital without any restriction"
+            },
+            
+            {
+              title: "Want to change Zone?",
+             
+            }
+            ]
+          }
+
 
 
           e.totalFeatureList = this.featureList.slice();
