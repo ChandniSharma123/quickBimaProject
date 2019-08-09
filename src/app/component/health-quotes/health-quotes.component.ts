@@ -734,7 +734,7 @@ export class HealthQuotesComponent implements OnInit {
             flag = true;
           }
         }
-        if (!flag) { 
+        if (!flag) {
           return false;
         }
       }
@@ -899,7 +899,7 @@ export class HealthQuotesComponent implements OnInit {
     console.log(this.healthdata)
     this.healthquote.getProposal(url, payload).subscribe((res) => {
       console.log(res)
-      localStorage.setItem('premiumResponse' , JSON.stringify(res));
+      localStorage.setItem('premiumResponse', JSON.stringify(res));
 
     })
 
@@ -973,6 +973,7 @@ export class HealthQuotesComponent implements OnInit {
               }]
 
           }
+
           else if (e.productDetails.product_code == "HFC001") {
             e.url = "https://www.quickbima.com/api/cigna-ttks/get-premium.json",
               e.payload = {
@@ -1496,10 +1497,10 @@ export class HealthQuotesComponent implements OnInit {
               title: "Any Room Upgrade",
               text: "Choose any room in hospital without any restriction"
             },
-            
+
             {
               title: "Want to change Zone?",
-             
+
             }
             ]
           }

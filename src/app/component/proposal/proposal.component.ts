@@ -18,11 +18,11 @@ export class ProposalComponent implements OnInit {
   ncbPremium: any = [];
   reloadPremium: any = [];
   carePremium: any = [];
-  religareNcbPremium:any=[];
+  religareNcbPremium: any = [];
   roomCategoryPremium: any = [];
-  critical_premium:any=[];
-  hospital_premium_new:any=[];
-  bonus_premium_new:any=[];
+  critical_premium: any = [];
+  hospital_premium_new: any = [];
+  bonus_premium_new: any = [];
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -45,7 +45,7 @@ export class ProposalComponent implements OnInit {
     this.sumInsured = this.getUserData.sum_insured
     this.imageLogo = this.getData.CompanyDetails.logo
     this.finalPremium = this.getData.premiumDetails.finalPremium
-this.religareNcbPremium = this.premiumData.results.response.religareNcbPremium
+    this.religareNcbPremium = this.premiumData.results.response.religareNcbPremium
 
   }
 
@@ -60,10 +60,10 @@ this.religareNcbPremium = this.premiumData.results.response.religareNcbPremium
     )
     console.log(this.getUserData)
   }
-  goOnProposalForm(event){
-        
-   
-        this.router.navigate(['/health-insurance/quotes/proposal/propForm'])
+  goOnProposalForm(event) {
+
+
+    this.router.navigate(['/health-insurance/quotes/proposal/propForm'])
   }
 
 }
