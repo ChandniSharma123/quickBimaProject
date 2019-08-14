@@ -39,6 +39,7 @@ export class HomeComponent {
   constructor(private router: Router, private formBuilder: FormBuilder, private healthServ: HomeService, private healthquote: HealthQuotesService) { }
 
   ngOnInit() {
+  
 
     this.registerForm = this.formBuilder.group({
       healthName: ['', Validators.required],
@@ -198,8 +199,8 @@ export class HomeComponent {
           gender: this.gender,
           age: this.age,
           city: this.city,
-          adult : this.adult,
-          child : this.child,
+          adult: this.adult,
+          child: this.child,
           state: this.state,
           mobile: this.mobile,
           email: this.email,

@@ -539,7 +539,7 @@ export class HealthQuotesComponent implements OnInit {
 
 
 
-      } else if (this.id == 'update') {
+      } else if (this.id == 'update' || this.id == 'proposal') {
         this.editData = true;
         this.upStoring = JSON.parse(localStorage.getItem('user') || '[]');
 

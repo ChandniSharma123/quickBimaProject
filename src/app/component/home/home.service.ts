@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,14 +11,15 @@ export class HomeService {
 
 
   gethealthPage(obj){
+   
     return this.http.post(this.url, obj);
 
     
   }
 
-gethealthQuotes(data){
-  return this.http.post("https://www.quickbima.com/api/health-insurances/get-quotes.json", data)
-}
+// gethealthQuotes(data){
+//   return this.http.post("https://www.quickbima.com/api/health-insurances/get-quotes.json", data)
+// }
 
 
 }
