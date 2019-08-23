@@ -351,131 +351,184 @@
         </form>
 
 
-        <form [formGroup] = "proposalchildDetails" (ngSubmit) = "showChildDetails()">
-      
-            <div class="sectionTitle">
-                <div class="container text-center">
-                  <div class="col-9 offset-3">
-                    <h5 id="activeTitleSection">1st Child Details</h5>
+        <form [formGroup]="proposalchildDetails" (ngSubmit)="showChildDetails()">
+
+          <div class="sectionTitle">
+            <div class="container text-center">
+              <div class="col-9 offset-3">
+                <h5 id="activeTitleSection">1st Child Details</h5>
+              </div>
+            </div>
+          </div>
+          <div class="container text-center">
+
+            <div class="col-9 offset-3">
+              <h5 id="activeTitleSection">1st Child Details</h5>
+            </div>
+
+
+          </div>
+          <div class="col-9 offset-3">
+            <h5 id="activeTitleSection">1st Child Details</h5>
+          </div>
+          <section class="" id="child1InsuredDetails" style="">
+
+            <div class="row saveChild1Details">
+              <div class="col-lg-4 col-md-6">
+                <div class="ui search dropdown mb-4 selection">
+                  <select name="child1Gender" id="child1Gender" autocomplete="nope">
+                    <option value="">Relationship with Proposer</option>
+
+
+                    
+                    <option value="M">Son</option>
+                    <option value="F">Daughter</option>
+                  </select><label class="titleLabel">Relationship with Proposer</label><input class="search"
+                    autocomplete="off" tabindex="0">
+                  <div class="text"></div>
+                  <div class="menu" tabindex="-1">
+                    <div class="item" data-value="M">Son</div>
+                    <div class="item" data-value="F">Daughter</div>
+                  </div>
+                </div>
+                <span class="error" style="display:none;">Relationship with Proposer</span>
+              </div>
+
+
+              <div class="col-lg-5">
+                <div class="inputGroup mb-4">
+                  <input class="inputEffect text-capitalize" type="text" value="" name="child1Name" id="child1Name"
+                    required="" autocomplete="nope">
+                  <label>Full Name </label>
+                  <span class="error" style="display:none;">Enter your full name.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row saveChild1Details">
+              <div class="col-lg-3 col-md-6">
+                <div class="inputGroup mb-3 ">
+                  <input class="inputEffect datepicker hasDatepicker" type="text" value="" name="child1DOB"
+                    id="child1DOB" autocomplete="nope" readonly="" required="">
+                  <label>Date of Birth </label>
+                  <span class="error" style="display:none;">Enter your DOB.</span>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-4">
+                <div class="height">
+                  <span class="weightMeasure w-25">
+                  </span>
+                  <div class="inputGroup w-75 mb-4">
+                    <input class="inputEffect" maxlength="3" type="tel" name="child1Weight" id="child1Weight" value=""
+                      autocomplete="off" required="">
+                    <label>Weight (Kg) </label>
+                    <span class="error" style="display:none;">Enter weight.</span>
                   </div>
                 </div>
               </div>
-              <div class="container text-center">
-                
+
+              <div class="col-lg-5 col-md-4">
+                <div class="height">
+                  <span class="heightMeasure">
+                    <p>Height</p>
+                  </span>
+                  <div class="ui search dropdown mr-2 selection"><select name="child1HeightFeet" id="child1HeightFeet"
+                      autocomplete="nope">
+                      <option value="">Feet</option>
+                      <option value="1">1 Feet</option>
+                      <option value="2">2 Feet</option>
+                      <option value="3">3 Feet</option>
+                      <option value="4">4 Feet</option>
+                      <option value="5">5 Feet</option>
+                      <option value="6">6 Feet</option>
+                      <option value="7">7 Feet</option>
+                      <option value="8">8 Feet</option>
+                      <option value="9">9 Feet</option>
+                    </select><label class="titleLabel">Feet</label><input class="search" autocomplete="off"
+                      tabindex="0">
+                    <div class="text"></div>
+                    <div class="menu" tabindex="-1">
+                      <div class="item" data-value="1">1 Feet</div>
+                      <div class="item" data-value="2">2 Feet</div>
+                      <div class="item" data-value="3">3 Feet</div>
+                      <div class="item" data-value="4">4 Feet</div>
+                      <div class="item" data-value="5">5 Feet</div>
+                      <div class="item" data-value="6">6 Feet</div>
+                      <div class="item" data-value="7">7 Feet</div>
+                      <div class="item" data-value="8">8 Feet</div>
+                      <div class="item" data-value="9">9 Feet</div>
+                    </div>
+                  </div>
+                  <div class="ui search dropdown selection"><select name="child1HeightInches" id="child1HeightInches"
+                      autocomplete="nope">
+                      <option value="">Inches</option>
+                      <option value="0">0 Inches</option>
+                      <option value="1">1 Inches</option>
+                      <option value="2">2 Inches</option>
+                      <option value="3">3 Inches</option>
+                      <option value="4">4 Inches</option>
+                      <option value="5">5 Inches</option>
+                      <option value="6">6 Inches</option>
+                      <option value="7">7 Inches</option>
+                      <option value="8">8 Inches</option>
+                      <option value="9">9 Inches</option>
+                      <option value="10">10 Inches</option>
+                      <option value="11">11 Inches</option>
+                    </select><label class="titleLabel">Inches</label><input class="search" autocomplete="off"
+                      tabindex="0">
+                    <div class="text"></div>
+                    <div class="menu" tabindex="-1">
+                      <div class="item" data-value="0">0 Inches</div>
+                      <div class="item" data-value="1">1 Inches</div>
+                      <div class="item" data-value="2">2 Inches</div>
+                      <div class="item" data-value="3">3 Inches</div>
+                      <div class="item" data-value="4">4 Inches</div>
+                      <div class="item" data-value="5">5 Inches</div>
+                      <div class="item" data-value="6">6 Inches</div>
+                      <div class="item" data-value="7">7 Inches</div>
+                      <div class="item" data-value="8">8 Inches</div>
+                      <div class="item" data-value="9">9 Inches</div>
+                      <div class="item" data-value="10">10 Inches</div>
+                      <div class="item" data-value="11">11 Inches</div>
+                    </div>
+                  </div>
+                  <span class="error" style="display:none;">Enter Height.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row saveChild1Details">
+              <div class="col-lg-4">
+                <div class="inputGroup mb-4">
+                  <input class="inputEffect text-capitalize" type="text" value="" name="child1Bmi" id="child1Bmi"
+                    readonly="" required="" autocomplete="nope">
+                  <label>BMI</label>
+                  <span class="error" style="display:none;">BMI</span>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-lg-12 mt-3">
+              <p class="warningMessage" id="child1ErrorMessage" style="display:none;"><i
+                  class="fa fa-exclamation-triangle"></i> Warning message will be show here.</p>
+            </div>
+
+            <footer>
+              <div class="container">
+                <div class="row">
                   <div class="col-9 offset-3">
-                    <h5 id="activeTitleSection">1st Child Details</h5>
+                    <a href="javascript:void(0);" id="backchild1InsuredButton" class="text-left backStep">Back</a>
+                    <button id="forwardchild1InsuredButton" class="btn continue" type="button"
+                      tabindex="20">Continue</button>
                   </div>
                 </div>
-                <div class="col-9 offset-3">
-                    <h5 id="activeTitleSection">1st Child Details</h5>
-                  </div>
-                  <section class="" id="child1InsuredDetails" style="">
-							
-                      <div class="row saveChild1Details">
-                        <div class="col-lg-4 col-md-6">
-                          <div class="ui search dropdown mb-4 selection"><select name="child1Gender" id="child1Gender" autocomplete="nope">
-                            <option value="">Relationship with Proposer</option>
-                            <option value="M">Son</option>
-                            <option value="F">Daughter</option>
-                          </select><label class="titleLabel">Relationship with Proposer</label><input class="search" autocomplete="off" tabindex="0"><div class="text"></div><div class="menu" tabindex="-1"><div class="item" data-value="M">Son</div><div class="item" data-value="F">Daughter</div></div></div>
-                          <span class="error" style="display:none;">Relationship with Proposer</span>
-                        </div>
-                        
-                        <div class="col-lg-5">
-                          <div class="inputGroup mb-4">   
-                            <input class="inputEffect text-capitalize" type="text" value="" name="child1Name" id="child1Name" required="" autocomplete="nope">
-                            <label>Full Name </label>
-                            <span class="error" style="display:none;">Enter your full name.</span>
-                          </div>
-                        </div>	
-                      </div>
-                      
-                      <div class="row saveChild1Details">
-                        <div class="col-lg-3 col-md-6">
-                          <div class="inputGroup mb-3 ">     
-                            <input class="inputEffect datepicker hasDatepicker" type="text" value="" name="child1DOB" id="child1DOB" autocomplete="nope" readonly="" required="">
-                            <label>Date of Birth </label>
-                            <span class="error" style="display:none;">Enter your DOB.</span>
-                          </div>
-                        </div>
-                      
-                        <div class="col-lg-4 col-md-4">
-                          <div class="height">
-                            <span class="weightMeasure w-25">
-                            </span>
-                            <div class="inputGroup w-75 mb-4">     
-                              <input class="inputEffect" maxlength="3" type="tel" name="child1Weight" id="child1Weight" value="" autocomplete="off" required="">
-                              <label>Weight (Kg) </label>
-                              <span class="error" style="display:none;">Enter weight.</span>
-                            </div>
-                          </div>
-                        </div>
-                            
-                        <div class="col-lg-5 col-md-4">
-                          <div class="height">
-                            <span class="heightMeasure">
-                              <p>Height</p>
-                            </span>
-                            <div class="ui search dropdown mr-2 selection"><select name="child1HeightFeet" id="child1HeightFeet" autocomplete="nope">
-                              <option value="">Feet</option>
-                              <option value="1">1 Feet</option>
-                              <option value="2">2 Feet</option>
-                              <option value="3">3 Feet</option>
-                              <option value="4">4 Feet</option>
-                              <option value="5">5 Feet</option>
-                              <option value="6">6 Feet</option>
-                              <option value="7">7 Feet</option>
-                              <option value="8">8 Feet</option>
-                              <option value="9">9 Feet</option>
-                            </select><label class="titleLabel">Feet</label><input class="search" autocomplete="off" tabindex="0"><div class="text"></div><div class="menu" tabindex="-1"><div class="item" data-value="1">1 Feet</div><div class="item" data-value="2">2 Feet</div><div class="item" data-value="3">3 Feet</div><div class="item" data-value="4">4 Feet</div><div class="item" data-value="5">5 Feet</div><div class="item" data-value="6">6 Feet</div><div class="item" data-value="7">7 Feet</div><div class="item" data-value="8">8 Feet</div><div class="item" data-value="9">9 Feet</div></div></div>
-                            <div class="ui search dropdown selection"><select name="child1HeightInches" id="child1HeightInches" autocomplete="nope">
-                              <option value="">Inches</option>
-                              <option value="0">0 Inches</option>
-                              <option value="1">1 Inches</option>
-                              <option value="2">2 Inches</option>
-                              <option value="3">3 Inches</option>
-                              <option value="4">4 Inches</option>
-                              <option value="5">5 Inches</option>
-                              <option value="6">6 Inches</option>
-                              <option value="7">7 Inches</option>
-                              <option value="8">8 Inches</option>
-                              <option value="9">9 Inches</option>
-                              <option value="10">10 Inches</option>
-                              <option value="11">11 Inches</option>
-                            </select><label class="titleLabel">Inches</label><input class="search" autocomplete="off" tabindex="0"><div class="text"></div><div class="menu" tabindex="-1"><div class="item" data-value="0">0 Inches</div><div class="item" data-value="1">1 Inches</div><div class="item" data-value="2">2 Inches</div><div class="item" data-value="3">3 Inches</div><div class="item" data-value="4">4 Inches</div><div class="item" data-value="5">5 Inches</div><div class="item" data-value="6">6 Inches</div><div class="item" data-value="7">7 Inches</div><div class="item" data-value="8">8 Inches</div><div class="item" data-value="9">9 Inches</div><div class="item" data-value="10">10 Inches</div><div class="item" data-value="11">11 Inches</div></div></div>
-                            <span class="error" style="display:none;">Enter Height.</span>
-                          </div>
-                        </div>
-                      </div>
-                      
-                        <div class="row saveChild1Details">
-                          <div class="col-lg-4">
-                            <div class="inputGroup mb-4">   
-                              <input class="inputEffect text-capitalize" type="text" value="" name="child1Bmi" id="child1Bmi" readonly="" required="" autocomplete="nope">
-                              <label>BMI</label>
-                              <span class="error" style="display:none;">BMI</span>
-                            </div>
-                          </div>
-                        </div>
-                      
-                      
-                      <div class="col-lg-12 mt-3">
-                        <p class="warningMessage" id="child1ErrorMessage" style="display:none;"><i class="fa fa-exclamation-triangle"></i> Warning message will be show here.</p>
-                      </div>
-                      
-                      <footer>
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-9 offset-3">
-                              <a href="javascript:void(0);" id="backchild1InsuredButton" class="text-left backStep">Back</a>
-                              <button id="forwardchild1InsuredButton" class="btn continue" type="button" tabindex="20">Continue</button>
-                            </div>
-                          </div>
-                        </div>
-                      </footer>
-                      
-                      
-                                  </section>
+              </div>
+            </footer>
+
+
+          </section>
         </form>
 
 

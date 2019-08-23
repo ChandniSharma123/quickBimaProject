@@ -39,7 +39,7 @@ export class ProposalComponent implements OnInit {
     this.critical_premium = this.premiumData.results.response.critical_premium_new
     this.hospital_premium_new = this.premiumData.results.response.hospital_premium_new
     this.bonus_premium_new = this.premiumData.results.response.bonus_premium_new
-
+    
     this.middleSection = this.getData.middleSection
     this.healthCover = this.getUserData.healthCover
     this.sumInsured = this.getUserData.sum_insured

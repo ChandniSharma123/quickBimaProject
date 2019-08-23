@@ -39,7 +39,7 @@ export class HomeComponent {
   constructor(private router: Router, private formBuilder: FormBuilder, private healthServ: HomeService, private healthquote: HealthQuotesService) { }
 
   ngOnInit() {
-  
+    
 
     this.registerForm = this.formBuilder.group({
       healthName: ['', Validators.required],
@@ -175,6 +175,8 @@ export class HomeComponent {
       console.log(this.registerForm);
 
 
+
+      
       this.healthServ.gethealthPage(obj1).subscribe((res) => {
         console.log(res)
 

@@ -1,25 +1,43 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService {
+
+  constructor(private http: HttpClient) {
+    var headers = new HttpHeaders();
+  headers = headers.set('Content-Type', 'application/json');
+  headers = headers.set('Access-Control-Allow-Origin' , '*');
+   }
+
   
-  constructor(private http: HttpClient) { }
+  // url1 = "https://google.com/"
+url = "https://www.quickbima.com/api/health-insurances/add.json"
+  // geturl (){
+  //   var headers = new HttpHeaders();
+  //     headers = headers.set('Content-Type', 'application/json');
+  //     headers = headers.set('Access-Control-Allow-Origin' , 'http://localhost:4200');
+  //     console.log(headers)
+  //     return this.http.get(this.url1)
+  // }
 
-  url = "https://www.quickbima.com/api/health-insurances/add.json"
+  gethealthPage(obj) {
+    var headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json');
+    headers = headers.set('Access-Control-All ow-Origin' , '*');
+    console.log(headers)
+    return this.http.post(this.url, obj );
 
 
-  gethealthPage(obj){
-   
-    return this.http.post(this.url, obj);
-
-    
   }
 
-// gethealthQuotes(data){
-//   return this.http.post("https://www.quickbima.com/api/health-insurances/get-quotes.json", data)
-// }
+  gethealthQuotes(data) {
+    var headers = new HttpHeaders();
+    headers = headers.append('Content-Type', 'application/json');
+    headers = headers.append('Access-Control-Allow-Origin' , '*');
+    return this.http.post("https://www.quickbima.com/api/health-insurances/get-quotes.json", data, {headers: headers})
+  }
 
-
+ 
 }

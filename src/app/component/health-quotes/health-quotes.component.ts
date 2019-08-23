@@ -785,6 +785,7 @@ export class HealthQuotesComponent implements OnInit {
     }
   }
 
+
   compareCard(id, j, e) {
 
 
@@ -800,8 +801,8 @@ export class HealthQuotesComponent implements OnInit {
 
 
       if (this.pushAray.length >= 2) {
-        document.getElementById('compareButton').style.display = "block";
 
+        document.getElementById('compareButton').style.display = "block";
 
       }
 
