@@ -11,22 +11,19 @@ export class HealthQuotesService {
 
 
   gethealthQuotes(data) {
-    var headers = new HttpHeaders();
-    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-    return this.http.post("https://www.quickbima.com/api/health-insurances/get-quotes.json", data, { headers: headers })
+    
+    return this.http.post("https://www.quickbima.com/api/health-insurances/get-quotes.json", data,)
 
   }
 
   updateRecord(data) {
-    var headers = new HttpHeaders();
-    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-    return this.http.post("https://www.quickbima.com/api/health-insurances/update-record.json", data, { headers: headers })
+  
+    return this.http.post("https://www.quickbima.com/api/health-insurances/update-record.json", data)
   }
 
   getProposal(url, data) {
-    var headers = new HttpHeaders();
-    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-    return this.http.post(url, data, { headers: headers })
+  
+    return this.http.post(url, data)
   }
 
 }

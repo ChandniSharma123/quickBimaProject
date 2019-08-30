@@ -726,12 +726,12 @@ export class HealthQuotesComponent implements OnInit {
   changeFilter() {
     this.quotesArray2 = this.quotesArray.filter((e) => {
       for (let c = 0; c < this.pushedArray2.length; c++) {
-        let flag = false;
+        let flag = false;            
         const pEle = this.pushedArray2[c];
         console.log(pEle)
         for (let i = 0; i < e.SpecialFeatureLists.length; i++) {
           if (e.SpecialFeatureLists[i].code == pEle.code) {
-            flag = true;
+            flag = true;    
           }
         }
         if (!flag) {
@@ -743,11 +743,11 @@ export class HealthQuotesComponent implements OnInit {
         if (e.CompanyDetails.company_code != pEle.company_code) {
           return false;
         }
-      }
+      } 
       return true;
     })
 
-    //done
+    
   }
 
   checkInsurer(value, i, code) {
@@ -820,7 +820,7 @@ export class HealthQuotesComponent implements OnInit {
         document.getElementById('compareButton').style.display = "block"
         // data.setAttribute('disabled', 'false');/
 
-
+      
       }
       else if (this.pushAray.length < 1) {
         document.getElementById('compareButton').style.display = "none"
