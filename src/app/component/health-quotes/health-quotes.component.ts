@@ -726,12 +726,14 @@ export class HealthQuotesComponent implements OnInit {
   changeFilter() {
     this.quotesArray2 = this.quotesArray.filter((e) => {
       for (let c = 0; c < this.pushedArray2.length; c++) {
-        let flag = false;            
+        let flag = false;
         const pEle = this.pushedArray2[c];
+
+
         console.log(pEle)
         for (let i = 0; i < e.SpecialFeatureLists.length; i++) {
           if (e.SpecialFeatureLists[i].code == pEle.code) {
-            flag = true;    
+            flag = true;
           }
         }
         if (!flag) {
@@ -743,11 +745,11 @@ export class HealthQuotesComponent implements OnInit {
         if (e.CompanyDetails.company_code != pEle.company_code) {
           return false;
         }
-      } 
+      }
       return true;
     })
 
-    
+
   }
 
   checkInsurer(value, i, code) {
@@ -820,7 +822,7 @@ export class HealthQuotesComponent implements OnInit {
         document.getElementById('compareButton').style.display = "block"
         // data.setAttribute('disabled', 'false');/
 
-      
+
       }
       else if (this.pushAray.length < 1) {
         document.getElementById('compareButton').style.display = "none"
@@ -847,8 +849,14 @@ export class HealthQuotesComponent implements OnInit {
   }
 
 
-  backTOquation() {
+  backTOquation(event) {
+
+    console.log('go')
+    event.preventDefault();
+    console.log('go1')
+    event.preventDefault();
     this.router.navigate(['/health-insurance/quotes'])
+    console.log('go2')
   }
 
 
@@ -892,10 +900,23 @@ export class HealthQuotesComponent implements OnInit {
 
 
   buyBima(i, event, url, payload) {
-    console.log(event)
-    event.preventDefault()
-    this.router.navigate(['/health-insurance/quotes/proposal'])
+    console.log(event, i)
+
+    if (i.productDetails.product_code == 'HPS023' && i.productDetails.product_code == 'HFH002' &&
+      i.productDetails.product_code == 'HFH001' && i.productDetails.product_code == 'HFH003'
+      && i.productDetails.product_code == 'HPS031' && i.productDetails.product_code == 'HPS023') {
+      event.preventDefault();
+      this.router.navigate(['/health-insurance/quotes/proposal/propForm'])
+    }
+    else {
+      event.preventDefault();
+
+
+      this.router.navigate(['/health-insurance/quotes/proposal'])
+    }
     console.log(url, payload)
+
+
     this.healthdata = localStorage.setItem('proposal', JSON.stringify(i))
     console.log(this.healthdata)
     this.healthquote.getProposal(url, payload).subscribe((res) => {
@@ -940,6 +961,7 @@ export class HealthQuotesComponent implements OnInit {
                 quote_no: this.editDetails.quote_no,
                 product_id: e.productDetails.id
               }
+              console.log(e.payload,e.url)
             e.middleSection = [{
               title: "Hospital Cash",
               text: "Get Hospital cash benefit of  2,000 /day for an additional premium of",

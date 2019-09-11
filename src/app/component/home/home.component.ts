@@ -40,7 +40,7 @@ export class HomeComponent {
 
   ngOnInit() {
     
-this.geturl();
+// this.geturl();
     this.registerForm = this.formBuilder.group({
       healthName: ['', Validators.required],
       healthAge: ['', Validators.required],
@@ -143,12 +143,12 @@ this.geturl();
 
   }
 
-geturl(){
-  this.healthServ.geturl().subscribe((res) => {
-    console.log(res)
+// geturl(){
+//   this.healthServ.geturl().subscribe((res) => {
+//     console.log(res)
 
-})
-}
+// })
+// }
   showhealthPage(obj) {
 
     this.submitted = true;

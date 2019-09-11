@@ -521,13 +521,14 @@
                                     <h4 class="premium"><i class="fa fa-inr" aria-hidden="true"></i>
                                         <span>{{i.premiumDetails.finalPremium.toFixed(2)}}</span> <small>(Incl.
                                             GST)</small></h4>
-                                    <a href="" class="buybima" (click) = "buyBima(i,$event, i.url, i.payload)" >Buy Bima</a>
+                                    <a href="" class="buybima" (click)="buyBima(i,$event, i.url, i.payload)">Buy
+                                        Bima</a>
                                     <a href="#emipayment" class="emi" data-toggle="modal">EMI from <i class="fa fa-inr"
                                             aria-hidden="true"></i>
                                         <span>{{i.EmiDetails.emi_minimum}}</span> </a>
                                 </div>
                             </div>
-                            
+
                             <!-- More Details -->
                             <div *ngIf="detailsDiv" id="breakupdetails" class="popup-content premium-breakup animated">
                                 <a (click)="closePopup()" class="close"></a>
@@ -1382,7 +1383,7 @@
         </div>
         <div class="comparison" *ngIf="compareplan">
             <div class="featuresCols">
-                <div class="topPart fixedsticky" (click)="backTOquation()">
+                <div class="topPart fixedsticky" (click)="backTOquation($event)">
                     <div class="planNames">
                         <a href=""><i class="fa fa-long-arrow-left"></i> Quotes</a>
                     </div>
@@ -1529,17 +1530,17 @@
                     </div>
                 </div>
                 <ul>
-                   
-                        <li *ngFor="let q of p.totalFeatureList">
-                            <p> {{q.description}}</p>
-                            <p *ngIf="q.description == 'Yes'"><i class="fa fa-check"></i></p>
-                            <p *ngIf="q.description == ''"><i class="fa fa-times"></i></p>
-                           
 
-                        </li>
-                    
-                  
-                 
+                    <li *ngFor="let q of p.totalFeatureList">
+                        <p> {{q.description}}</p>
+                        <p *ngIf="q.description == 'Yes'"><i class="fa fa-check"></i></p>
+                        <p *ngIf="q.description == ''"><i class="fa fa-times"></i></p>
+
+
+                    </li>
+
+
+
                 </ul>
                 <div class="productPremium fixedsticky">
                     <p><i class="fa fa-inr"></i>{{p.premiumDetails.finalPremium}}<small>(Incl. GST)</small></p>

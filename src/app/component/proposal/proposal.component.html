@@ -231,7 +231,7 @@
 								<span>₹{{ncbPremium}}</span>
 							</div>
 
-							<div *ngIf="i.title == 'Add No Claim Bonus Super'">
+							<div *ngIf="i.title == 'Add No	 Claim Bonus Super'">
 								<span>₹{{religareNcbPremium}}</span>
 							</div>
 
@@ -244,6 +244,12 @@
 
 
 							</div>
+							<input id="deductible_amount" value="Yes" (click)="onToggle($event, i.title)" class="toggles"
+								name="deductible_amount" type="checkbox">
+							<label for="deductible_amount"></label>
+							<label for = "deductible_amount"></label>
+							
+
 							<input
 								*ngIf="!i.title == 'Critical Illness' && i.title == 'Opt for a Top-up Plan and avail discount on your premium'"
 								id="existingpolicy" class="toggles" name="existingpolicy" type="checkbox">
@@ -251,6 +257,7 @@
 								*ngIf="!i.title == 'Critical Illness' && i.title == 'Opt for a Top-up Plan and avail discount on your premium'"
 								for="existingpolicy"></label>
 						</div>
+
 					</div>
 
 				</section>

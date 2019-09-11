@@ -14,14 +14,14 @@ export class HomeService {
 
   // url1 = "https://google.com/"
   url = "https://www.quickbima.com/api/health-insurances/add.json"
-  url1 = "https://google.com/";
-  geturl (){
-    // var headers = new HttpHeaders();
-    //   headers = headers.set('Content-Type', 'application/json');
-    //   headers = headers.set('Access-Control-Allow-Origin' , 'http://localhost:4200');
-    //   console.log(headers)
-      return this.http.get(this.url1)
-  }
+  // url1 = "https://google.com/";
+  // geturl (){
+  //   var headers = new HttpHeaders();
+  //     headers = headers.set('Content-Type', 'application/json');
+  //     headers = headers.set('Access-Control-Allow-Origin' , 'http://localhost:4200');
+  //     console.log(headers)
+  //     return this.http.get(this.url1)
+  // }
 
   gethealthPage(obj) {
 
