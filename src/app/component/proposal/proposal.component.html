@@ -219,36 +219,48 @@
 
 						<div class="col-md-3 text-right" style="color: red">
 							<div *ngIf="i.title == 'Unlimited Reload of Sum Insured' ">
+								<input id="rld" (click)="onToggle($event)" class="toggles" name="rld" type="checkbox">
+								<label for="rld"></label>
 								<span>₹{{reloadPremium}}</span>
 							</div>
 
 							<div *ngIf="i.title == 'Any Room Upgrade'">
+								<input id="rmrpd" (click)="onToggle($event)" class="toggles" name="rmrpd"
+									type="checkbox">
+								<label for="rmrpd"></label>
 								<span>₹{{roomCategoryPremium}}</span>
 							</div>
 
 
 							<div *ngIf="i.title == 'Super NCB'">
+								<input id="ncb" (click)="onToggle($event)" class="toggles" name="ncb" type="checkbox">
+								<label for="ncb"></label>
 								<span>₹{{ncbPremium}}</span>
 							</div>
 
-							<div *ngIf="i.title == 'Add No	 Claim Bonus Super'">
+							<div *ngIf="i.title == 'Add No Claim Bonus Super'">
+								<input id="cbs" (click)="onToggle($event)" class="toggles" name="cbs" type="checkbox">
+								<label for="cbs"></label>
 								<span>₹{{religareNcbPremium}}</span>
 							</div>
 
 							<div *ngIf="i.title == 'For Care with Unlimited Recharge'">
+								<input id="unlmtdrchrge" (click)="onToggle($event)" class="toggles" name="unlmtdrchrge"
+									type="checkbox">
+								<label for="unlmtdrchrge"></label>
 								<span>₹{{carePremium}}</span>
 							</div>
 
 							<div *ngIf="i.title == 'Hospital Cash'">
+								<input id="hsCash" (click)="onToggle($event)" class="toggles" name="hsCash"
+									type="checkbox">
+								<label for="hsCash"></label>
 								<span>₹{{hospital_premium_new}}</span>
 
 
 							</div>
-							<input id="deductible_amount" value="Yes" (click)="onToggle($event, i.title)" class="toggles"
-								name="deductible_amount" type="checkbox">
-							<label for="deductible_amount"></label>
-							<label for = "deductible_amount"></label>
-							
+
+
 
 							<input
 								*ngIf="!i.title == 'Critical Illness' && i.title == 'Opt for a Top-up Plan and avail discount on your premium'"
@@ -257,6 +269,8 @@
 								*ngIf="!i.title == 'Critical Illness' && i.title == 'Opt for a Top-up Plan and avail discount on your premium'"
 								for="existingpolicy"></label>
 						</div>
+
+
 
 					</div>
 

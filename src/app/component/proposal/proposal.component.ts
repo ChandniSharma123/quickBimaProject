@@ -51,30 +51,49 @@ export class ProposalComponent implements OnInit {
 
   }
 
-  onToggle(e, title) {
-    console.log(title)
+  onToggle(e) {
+    console.log(e.target.id)
     // console.log(e)
-    if (e && title) {
+    if(e.target.checked == true){
+    if (e.target.id == 'ncb') {
       // console.log(this.ncbPremium)
       this.finalPremium = this.ncbPremium + this.finalPremium;
     }
-    else if (e && title) {
+    else {
+    console.log('go')
+      this.finalPremium = this.finalPremium;
+    }
+
+     if (e.target.id == 'cbs') {
+    
       //   console.log(this.bonus_premium_new);
       this.finalPremium = this.bonus_premium_new + this.finalPremium;
     }
-    else if (e && title) {
+
+    else {
+      console.log('in')
+      this.finalPremium = this.finalPremium;
+    }
+     if (e.target.id == 'rld') {
       // console.log(this.reloadPremium)
       this.finalPremium = this.reloadPremium + this.finalPremium;
 
     }
-    else if (e && title) {
+    else {
+      this.finalPremium = this.finalPremium;
+    }
+    if (e.target.id == 'rmrpd') {
       // console.log(this.critical_premium)
-      this.finalPremium = this.critical_premium + this.finalPremium
+      this.finalPremium = this.roomCategoryPremium + this.finalPremium
+    }
+
+    else {
+      this.finalPremium = this.finalPremium;
     }
 
     console.log(e, this.finalPremium)
   }
-
+  }
 
   backTOQuotes() {
     this.router.navigate(['/health-insurance/quotes'],
